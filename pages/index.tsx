@@ -4,6 +4,7 @@ import Image from 'next/image'
 import moment from 'moment'
 import denormalizeExperience from '../lib/data/normalizr/denormalizr/experience'
 import Summary from '../lib/data/summary.mdx';
+import SkillsGraph from '../components/skillsGraph';
 
 export const getStaticProps: GetStaticProps<Awaited<ReturnType<Awaited<typeof import('../lib/data')>['getExperiences']>>> = async (_context) => {
   const data = await (await import('../lib/data')).getExperiences();
@@ -15,13 +16,14 @@ export const getStaticProps: GetStaticProps<Awaited<ReturnType<Awaited<typeof im
 const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) => {
   const { entities } = props;
   const experiences = Object.keys(entities.experiences).map(k => denormalizeExperience(k, entities));
+  const tags = Object.keys(entities.tags).map(id => entities.tags[id]);
 
   return (
     <div className="">
       <Head>
         <title>{`Michael Nigh - Resume - ${moment().format('YYYY-MM-DD')}`}</title>
       </Head>
-      <main className="m-auto max-w-4xl space-y-8 pt-8 pb-12">
+      <main className="m-auto max-w-4xl space-y-8 pt-8 pb-12 print:p-8">
         <div className='flex'>
           <div className='grow'>
             <h1 className='text-4xl font-bold w-max m-auto'>
@@ -37,26 +39,29 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) =
           </div>
         </div>
         <div className='space-y-2'>
-          <h2 className='text-2xl font-bold'>Summary</h2>
-          <p className='pl-4 space-y-2'>
+          <h2 className='text-2xl font-bold uppercase'>Summary</h2>
+          <div className='pl-4 space-y-2'>
             <Summary />
-          </p>
-        </div>
-        <div className='space-y-2'>
-          <h2 className='text-2xl  font-bold'>Skills</h2>
-          <p className='pl-4'>WIP</p>
+          </div>
         </div>
         <div className='space-y-4'>
-          <h2 className='text-2xl font-bold'>Experience</h2>
+          <h2 className='text-2xl font-bold uppercase'>Skills</h2>
+          <div className='pl-4'>
+            <SkillsGraph tags={tags} />
+          </div>
+        </div>
+        <div className='print:break-after-page'/>
+        <div className='space-y-4'>
+          <h2 className='text-2xl font-bold uppercase'>Experience</h2>
           {experiences.map(e =>
-            <div key={e.id} className="space-y-2">
+            <div key={e.id} className="space-y-2 print:break-inside-avoid">
               <h2 className="text-2xl font-bold">{e.title}</h2>
               <div className='pl-4 space-y-2' dangerouslySetInnerHTML={{ __html: e.summaryHtml}}/>
               {e.projects.length > 0 &&
               <div className='space-y-2 pl-4'>
                 <h3 className='text-xl font-bold'>Projects</h3>
                 {e.projects.map(p => 
-                <div key={p.id} className='space-y-2 pl-4'>
+                <div key={p.id} className='space-y-2 pl-4 print:break-inside-avoid'>
                   <h4 className="text-lg font-bold">{p.title}</h4>
                   <div className='pl-4 space-y-2' dangerouslySetInnerHTML={{ __html: p.summaryHtml }}/>
                 </div>
@@ -65,8 +70,9 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) =
             </div>
           )}
         </div>
+        <div className='print:break-after-page'/>
         <div className='space-y-2'>
-          <h2 className='text-2xl font-bold'>Education</h2>
+          <h2 className='text-2xl font-bold uppercase'>Education</h2>
           <div className='space-y-2'>
             <h3 className='text-xl font-bold'>San Jose State University</h3>
             <p className='pl-4'>Bachelor of Science - Computer Science</p>
