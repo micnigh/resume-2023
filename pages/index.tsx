@@ -23,7 +23,7 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) =
       <Head>
         <title>{`Michael Nigh - Resume - ${moment().format('YYYY-MM-DD')}`}</title>
       </Head>
-      <main className="m-auto max-w-4xl space-y-8 pt-8 pb-12 print:p-8">
+      <main className="m-auto max-w-4xl space-y-16 pt-8 pb-12 print:p-8">
         <div className='flex'>
           <div className='grow'>
             <h1 className='text-4xl font-bold w-max m-auto'>
