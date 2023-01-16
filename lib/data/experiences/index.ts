@@ -2,7 +2,6 @@ import { NormalizedExperience, NormalizedProject, Tag } from './index.types';
 import { merge } from 'lodash';
 import moment from 'moment';
 import * as uuid from 'uuid';
-import * as tagIconMap from './tags/icons';
 
 import { marked } from 'marked'
 import denormalizeExperience from '../normalizr/denormalizr/experience';
@@ -69,7 +68,7 @@ export let createTags = (duration: string, newTags: string[]): string[] => {
       });
       return tag;
     } else {
-      return createTag({ name: t, duration, icon: tagIconMap[t] });
+      return createTag({ name: t, duration });
     }
   }).map(t => t.id) as string[];
 };

@@ -5,7 +5,7 @@ import moment from 'moment'
 import denormalizeExperience from '../lib/data/normalizr/denormalizr/experience'
 import Summary from '../lib/data/summary.mdx';
 import SkillsGraph from '../components/skillsGraph';
-import * as iconPaths from '../lib/data/experiences/tags/icons';
+import * as svgPaths from '../lib/data/experiences/tags/icons';
 
 export const getStaticProps: GetStaticProps<Awaited<ReturnType<Awaited<typeof import('../lib/data')>['getExperiences']>>> = async (_context) => {
   const data = await (await import('../lib/data')).getExperiences();
@@ -36,10 +36,10 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) =
           </div>
           <div className='justify-center sm:absolute sm:right-0 sm:bottom-0 flex space-x-8 sm:space-x-4'>
             <a href='https://github.com/micnigh/' target='_blank'>
-              <Image className='drop-shadow inline-block w-8 sm:w-6' src='image/svg/svg-icon/ionic/social-github.svg' width={24} height={24} alt='Check out my github' title={'Check out my github'} />
+              <Image className='drop-shadow inline-block w-8 sm:w-6' src={svgPaths.Github} width={24} height={24} alt='Check out my github' title={'Check out my github'} />
             </a>
             <a href='https://www.linkedin.com/in/michaelnigh' target='_blank'>
-              <Image className='drop-shadow inline-block w-8 sm:w-6' src='image/svg/svg-icon/icomoon/linkedin2.svg' width={24} height={24} alt='Visit my LinkedIn' title={'Visit my LinkedIn'} />
+              <Image className='drop-shadow inline-block w-8 sm:w-6' src={svgPaths.LinkedIn} width={24} height={24} alt='Visit my LinkedIn' title={'Visit my LinkedIn'} />
             </a>
           </div>
         </div>
@@ -66,12 +66,12 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) =
                   <div className='flex flex-row space-x-2 items-center'>
                     {e.portfolio &&
                     <a href={e.portfolio.link} target='_blank'>
-                      <Image className='drop-shadow max-h-6' src={'image/svg/svg-icon/awesome/chain.svg'} alt={e.portfolio.hoverTitle} width={24} height={24} title={e.portfolio.hoverTitle} />
+                      <Image className='drop-shadow max-h-6' src={svgPaths.Chain} alt={e.portfolio.hoverTitle} width={24} height={24} title={e.portfolio.hoverTitle} />
                     </a>}
                     {e.icons.map((i, iIndex) => {
                       const t = e.tags.find(t => t.name === i);
-                      return t.icon && (
-                        <Image key={iIndex} className='drop-shadow max-h-6' src={t.icon} alt={t.name} width={24} height={24} title={t.name} />
+                      return svgPaths[t.name] && (
+                        <Image key={iIndex} className='drop-shadow max-h-6' src={svgPaths[t.name]} alt={t.name} width={24} height={24} title={t.name} />
                       )
                     })}
                   </div>}
@@ -89,12 +89,12 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) =
                       <div className='flex flex-row space-x-2 items-center'>
                         {p.portfolio &&
                         <a href={p.portfolio.link} target='_blank'>
-                          <Image className='drop-shadow max-h-6' src={'image/svg/svg-icon/awesome/chain.svg'} alt={p.portfolio.hoverTitle} width={24} height={24} title={p.portfolio.hoverTitle} />
+                          <Image className='drop-shadow max-h-6' src={svgPaths.Chain} alt={p.portfolio.hoverTitle} width={24} height={24} title={p.portfolio.hoverTitle} />
                         </a>}
                         {p.icons.map((i, iIndex) => {
                           const t = p.tags.find(t => t.name === i);
-                          return t.icon && (
-                            <Image key={iIndex} className='drop-shadow max-h-6' src={t.icon} alt={t.name} width={24} height={24} title={t.name} />
+                          return svgPaths[t.name] && (
+                            <Image key={iIndex} className='drop-shadow max-h-6' src={svgPaths[t.name]} alt={t.name} width={24} height={24} title={t.name} />
                           )
                         })}
                       </div>}

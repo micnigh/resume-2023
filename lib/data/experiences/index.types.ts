@@ -48,9 +48,6 @@ export interface Tag {
   id?: string;
   name: string;
 
-  /** path to image icon */
-  icon: string;
-
   /** abbreviation - used in skills graph when limited width available */
   shorthand?: string;
 

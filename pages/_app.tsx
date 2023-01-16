@@ -3,13 +3,13 @@ import type { AppProps } from 'next/app'
 import localFont from '@next/font/local'
 
 const captureIt = localFont({
-  src: '../public/font/capture-it.woff',
+  src: '../lib/assets/font/capture-it.woff',
   variable: '--font-capture-it',
   display: 'swap',
 })
 
 const specialElite = localFont({
-  src: '../public/font/special-elite.woff',
+  src: '../lib/assets/font/special-elite.woff',
   variable: '--font-special',
   display: 'swap',
 })
