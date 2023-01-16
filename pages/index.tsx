@@ -23,7 +23,7 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) =
     <div className="">
       <Head>
         <title>{`Michael Nigh - Resume - ${moment().format('YYYY-MM-DD')}`}</title>
-        <meta http-equiv="Permissions-Policy" content="interest-cohort=()" />
+        <meta httpEquiv="Permissions-Policy" content="interest-cohort=()" />
       </Head>
       <main className="m-auto max-w-4xl space-y-16 pt-8 pb-12 print:p-8 sm:p-2 p-4">
         <div className='flex flex-col relative space-y-8'>
