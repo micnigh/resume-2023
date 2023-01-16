@@ -30,7 +30,7 @@ export const SkillsGraph = ({ tags }: SkillsGraphProps) => {
         let normalizedDuration = moment.duration(t.duration).asMilliseconds() / moment.duration(maxDuration).asMilliseconds();
         let percentageWidth = Math.floor(normalizedDuration * 100);
         return (
-          <div className='flex justify-end items-center bg-black border border-black even:bg-gray-800 even:border even:border-black text-white print:bg-gray-100 print:even:bg-gray-200 print:text-black print:border-gray-200 print:even:border-gray-300 print:border' key={index} style={{ width: `${percentageWidth}%` }}>
+          <div className='flex justify-end items-center bg-black border text-white' key={index} style={{ width: `${percentageWidth}%` }}>
             <span className='text-xl pr-1'>{t.name}</span>
           </div>
         );
