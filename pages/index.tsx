@@ -114,7 +114,10 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) =
         <div className='space-y-2'>
           <h2 className='text-2xl font-bold uppercase'>Education</h2>
           <div className='space-y-2'>
-            <h3 className='text-xl font-bold'>San Jose State University</h3>
+            <div className='flex'>
+              <h3 className='grow-0 text-xl font-bold'>San Jose State University</h3>
+              <div className='grow text-right'>2004-08 to 2009-12</div>
+            </div>
             <p className='pl-4'>Bachelor of Science - Computer Science</p>
           </div>
         </div>
