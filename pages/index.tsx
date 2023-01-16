@@ -19,8 +19,6 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) =
   const experiences = Object.keys(entities.experiences).map(k => denormalizeExperience(k, entities));
   const tags = Object.keys(entities.tags).map(id => entities.tags[id]);
 
-  console.log({ entities, experiences });
-
   return (
     <div className="">
       <Head>
@@ -29,7 +27,7 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) =
       <main className="m-auto max-w-4xl space-y-16 pt-8 pb-12 print:p-8 sm:p-2 p-4">
         <div className='flex flex-col relative space-y-8'>
           <div className='grow'>
-            <h1 className='text-4xl font-bold w-max m-auto'>
+            <h1 className='text-4xl w-max m-auto'>
               Michael Nigh
             </h1>
             <div className='text-lg w-max m-auto'>
@@ -46,34 +44,34 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) =
           </div>
         </div>
         <div className='space-y-2'>
-          <h2 className='text-2xl font-bold uppercase'>Summary</h2>
+          <h2 className='text-2xl uppercase'>Summary</h2>
           <div className='pl-4 space-y-2'>
             <Summary />
           </div>
         </div>
         <div className='space-y-4 print:break-after-page'>
-          <h2 className='text-2xl font-bold uppercase'>Skills</h2>
+          <h2 className='text-2xl uppercase'>Skills</h2>
           <div className='pl-4'>
             <SkillsGraph tags={tags} />
           </div>
         </div>
         <div className='space-y-2'>
-          <h2 className='text-2xl font-bold uppercase'>Experience</h2>
+          <h2 className='text-2xl uppercase'>Experience</h2>
           <div className='space-y-12'>
             {experiences.map(e =>
               <div key={e.id} className="space-y-4 print:break-inside-avoid">
                 <div className='flex flex-row items-center space-x-6'>
-                  <h2 className="text-md sm:text-2xl font-bold grow-0 whitespace-nowrap text-ellipsis overflow-x-hidden">{e.title}</h2>
+                  <h2 className="text-md sm:text-2xl grow-0 whitespace-nowrap text-ellipsis overflow-x-hidden">{e.title}</h2>
                   {(e.portfolio || e.icons.length > 0) &&
                   <div className='flex flex-row space-x-2 items-center'>
                     {e.portfolio &&
                     <a href={e.portfolio.link} target='_blank'>
                       <Image className='drop-shadow max-h-6' src={'image/svg/svg-icon/awesome/chain.svg'} alt={e.portfolio.hoverTitle} width={24} height={24} title={e.portfolio.hoverTitle} />
                     </a>}
-                    {e.icons.map(i => {
+                    {e.icons.map((i, iIndex) => {
                       const t = e.tags.find(t => t.name === i);
                       return t.icon && (
-                        <Image className='drop-shadow max-h-6' src={t.icon} alt={t.name} width={24} height={24} title={t.name} />
+                        <Image key={iIndex} className='drop-shadow max-h-6' src={t.icon} alt={t.name} width={24} height={24} title={t.name} />
                       )
                     })}
                   </div>}
@@ -82,21 +80,21 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) =
                 <div className='pl-4 space-y-2' dangerouslySetInnerHTML={{ __html: e.summaryHtml}}/>
                 {e.projects.length > 0 &&
                 <div className='space-y-8 pl-4'>
-                  <h3 className='text-md sm:text-xl font-bold mt-8'>Projects</h3>
+                  <h3 className='text-md sm:text-xl mt-8'>Projects</h3>
                   {e.projects.map(p => 
                   <div key={p.id} className='space-y-2 pl-4 print:break-inside-avoid'>
                     <div className='flex flex-row space-x-6'>
-                      <h4 className="text-md sm:text-lg font-bold grow-0 whitespace-nowrap text-ellipsis overflow-x-hidden">{p.title}</h4>
+                      <h4 className="text-md sm:text-lg grow-0 whitespace-nowrap text-ellipsis overflow-x-hidden">{p.title}</h4>
                       {(p.portfolio || p.icons.length > 0) &&
                       <div className='flex flex-row space-x-2 items-center'>
                         {p.portfolio &&
                         <a href={p.portfolio.link} target='_blank'>
                           <Image className='drop-shadow max-h-6' src={'image/svg/svg-icon/awesome/chain.svg'} alt={p.portfolio.hoverTitle} width={24} height={24} title={p.portfolio.hoverTitle} />
                         </a>}
-                        {p.icons.map(i => {
+                        {p.icons.map((i, iIndex) => {
                           const t = p.tags.find(t => t.name === i);
                           return t.icon && (
-                            <Image className='drop-shadow max-h-6' src={t.icon} alt={t.name} width={24} height={24} title={t.name} />
+                            <Image key={iIndex} className='drop-shadow max-h-6' src={t.icon} alt={t.name} width={24} height={24} title={t.name} />
                           )
                         })}
                       </div>}
@@ -112,7 +110,7 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) =
         </div>
         <div className='print:break-after-page'/>
         <div className='space-y-2'>
-          <h2 className='text-2xl font-bold uppercase'>Education</h2>
+          <h2 className='text-2xl uppercase'>Education</h2>
           <div className='space-y-2'>
             <div className='flex'>
               <h3 className='grow-0 text-xl font-bold'>San Jose State University</h3>
