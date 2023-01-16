@@ -10,8 +10,12 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-special)', ...fontFamily.sans],
-        mono: ['var(--font-capture-it)', ...fontFamily.sans],
+        // overwrite main fonts, no fallbacks
+        sans: ['var(--font-special)'],
+        mono: ['var(--font-capture-it)'],
+        // overwrite main fonts, with fallbacks
+        // sans: ['var(--font-special)', ...fontFamily.sans],
+        // mono: ['var(--font-capture-it)', ...fontFamily.sans],
       }
     },
   },
