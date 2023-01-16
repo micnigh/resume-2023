@@ -3,7 +3,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "export": "next export",
+    "start": "next start",
+    "serve": "next export && serve out"
   },
   "dependencies": {
     "next": "^13.1.2",
@@ -29,6 +31,7 @@
     "normalizr": "^3.6.2",
     "postcss": "^8.4.21",
     "sass": "^1.57.1",
+    "serve": "^14.1.2",
     "tailwindcss": "^3.2.4",
     "typescript": "4.9.4",
     "uuid": "^9.0.0"
