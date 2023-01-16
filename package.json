@@ -6,7 +6,7 @@
     "export": "next export",
     "start": "next start",
     "serve": "next export && serve out",
-    "deploy": "next build && next export && touch out/.nojekyll && git add -f out/ && git commit -m 'Deploy' && git subtree push --prefix out origin gh-pages"
+    "deploy": "next build && next export && touch out/.nojekyll && gh-pages -d out"
   },
   "dependencies": {
     "next": "^13.1.2",
@@ -26,6 +26,7 @@
     "@types/react-dom": "18.0.10",
     "@types/uuid": "^9.0.0",
     "autoprefixer": "^10.4.13",
+    "gh-pages": "^4.0.0",
     "lodash": "^4.17.21",
     "marked": "^4.2.12",
     "moment": "^2.29.4",
