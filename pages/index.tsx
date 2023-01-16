@@ -40,8 +40,8 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) =
             <a href='https://github.com/micnigh/' target='_blank'>
               <Image className='drop-shadow inline-block w-8 sm:w-6' src='image/svg/svg-icon/ionic/social-github.svg' width={24} height={24} alt='Check out my github!' title={'Check out my github!'} />
             </a>
-            <a href='https://github.com/micnigh/' target='_blank'>
-              <Image className='drop-shadow inline-block w-8 sm:w-6' src='image/svg/svg-icon/icomoon/linkedin2.svg' width={24} height={24} alt='Check out my github!' title={'Check out my github!'} />
+            <a href='https://www.linkedin.com/in/michaelnigh' target='_blank'>
+              <Image className='drop-shadow inline-block w-8 sm:w-6' src='image/svg/svg-icon/icomoon/linkedin2.svg' width={24} height={24} alt='Visit my LinkedIn!' title={'Visit my LinkedIn!'} />
             </a>
           </div>
         </div>
