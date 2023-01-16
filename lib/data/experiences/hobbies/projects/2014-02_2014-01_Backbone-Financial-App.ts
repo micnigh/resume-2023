@@ -34,7 +34,7 @@ export let icons = [
   `MongoDB`,
 ];
 
-export let portfolio = null;
+export let portfolio = undefined;
 
 export let project: NormalizedProject = createProject({
   title,

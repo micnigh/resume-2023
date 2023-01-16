@@ -1,29 +1,31 @@
-export default {
-  Docker: 'images/icons/docker/docker-original.svg',
-  Rails: 'images/icons/rails/rails-plain.svg',
-  NodeJS: 'images/icons/nodejs/nodejs-original.svg',
-  Gulp: 'images/icons/gulp/gulp-plain.svg',
-  Grunt: 'images/icons/grunt/grunt-original.svg',
-  Bower: 'images/icons/bower/bower-original.svg',
-  PHP: 'images/icons/php/php-original.svg',
-  Ruby: 'images/icons/ruby/ruby-original.svg',
-  Java: 'images/icons/java/java-original.svg',
-  Javascript: 'images/icons/javascript/javascript-original.svg',
-  Bootstrap: 'images/icons/bootstrap/bootstrap-original.svg',
-  Foundation: 'images/icons/foundation/foundation-original.svg',
-  Angular: 'images/icons/angularjs/angularjs-original.svg',
-  Backbone: 'images/icons/backbonejs/backbonejs-original.svg',
-  Wordpress: 'images/icons/wordpress/wordpress-plain.svg',
-  MYSQL: 'images/icons/mysql/mysql-original.svg',
-  PostgresSQL: 'images/icons/postgresql/postgresql-original.svg',
-  MongoDB: 'images/icons/mongodb/mongodb-original.svg',
-  SASS: 'images/icons/sass/sass-original.svg',
-  Less: 'images/icons/less/less-plain-wordmark.svg',
-  Apple: 'images/icons/apple/apple-original.svg',
-  Android: 'images/icons/android/android-original.svg',
-  Linux: 'images/icons/linux/linux-original.svg',
-  Git: 'images/icons/git/git-original.svg',
-  React: 'images/icons/react/react-original.svg',
-  Webpack: 'images/icons/webpack/webpack-original.svg',
-  Python: 'images/icons/python/python-original.svg',
-};
+export const Docker = 'image/svg/dev-icon/docker/docker-original.svg';
+export const Rails = 'image/svg/dev-icon/rails/rails-plain.svg';
+export const NodeJS = 'image/svg/svg-icon/logos/nodejs-icon.svg';
+export const Gulp = 'image/svg/svg-icon/logos/gulp.svg';
+export const Grunt = 'image/svg/svg-icon/logos/grunt.svg';
+export const Bower = 'image/svg/svg-icon/logos/bower.svg';
+export const PHP = 'image/svg/svg-icon/logos/php.svg';
+export const Ruby = 'image/svg/svg-icon/logos/ruby.svg';
+export const Java = 'image/svg/svg-icon/logos/java.svg';
+export const Javascript = 'image/svg/svg-icon/logos/javascript.svg';
+export const Bootstrap = 'image/svg/svg-icon/logos/bootstrap.svg';
+export const Foundation = 'image/svg/svg-icon/logos/foundation.svg';
+export const Angular = 'image/svg/svg-icon/logos/angular-icon.svg';
+export const Backbone = 'image/svg/svg-icon/logos/backbone-icon.svg';
+export const Wordpress = 'image/svg/svg-icon/logos/wordpress-icon.svg';
+export const MYSQL = 'image/svg/svg-icon/logos/mysql.svg';
+export const PostgresSQL = 'image/svg/svg-icon/logos/postgresql.svg';
+export const MongoDB = 'image/svg/dev-icon/mongodb/mongodb-original.svg';
+export const SASS = 'image/svg/svg-icon/logos/sass.svg';
+export const Less = 'image/svg/svg-icon/logos/less.svg';
+export const Apple = 'image/svg/svg-icon/logos/apple.svg';
+export const Android = 'image/svg/svg-icon/logos/android-icon.svg';
+export const Linux = 'image/svg/svg-icon/logos/tux.svg';
+export const Git = 'image/svg/svg-icon/logos/git.svg';
+export const React = 'image/svg/dev-icon/react/react-original.svg';
+export const Webpack = 'image/svg/svg-icon/logos/webpack.svg';
+export const Python = 'image/svg/svg-icon/logos/python.svg';
+export const Jenkins = 'image/svg/svg-icon/logos/jenkins.svg';
+export const AWS = 'image/svg/dev-icon/amazonwebservices/amazonwebservices-original.svg';
+export const Jest = 'image/svg/svg-icon/logos/jest.svg';
+export const Express = 'image/svg/svg-icon/logos/express.svg';

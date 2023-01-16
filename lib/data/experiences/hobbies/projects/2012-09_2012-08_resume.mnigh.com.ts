@@ -51,7 +51,7 @@ export let icons = [
   `Rails`,
 ];
 
-export let portfolio = null;
+export let portfolio = undefined;
 
 export let project: NormalizedProject = createProject({
   title,

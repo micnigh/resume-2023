@@ -5,6 +5,7 @@ import moment from 'moment'
 import denormalizeExperience from '../lib/data/normalizr/denormalizr/experience'
 import Summary from '../lib/data/summary.mdx';
 import SkillsGraph from '../components/skillsGraph';
+import * as iconPaths from '../lib/data/experiences/tags/icons';
 
 export const getStaticProps: GetStaticProps<Awaited<ReturnType<Awaited<typeof import('../lib/data')>['getExperiences']>>> = async (_context) => {
   const data = await (await import('../lib/data')).getExperiences();
@@ -18,24 +19,30 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) =
   const experiences = Object.keys(entities.experiences).map(k => denormalizeExperience(k, entities));
   const tags = Object.keys(entities.tags).map(id => entities.tags[id]);
 
+  console.log({ entities, experiences });
+
   return (
     <div className="">
       <Head>
         <title>{`Michael Nigh - Resume - ${moment().format('YYYY-MM-DD')}`}</title>
       </Head>
-      <main className="m-auto max-w-4xl space-y-16 pt-8 pb-12 print:p-8">
-        <div className='flex'>
+      <main className="m-auto max-w-4xl space-y-16 pt-8 pb-12 print:p-8 sm:p-2 p-4">
+        <div className='flex flex-col relative space-y-8'>
           <div className='grow'>
             <h1 className='text-4xl font-bold w-max m-auto'>
               Michael Nigh
             </h1>
             <div className='text-lg w-max m-auto'>
-              contact@mnigh.com
+              <a href='mailto:contact@mnigh.com'>contact@mnigh.com</a>
             </div>
           </div>
-          <div className='flex grow-0 items-end space-x-1'>
-            <span>github</span>
-            <span>linkedin</span>
+          <div className='justify-center sm:absolute sm:right-0 sm:bottom-0 flex space-x-8 sm:space-x-4'>
+            <a href='https://github.com/micnigh/'>
+              <Image className='drop-shadow inline-block w-8 sm:w-6' src='image/svg/svg-icon/ionic/social-github.svg' width={24} height={24} alt='Check out my github!' title={'Check out my github!'} />
+            </a>
+            <a href='https://github.com/micnigh/'>
+              <Image className='drop-shadow inline-block w-8 sm:w-6' src='image/svg/svg-icon/icomoon/linkedin2.svg' width={24} height={24} alt='Check out my github!' title={'Check out my github!'} />
+            </a>
           </div>
         </div>
         <div className='space-y-2'>
@@ -51,24 +58,58 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) =
           </div>
         </div>
         <div className='print:break-after-page'/>
-        <div className='space-y-4'>
+        <div className='space-y-2'>
           <h2 className='text-2xl font-bold uppercase'>Experience</h2>
-          {experiences.map(e =>
-            <div key={e.id} className="space-y-2 print:break-inside-avoid">
-              <h2 className="text-2xl font-bold">{e.title}</h2>
-              <div className='pl-4 space-y-2' dangerouslySetInnerHTML={{ __html: e.summaryHtml}}/>
-              {e.projects.length > 0 &&
-              <div className='space-y-2 pl-4'>
-                <h3 className='text-xl font-bold'>Projects</h3>
-                {e.projects.map(p => 
-                <div key={p.id} className='space-y-2 pl-4 print:break-inside-avoid'>
-                  <h4 className="text-lg font-bold">{p.title}</h4>
-                  <div className='pl-4 space-y-2' dangerouslySetInnerHTML={{ __html: p.summaryHtml }}/>
+          <div className='space-y-12'>
+            {experiences.map(e =>
+              <div key={e.id} className="space-y-2 print:break-inside-avoid">
+                <div className='flex flex-row items-center space-x-6'>
+                  <h2 className="text-md sm:text-2xl font-bold grow-0 whitespace-nowrap text-ellipsis overflow-x-hidden">{e.title}</h2>
+                  {(e.portfolio || e.icons.length > 0) &&
+                  <div className='flex flex-row space-x-2 items-center'>
+                    {e.portfolio &&
+                    <a href={e.portfolio.link} target='_blank'>
+                      <Image className='drop-shadow max-h-6' src={'image/svg/svg-icon/awesome/chain.svg'} alt={e.portfolio.hoverTitle} width={24} height={24} title={e.portfolio.hoverTitle} />
+                    </a>}
+                    {e.icons.map(i => {
+                      const t = e.tags.find(t => t.name === i);
+                      return t.icon && (
+                        <Image className='drop-shadow max-h-6' src={t.icon} alt={t.name} width={24} height={24} title={t.name} />
+                      )
+                    })}
+                  </div>}
+                  <div className='grow text-right whitespace-nowrap'>{e.start && `${moment(e.start).format('YYYY-MM')} to ${e.start && !e.end ? 'present' : moment(e.end).format('YYYY-MM')}`}</div>
                 </div>
-                )}
-              </div>}
-            </div>
-          )}
+                <div className='pl-4 space-y-2' dangerouslySetInnerHTML={{ __html: e.summaryHtml}}/>
+                {e.projects.length > 0 &&
+                <div className='space-y-8 pl-4'>
+                  <h3 className='text-md sm:text-xl font-bold'>Projects</h3>
+                  {e.projects.map(p => 
+                  <div key={p.id} className='space-y-2 pl-4 print:break-inside-avoid'>
+                    <div className='flex flex-row space-x-6'>
+                      <h4 className="text-md sm:text-lg font-bold grow-0 whitespace-nowrap text-ellipsis overflow-x-hidden">{p.title}</h4>
+                      {(p.portfolio || p.icons.length > 0) &&
+                      <div className='flex flex-row space-x-2 items-center'>
+                        {p.portfolio &&
+                        <a href={p.portfolio.link} target='_blank'>
+                          <Image className='drop-shadow max-h-6' src={'image/svg/svg-icon/awesome/chain.svg'} alt={p.portfolio.hoverTitle} width={24} height={24} title={p.portfolio.hoverTitle} />
+                        </a>}
+                        {p.icons.map(i => {
+                          const t = p.tags.find(t => t.name === i);
+                          return t.icon && (
+                            <Image className='drop-shadow max-h-6' src={t.icon} alt={t.name} width={24} height={24} title={t.name} />
+                          )
+                        })}
+                      </div>}
+                      <div className='grow text-right whitespace-nowrap'>{p.start && `${moment(p.start).format('YYYY-MM')} to ${p.start && !p.end ? 'present' : moment(p.end).format('YYYY-MM')}`}</div>
+                    </div>
+                    <div className='pl-4 space-y-2' dangerouslySetInnerHTML={{ __html: p.summaryHtml }}/>
+                  </div>
+                  )}
+                </div>}
+              </div>
+            )}
+          </div>
         </div>
         <div className='print:break-after-page'/>
         <div className='space-y-2'>

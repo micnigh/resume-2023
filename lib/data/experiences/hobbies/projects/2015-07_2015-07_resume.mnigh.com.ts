@@ -34,7 +34,7 @@ export let icons = [
   `Docker`,
 ];
 
-export let portfolio = null;
+export let portfolio = undefined;
 
 export let project: NormalizedProject = createProject({
   title,

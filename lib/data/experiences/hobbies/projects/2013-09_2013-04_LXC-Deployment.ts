@@ -43,7 +43,7 @@ export let icons = [
   `Linux`,
 ];
 
-export let portfolio = null;
+export let portfolio = undefined;
 
 export let project: NormalizedProject = createProject({
   title,

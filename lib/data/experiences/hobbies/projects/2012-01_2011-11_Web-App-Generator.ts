@@ -30,7 +30,7 @@ export let icons = [
   `NodeJS`,
 ];
 
-export let portfolio = null;
+export let portfolio = undefined;
 
 export let project: NormalizedProject = createProject({
   title,

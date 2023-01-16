@@ -38,7 +38,7 @@ export let icons = [
   `React`,
 ];
 
-export let portfolio = null;
+export let portfolio = undefined;
 
 export let project: NormalizedProject = createProject({
   title,
