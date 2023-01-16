@@ -5,7 +5,8 @@
     "build": "next build",
     "export": "next export",
     "start": "next start",
-    "serve": "next export && serve out"
+    "serve": "next export && serve out",
+    "deploy": "next build && touch out/.nojekyll && git add -f out/ && git commit -m 'Deploy' && git subtree push --prefix out origin gh-pages"
   },
   "dependencies": {
     "next": "^13.1.2",
