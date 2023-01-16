@@ -27,7 +27,7 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) =
       <main className="m-auto max-w-4xl space-y-16 pt-8 pb-12 print:p-8 sm:p-2 p-4">
         <div className='flex flex-col relative space-y-8'>
           <div className='grow'>
-            <h1 className='text-4xl w-max m-auto'>
+            <h1 className='text-5xl w-max m-auto'>
               Michael Nigh
             </h1>
             <div className='text-lg w-max m-auto'>
@@ -36,27 +36,27 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) =
           </div>
           <div className='justify-center sm:absolute sm:right-0 sm:bottom-0 flex space-x-8 sm:space-x-4'>
             <a href='https://github.com/micnigh/' target='_blank'>
-              <Image className='drop-shadow inline-block w-8 sm:w-6' src='image/svg/svg-icon/ionic/social-github.svg' width={24} height={24} alt='Check out my github!' title={'Check out my github!'} />
+              <Image className='drop-shadow inline-block w-8 sm:w-6' src='image/svg/svg-icon/ionic/social-github.svg' width={24} height={24} alt='Check out my github' title={'Check out my github'} />
             </a>
             <a href='https://www.linkedin.com/in/michaelnigh' target='_blank'>
-              <Image className='drop-shadow inline-block w-8 sm:w-6' src='image/svg/svg-icon/icomoon/linkedin2.svg' width={24} height={24} alt='Visit my LinkedIn!' title={'Visit my LinkedIn!'} />
+              <Image className='drop-shadow inline-block w-8 sm:w-6' src='image/svg/svg-icon/icomoon/linkedin2.svg' width={24} height={24} alt='Visit my LinkedIn' title={'Visit my LinkedIn'} />
             </a>
           </div>
         </div>
         <div className='space-y-2'>
-          <h2 className='text-2xl uppercase'>Summary</h2>
+          <h2 className='text-4xl uppercase'>Summary</h2>
           <div className='pl-4 space-y-2'>
             <Summary />
           </div>
         </div>
         <div className='space-y-4 print:break-after-page'>
-          <h2 className='text-2xl uppercase'>Skills</h2>
+          <h2 className='text-4xl uppercase'>Skills</h2>
           <div className='pl-4'>
             <SkillsGraph tags={tags} />
           </div>
         </div>
         <div className='space-y-2'>
-          <h2 className='text-2xl uppercase'>Experience</h2>
+          <h2 className='text-4xl uppercase'>Experience</h2>
           <div className='space-y-12'>
             {experiences.map(e =>
               <div key={e.id} className="space-y-4 print:break-inside-avoid">
@@ -80,7 +80,7 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) =
                 <div className='pl-4 space-y-2' dangerouslySetInnerHTML={{ __html: e.summaryHtml}}/>
                 {e.projects.length > 0 &&
                 <div className='space-y-8 pl-4'>
-                  <h3 className='text-md sm:text-xl mt-8'>Projects</h3>
+                  <h3 className='text-2xl sm:text-2xl mt-8'>Projects</h3>
                   {e.projects.map(p => 
                   <div key={p.id} className='space-y-2 pl-4 print:break-inside-avoid'>
                     <div className='flex flex-row space-x-6'>
@@ -110,10 +110,10 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) =
         </div>
         <div className='print:break-after-page'/>
         <div className='space-y-2'>
-          <h2 className='text-2xl uppercase'>Education</h2>
+          <h2 className='text-4xl uppercase'>Education</h2>
           <div className='space-y-2'>
-            <div className='flex'>
-              <h3 className='grow-0 text-xl font-bold'>San Jose State University</h3>
+            <div className='flex items-baseline'>
+              <h3 className='grow-0 text-xl'>San Jose State University</h3>
               <div className='grow text-right'>2004-08 to 2009-12</div>
             </div>
             <p className='pl-4'>Bachelor of Science - Computer Science</p>

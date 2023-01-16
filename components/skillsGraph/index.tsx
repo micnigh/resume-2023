@@ -25,7 +25,7 @@ export const SkillsGraph = ({ tags }: SkillsGraphProps) => {
   let yearsToRender = moment.duration(maxDuration).asYears();
 
   return (
-    <div className='space-y-1'>
+    <div className=''>
       {tags.map((t, index) => {
         let normalizedDuration = moment.duration(t.duration).asMilliseconds() / moment.duration(maxDuration).asMilliseconds();
         let percentageWidth = Math.floor(normalizedDuration * 100);
