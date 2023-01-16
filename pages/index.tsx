@@ -63,8 +63,9 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) =
               <div key={e.id} className="space-y-4 print:break-inside-avoid">
                 <div className='flex flex-row items-center space-x-6'>
                   <h2 className="text-md sm:text-2xl grow-0 whitespace-nowrap text-ellipsis overflow-x-hidden">{e.title}</h2>
+                  {/* >= sm */}
                   {(e.portfolio || e.icons.length > 0) &&
-                  <div className='flex flex-row space-x-2 items-center'>
+                  <div className='hidden sm:flex sm:flex-row sm:space-x-2 sm:items-center'>
                     {e.portfolio &&
                     <a href={e.portfolio.link} target='_blank'>
                       <Image className='drop-shadow max-h-6' src={svgPaths.Chain} alt={e.portfolio.hoverTitle} width={24} height={24} title={e.portfolio.hoverTitle} />
@@ -76,18 +77,40 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) =
                       )
                     })}
                   </div>}
-                  <div className='grow text-right whitespace-nowrap'>{e.start && `${moment(e.start).format('YYYY-MM')} to ${e.start && !e.end ? 'present' : moment(e.end).format('YYYY-MM')}`}</div>
+                  <div className='hidden sm:block grow text-right whitespace-nowrap'>{e.start && `${moment(e.start).format('YYYY-MM')} to ${e.start && !e.end ? 'present' : moment(e.end).format('YYYY-MM')}`}</div>
                 </div>
+                {/* < sm */}
+                {(e.portfolio || e.icons.length > 0 || e.start) &&
+                <div className={`sm:hidden space-x-2 flex flex-row pl-4 py-2`}>
+                  {(e.portfolio || e.icons.length > 0) ?
+                  <>
+                    <div className='space-x-2 items-center min-w-min flex flex-row'>
+                      {e.portfolio &&
+                      <a href={e.portfolio.link} target='_blank'>
+                        <Image className='drop-shadow max-h-6' src={svgPaths.Chain} alt={e.portfolio.hoverTitle} width={24} height={24} title={e.portfolio.hoverTitle} />
+                      </a>}
+                      {e.icons.map((i, iIndex) => {
+                        const t = e.tags.find(t => t.name === i);
+                        return svgPaths[t.name] && (
+                          <Image key={iIndex} className='drop-shadow max-h-6' src={svgPaths[t.name]} alt={t.name} width={24} height={24} title={t.name} />
+                        )
+                      })}
+                    </div>
+                    <div className='block sm:hidden grow text-right whitespace-nowrap'>{e.start && `${moment(e.start).format('YYYY-MM')} to ${e.start && !e.end ? 'present' : moment(e.end).format('YYYY-MM')}`}</div>
+                  </>
+                  : <div className='block sm:hidden grow text-left whitespace-nowrap'>{e.start && `${moment(e.start).format('YYYY-MM')} to ${e.start && !e.end ? 'present' : moment(e.end).format('YYYY-MM')}`}</div>}
+                </div>}
                 <div className='pl-4 space-y-2' dangerouslySetInnerHTML={{ __html: e.summaryHtml}}/>
                 {e.projects.length > 0 &&
                 <div className='space-y-8 pl-4'>
-                  <h3 className='text-2xl sm:text-2xl mt-8'>Projects</h3>
+                  <h3 className='text-lg sm:text-2xl mt-8'>Projects</h3>
                   {e.projects.map(p => 
                   <div key={p.id} className='space-y-2 pl-4 print:break-inside-avoid'>
                     <div className='flex flex-row space-x-6'>
                       <h4 className="text-md sm:text-lg grow-0 whitespace-nowrap text-ellipsis overflow-x-hidden">{p.title}</h4>
+                      {/* >= sm */}
                       {(p.portfolio || p.icons.length > 0) &&
-                      <div className='flex flex-row space-x-2 items-center'>
+                      <div className='hidden sm:flex sm:flex-row sm:space-x-2 sm:items-center'>
                         {p.portfolio &&
                         <a href={p.portfolio.link} target='_blank'>
                           <Image className='drop-shadow max-h-6' src={svgPaths.Chain} alt={p.portfolio.hoverTitle} width={24} height={24} title={p.portfolio.hoverTitle} />
@@ -99,7 +122,27 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) =
                           )
                         })}
                       </div>}
-                      <div className='grow text-right whitespace-nowrap'>{p.start && `${moment(p.start).format('YYYY-MM')} to ${p.start && !p.end ? 'present' : moment(p.end).format('YYYY-MM')}`}</div>
+                      <div className='hidden sm:block grow text-right whitespace-nowrap'>{p.start && `${moment(p.start).format('YYYY-MM')} to ${p.start && !p.end ? 'present' : moment(p.end).format('YYYY-MM')}`}</div>
+                    </div>
+                    {/* < sm */}
+                    <div className='sm:hidden flex space-x-2 items-center'>
+                      {(p.portfolio || p.icons.length > 0) ?
+                      <>
+                        <div className='flex flex-row space-x-2 items-center pl-4 py-4'>
+                          {p.portfolio &&
+                          <a href={p.portfolio.link} target='_blank'>
+                            <Image className='drop-shadow max-h-6' src={svgPaths.Chain} alt={p.portfolio.hoverTitle} width={24} height={24} title={p.portfolio.hoverTitle} />
+                          </a>}
+                          {p.icons.map((i, iIndex) => {
+                            const t = p.tags.find(t => t.name === i);
+                            return svgPaths[t.name] && (
+                              <Image key={iIndex} className='drop-shadow max-h-6' src={svgPaths[t.name]} alt={t.name} width={24} height={24} title={t.name} />
+                            )
+                          })}
+                        </div>
+                        <div className='grow whitespace-nowrap text-right'>{p.start && `${moment(p.start).format('YYYY-MM')} to ${p.start && !p.end ? 'present' : moment(p.end).format('YYYY-MM')}`}</div>
+                      </>
+                      : <div className='grow whitespace-nowrap text-left pl-4 py-4'>{p.start && `${moment(p.start).format('YYYY-MM')} to ${p.start && !p.end ? 'present' : moment(p.end).format('YYYY-MM')}`}</div>}
                     </div>
                     <div className='pl-4 space-y-2' dangerouslySetInnerHTML={{ __html: p.summaryHtml }}/>
                   </div>
@@ -113,9 +156,9 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) =
         <div className='space-y-2'>
           <h2 className='text-4xl uppercase'>Education</h2>
           <div className='space-y-2'>
-            <div className='flex items-baseline'>
+            <div className='flex-col space-y-4 sm:space-y-0 sm:flex sm:flex-row items-baseline'>
               <h3 className='grow-0 text-xl'>San Jose State University</h3>
-              <div className='grow text-right'>2004-08 to 2009-12</div>
+              <div className='grow pl-4 sm:pl-0 sm:text-right'>2004-08 to 2009-12</div>
             </div>
             <p className='pl-4'>Bachelor of Science - Computer Science</p>
           </div>
