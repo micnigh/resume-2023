@@ -37,10 +37,10 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) =
             </div>
           </div>
           <div className='justify-center sm:absolute sm:right-0 sm:bottom-0 flex space-x-8 sm:space-x-4'>
-            <a href='https://github.com/micnigh/'>
+            <a href='https://github.com/micnigh/' target='_blank'>
               <Image className='drop-shadow inline-block w-8 sm:w-6' src='image/svg/svg-icon/ionic/social-github.svg' width={24} height={24} alt='Check out my github!' title={'Check out my github!'} />
             </a>
-            <a href='https://github.com/micnigh/'>
+            <a href='https://github.com/micnigh/' target='_blank'>
               <Image className='drop-shadow inline-block w-8 sm:w-6' src='image/svg/svg-icon/icomoon/linkedin2.svg' width={24} height={24} alt='Check out my github!' title={'Check out my github!'} />
             </a>
           </div>
@@ -51,18 +51,17 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) =
             <Summary />
           </div>
         </div>
-        <div className='space-y-4'>
+        <div className='space-y-4 print:break-after-page'>
           <h2 className='text-2xl font-bold uppercase'>Skills</h2>
           <div className='pl-4'>
             <SkillsGraph tags={tags} />
           </div>
         </div>
-        <div className='print:break-after-page'/>
         <div className='space-y-2'>
           <h2 className='text-2xl font-bold uppercase'>Experience</h2>
           <div className='space-y-12'>
             {experiences.map(e =>
-              <div key={e.id} className="space-y-2 print:break-inside-avoid">
+              <div key={e.id} className="space-y-4 print:break-inside-avoid">
                 <div className='flex flex-row items-center space-x-6'>
                   <h2 className="text-md sm:text-2xl font-bold grow-0 whitespace-nowrap text-ellipsis overflow-x-hidden">{e.title}</h2>
                   {(e.portfolio || e.icons.length > 0) &&
@@ -83,7 +82,7 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) =
                 <div className='pl-4 space-y-2' dangerouslySetInnerHTML={{ __html: e.summaryHtml}}/>
                 {e.projects.length > 0 &&
                 <div className='space-y-8 pl-4'>
-                  <h3 className='text-md sm:text-xl font-bold'>Projects</h3>
+                  <h3 className='text-md sm:text-xl font-bold mt-8'>Projects</h3>
                   {e.projects.map(p => 
                   <div key={p.id} className='space-y-2 pl-4 print:break-inside-avoid'>
                     <div className='flex flex-row space-x-6'>
