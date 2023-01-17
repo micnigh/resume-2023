@@ -8,6 +8,9 @@ module.exports = {
     './app/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
+    screens: {
+      'sm': '540px', // reduce 'sm' breakpoint from 640px so print will display as desktop
+    },
     extend: {
       fontFamily: {
         sans: ['var(--font-special)', ...fontFamily.sans],
