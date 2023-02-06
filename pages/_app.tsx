@@ -1,6 +1,14 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import localFont from '@next/font/local'
+import { ThemeProvider } from '@emotion/react'
+
+const theme = {
+  color: {
+    primary: '',
+    secondary: '',
+  }
+}
 
 const captureIt = localFont({
   src: '../lib/assets/font/capture-it.woff',
@@ -16,11 +24,14 @@ const specialElite = localFont({
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <div className={`${specialElite.variable} ${captureIt.variable} font-sans`}>
-      <Component {...pageProps} />
-    </div>
+    <ThemeProvider theme={theme}>
+      <div className={`${specialElite.variable} ${captureIt.variable}`} css={{
+        fontFamily: 'var(--font-special)',
+      }}>
+        <Component {...pageProps} />
+      </div>
+    </ThemeProvider>
   )
-  
 }
 
 export default MyApp

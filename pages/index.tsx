@@ -25,22 +25,77 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) =
         <title>{`Michael Nigh - Resume - ${moment().format('YYYY-MM-DD')}`}</title>
         <meta httpEquiv="Permissions-Policy" content="interest-cohort=()" />
       </Head>
-      <main className="m-auto max-w-4xl space-y-16 pt-8 pb-12 print:p-8 sm:p-2 p-4">
-        <div className='flex flex-col relative space-y-8'>
-          <div className='grow'>
-            <h1 className='text-5xl w-max m-auto'>
+      <main css={{
+        margin: 'auto',
+        maxWidth: '56rem',
+        '& > *': {
+          marginTop: '4rem',
+          marginBottom: '4rem',
+        },
+        paddingTop: '2rem',
+        paddingBottom: '3rem',
+        '@media print': {
+          padding: '2rem',
+        },
+        '@media (min-width: 540px)': {
+          padding: '0.5rem',
+        },
+        padding: '1rem',
+      }}>
+        <div css={{
+          display: 'flex',
+          flexDirection: 'column',
+          position: 'relative',
+          '& > *': {
+            marginY: '2rem',
+          }
+        }}>
+          <div css={{ flexGrow: 1 }}>
+            <h1 css={{
+              fontSize: '3rem',
+              lineHeight: '1',
+              width: 'max-content',
+              margin: 'auto',
+            }} className=''>
               Michael Nigh
             </h1>
-            <div className='text-lg w-max m-auto'>
+            <div css={{
+              fontSize: '1.125rem',
+              lineHeight: '1.75rem',
+              width: 'max-content',
+              margin: 'auto',
+            }}>
               <a href='mailto:contact@mnigh.com'>contact@mnigh.com</a>
             </div>
           </div>
-          <div className='justify-center sm:absolute sm:right-0 sm:bottom-0 flex space-x-8 sm:space-x-4'>
+          <div css={{
+            display: 'flex',
+            justifyContent: 'center',
+            '& > *': {
+              marginX: '2rem',
+            },
+            '@media (min-width: 540px)': {
+              position: 'absolute',
+              right: '0px',
+              bottom: '0px',
+              '& > *': {
+                marginX: '1rem',
+              },
+              '.social-icon': {
+                width: '1.5rem',
+              }
+            },
+            '.social-icon': {
+              filter: 'drop-shadow(0 1px 2px rgb(0 0 0 / 0.1)) drop-shadow(0 1px 1px rgb(0 0 0 / 0.06))',
+              display: 'inline-block',
+              width: '2rem',
+            }
+          }}>
             <a href='https://github.com/micnigh/' target='_blank'>
-              <Image className='drop-shadow inline-block w-8 sm:w-6' src={svgPaths.Github} width={24} height={24} alt='Check out my github' title={'Check out my github'} />
+              <Image className='social-icon' src={svgPaths.Github} width={24} height={24} alt='Check out my github' title={'Check out my github'} />
             </a>
             <a href='https://www.linkedin.com/in/michaelnigh' target='_blank'>
-              <Image className='drop-shadow inline-block w-8 sm:w-6' src={svgPaths.LinkedIn} width={24} height={24} alt='Visit my LinkedIn' title={'Visit my LinkedIn'} />
+              <Image className='social-icon' src={svgPaths.LinkedIn} width={24} height={24} alt='Visit my LinkedIn' title={'Visit my LinkedIn'} />
             </a>
           </div>
         </div>
