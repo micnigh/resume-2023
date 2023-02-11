@@ -121,12 +121,12 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) =
                 '@media print': { breakInside: 'avoid' },
                 '& > * + *': { mt: 3 },
               }} key={e.id}>
-                <div sx={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', '& > * + *': { ml: [3, 4], mt: 3 }}}>
+                <div sx={{ display: 'flex', flexDirection: 'row', flexWrap: ['wrap', 'nowrap'], alignItems: 'center', '& > * + *': { ml: [3, 4], mt: [3, 0] }}}>
                   <h4 sx={{ flexGrow: 0, whiteSpace: 'nowrap', textOverflow: 'ellipsis', overflowX: 'hidden', width: ['100%', 'auto'] }}>{e.title}</h4>
                   {(e.portfolio || e.icons.length > 0) &&
                   <div sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', '& > * + *':{ ml: 2 }}}>
                     {e.portfolio &&
-                    <a href={e.portfolio.link} target='_blank'>
+                    <a sx={{ display: 'flex', flexWrap: 'wrap', alignContent: 'center' }} href={e.portfolio.link} target='_blank'>
                       <Image sx={{ maxHeight: '2rem' }} className='drop-shadow max-h-6' src={svgPaths.Chain} alt={e.portfolio.hoverTitle} width={24} height={24} title={e.portfolio.hoverTitle} />
                     </a>}
                     {e.icons.map((i, iIndex) => {
@@ -136,7 +136,7 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) =
                       )
                     })}
                   </div>}
-                  <div sx={{ display: 'block', flexGrow: 1, textAlign: [e.icons.length > 0 ? 'right' : 'left', 'right'], whiteSpace: 'nowrap' }}>{e.start && `${moment(e.start).format('YYYY-MM')} to ${e.start && !e.end ? 'present' : moment(e.end).format('YYYY-MM')}`}</div>
+                  <div sx={{ display: 'flex', flexWrap: 'wrap', flexGrow: 1, justifyContent: [e.icons.length > 0 ? 'right' : 'left', 'right'], whiteSpace: 'nowrap', alignContent: 'end' }}>{e.start && `${moment(e.start).format('YYYY-MM')} to ${e.start && !e.end ? 'present' : moment(e.end).format('YYYY-MM')}`}</div>
                 </div>
                 <div sx={{ pl: 3, '& > * + *': { mt: 2 }}} dangerouslySetInnerHTML={{ __html: e.summaryHtml}}/>
                 {e.projects.length > 0 &&
@@ -147,12 +147,12 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) =
                     '@media print': { breakInside: 'avoid' },
                     '& > * + *': { mt: 2 },
                   }}>
-                    <div sx={{ display: 'flex', flexWrap: 'wrap', flexDirection: 'row', '& > * + *': { ml: [3, 4], mt: 3 }}}>
+                    <div sx={{ display: 'flex', flexWrap: ['wrap', 'nowrap'], flexDirection: 'row', '& > * + *': { ml: [3, 4], mt: [3, 0] }}}>
                       <h5 sx={{ flexGrow: 0, whiteSpace: 'nowrap', textOverflow: 'ellipsis', overflowX: 'hidden', width: ['100%', 'auto'] }}>{p.title}</h5>
                       {(p.portfolio || p.icons.length > 0) &&
                       <div sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', '& > * + *': { ml: 2 }}}>
                         {p.portfolio &&
-                        <a href={p.portfolio.link} target='_blank'>
+                        <a sx={{ display: 'flex', flexWrap: 'wrap', alignContent: 'center' }} href={p.portfolio.link} target='_blank'>
                           <Image sx={{ maxHeight: '2rem' }} src={svgPaths.Chain} alt={p.portfolio.hoverTitle} width={24} height={24} title={p.portfolio.hoverTitle} />
                         </a>}
                         {p.icons.map((i, iIndex) => {
@@ -162,7 +162,7 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) =
                           )
                         })}
                       </div>}
-                      <div sx={{ display: 'block', textAlign: [p.icons.length > 0 ? 'right' : 'left', 'right'], flexGrow: 1, whiteSpace: 'nowrap' }}>{p.start && `${moment(p.start).format('YYYY-MM')} to ${p.start && !p.end ? 'present' : moment(p.end).format('YYYY-MM')}`}</div>
+                      <div sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: [p.icons.length > 0 ? 'right' : 'left', 'right'], alignContent: 'end', flexGrow: 1, whiteSpace: 'nowrap' }}>{p.start && `${moment(p.start).format('YYYY-MM')} to ${p.start && !p.end ? 'present' : moment(p.end).format('YYYY-MM')}`}</div>
                     </div>
                     <div sx={{ pl: 3, '& > * + *': { mt: 2 }}} dangerouslySetInnerHTML={{ __html: p.summaryHtml }}/>
                   </div>
