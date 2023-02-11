@@ -34,6 +34,7 @@
     "normalizr": "^3.6.2",
     "postcss": "^8.4.21",
     "serve": "^14.1.2",
+    "theme-ui": "^0.15.5",
     "typescript": "4.9.4",
     "uuid": "^9.0.0"
   },

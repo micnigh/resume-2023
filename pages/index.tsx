@@ -25,70 +25,68 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) =
         <title>{`Michael Nigh - Resume - ${moment().format('YYYY-MM-DD')}`}</title>
         <meta httpEquiv="Permissions-Policy" content="interest-cohort=()" />
       </Head>
-      <main css={{
-        margin: 'auto',
+      <main sx={{
+        m: 'auto',
         maxWidth: '56rem',
-        '& > *': {
-          marginTop: '4rem',
-          marginBottom: '4rem',
+        '& > * + *': {
+          mt: 5,
         },
-        paddingTop: '2rem',
-        paddingBottom: '3rem',
         '@media print': {
-          padding: '2rem',
+          p: 4,
         },
         '@media (min-width: 540px)': {
-          padding: '0.5rem',
+          p: 2,
         },
-        padding: '1rem',
+        p: 3,
+        pt: 4,
       }}>
-        <div css={{
+        <div sx={{
           display: 'flex',
           flexDirection: 'column',
           position: 'relative',
-          '& > *': {
-            marginY: '2rem',
+          '& > * + *': {
+            mt: 4,
           }
         }}>
-          <div css={{ flexGrow: 1 }}>
-            <h1 css={{
-              fontSize: '3rem',
+          <div sx={{ flexGrow: 1 }}>
+            <h1 sx={{
               lineHeight: '1',
               width: 'max-content',
-              margin: 'auto',
+              m: 'auto',
             }} className=''>
               Michael Nigh
             </h1>
-            <div css={{
-              fontSize: '1.125rem',
-              lineHeight: '1.75rem',
+            <div sx={{
+              fontSize: 3,
+              lineHeight: 1.5,
               width: 'max-content',
-              margin: 'auto',
+              m: 'auto',
             }}>
               <a href='mailto:contact@mnigh.com'>contact@mnigh.com</a>
             </div>
           </div>
-          <div css={{
+          <div sx={{
             display: 'flex',
             justifyContent: 'center',
-            '& > *': {
-              marginX: '2rem',
+            '& > * + *': {
+              ml: 4,
             },
             '@media (min-width: 540px)': {
               position: 'absolute',
-              right: '0px',
-              bottom: '0px',
-              '& > *': {
-                marginX: '1rem',
+              right: 0,
+              bottom: 0,
+              '& > * + *': {
+                ml: 3,
               },
               '.social-icon': {
                 width: '1.5rem',
               }
             },
             '.social-icon': {
-              filter: 'drop-shadow(0 1px 2px rgb(0 0 0 / 0.1)) drop-shadow(0 1px 1px rgb(0 0 0 / 0.06))',
+              // filter: 'drop-shadow(0 1px 2px rgb(0 0 0 / 0.1)) drop-shadow(0 1px 1px rgb(0 0 0 / 0.06))',
               display: 'inline-block',
               width: '2rem',
+              height: 'auto',
             }
           }}>
             <a href='https://github.com/micnigh/' target='_blank'>
