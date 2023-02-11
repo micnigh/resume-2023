@@ -1,6 +1,5 @@
-import * as React from 'react';
 import moment from 'moment';
-import { Tag } from '../../lib/data/experiences/index.types';
+import { Tag } from '../../../lib/data/experiences/index.types';
 
 export let tagsToDisplay = [
   'Docker',
