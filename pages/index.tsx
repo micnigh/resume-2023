@@ -20,7 +20,7 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) =
   const tags = Object.keys(entities.tags).map(id => entities.tags[id]);
 
   return (
-    <div className="">
+    <div>
       <Head>
         <title>{`Michael Nigh - Resume - ${moment().format('YYYY-MM-DD')}`}</title>
         <meta httpEquiv="Permissions-Policy" content="interest-cohort=()" />
@@ -50,7 +50,7 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) =
               lineHeight: '1',
               width: 'max-content',
               m: 'auto',
-            }} className=''>
+            }}>
               Michael Nigh
             </h1>
             <div sx={{
@@ -138,7 +138,7 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) =
                   <div sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', '& > * + *':{ ml: 2 }}}>
                     {e.portfolio &&
                     <a sx={{ display: 'flex', flexWrap: 'wrap', alignContent: 'center' }} href={e.portfolio.link} target='_blank'>
-                      <Image sx={{ maxHeight: '2rem' }} className='drop-shadow max-h-6' src={svgPaths.Chain} alt={e.portfolio.hoverTitle} width={24} height={24} title={e.portfolio.hoverTitle} />
+                      <Image sx={{ maxHeight: '2rem' }} src={svgPaths.Chain} alt={e.portfolio.hoverTitle} width={24} height={24} title={e.portfolio.hoverTitle} />
                     </a>}
                     {e.icons.map((i, iIndex) => {
                       const t = e.tags.find(t => t.name === i);
