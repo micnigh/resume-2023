@@ -85,107 +85,86 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) =
             </a>
           </div>
         </div>
-        <div className='space-y-2'>
-          <h2 className='text-4xl uppercase'>Summary</h2>
-          <div className='pl-4 space-y-2'>
+        <div sx={{
+          '& > * + *': {
+            mt: 2,
+          }
+        }}>
+          <h2>Summary</h2>
+          <div sx={{
+            pl: 3,
+            '& > * + *': {
+              mt: 2,
+            }
+          }}>
             <Summary />
           </div>
         </div>
-        <div className='space-y-4 print:break-after-page'>
-          <h2 className='text-4xl uppercase'>Skills</h2>
-          <div className='pl-4'>
+        <div sx={{
+          '& > * + *': {
+            mt: 3,
+          },
+          '@media print': {
+            breakAfter: 'page',
+          }
+        }}>
+          <h2>Skills</h2>
+          <div sx={{ pl: 3 }}>
             <SkillsGraph tags={tags} />
           </div>
         </div>
-        <div className='space-y-2'>
-          <h2 className='text-4xl uppercase'>Experience</h2>
-          <div className='space-y-12'>
+        <div sx={{ '& > * + *': { mt: 2 }}}>
+          <h2>Experience</h2>
+          <div sx={{ '& > * + *': { mt: 5 }}}>
             {experiences.map(e =>
-              <div key={e.id} className="space-y-4 print:break-inside-avoid">
-                <div className='flex flex-row items-center space-x-6'>
-                  <h2 className="text-md sm:text-2xl grow-0 whitespace-nowrap text-ellipsis overflow-x-hidden">{e.title}</h2>
-                  {/* >= sm */}
+              <div sx={{
+                '@media print': { breakInside: 'avoid' },
+                '& > * + *': { mt: 3 },
+              }} key={e.id}>
+                <div sx={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', '& > * + *': { ml: [3, 4], mt: 3 }}}>
+                  <h4 sx={{ flexGrow: 0, whiteSpace: 'nowrap', textOverflow: 'ellipsis', overflowX: 'hidden', width: ['100%', 'auto'] }}>{e.title}</h4>
                   {(e.portfolio || e.icons.length > 0) &&
-                  <div className='hidden sm:flex sm:flex-row sm:space-x-2 sm:items-center'>
+                  <div sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', '& > * + *':{ ml: 2 }}}>
                     {e.portfolio &&
                     <a href={e.portfolio.link} target='_blank'>
-                      <Image className='drop-shadow max-h-6' src={svgPaths.Chain} alt={e.portfolio.hoverTitle} width={24} height={24} title={e.portfolio.hoverTitle} />
+                      <Image sx={{ maxHeight: '2rem' }} className='drop-shadow max-h-6' src={svgPaths.Chain} alt={e.portfolio.hoverTitle} width={24} height={24} title={e.portfolio.hoverTitle} />
                     </a>}
                     {e.icons.map((i, iIndex) => {
                       const t = e.tags.find(t => t.name === i);
                       return svgPaths[t.name] && (
-                        <Image key={iIndex} className='drop-shadow max-h-6' src={svgPaths[t.name]} alt={t.name} width={24} height={24} title={t.name} />
+                        <Image key={iIndex} sx={{ maxHeight: '2rem' }} src={svgPaths[t.name]} alt={t.name} width={24} height={24} title={t.name} />
                       )
                     })}
                   </div>}
-                  <div className='hidden sm:block grow text-right whitespace-nowrap'>{e.start && `${moment(e.start).format('YYYY-MM')} to ${e.start && !e.end ? 'present' : moment(e.end).format('YYYY-MM')}`}</div>
+                  <div sx={{ display: 'block', flexGrow: 1, textAlign: [e.icons.length > 0 ? 'right' : 'left', 'right'], whiteSpace: 'nowrap' }}>{e.start && `${moment(e.start).format('YYYY-MM')} to ${e.start && !e.end ? 'present' : moment(e.end).format('YYYY-MM')}`}</div>
                 </div>
-                {/* < sm */}
-                {(e.portfolio || e.icons.length > 0 || e.start) &&
-                <div className={`sm:hidden space-x-2 flex flex-row pl-4 py-2`}>
-                  {(e.portfolio || e.icons.length > 0) ?
-                  <>
-                    <div className='space-x-2 items-center min-w-min flex flex-row'>
-                      {e.portfolio &&
-                      <a href={e.portfolio.link} target='_blank'>
-                        <Image className='drop-shadow max-h-6' src={svgPaths.Chain} alt={e.portfolio.hoverTitle} width={24} height={24} title={e.portfolio.hoverTitle} />
-                      </a>}
-                      {e.icons.map((i, iIndex) => {
-                        const t = e.tags.find(t => t.name === i);
-                        return svgPaths[t.name] && (
-                          <Image key={iIndex} className='drop-shadow max-h-6' src={svgPaths[t.name]} alt={t.name} width={24} height={24} title={t.name} />
-                        )
-                      })}
-                    </div>
-                    <div className='block sm:hidden grow text-right whitespace-nowrap'>{e.start && `${moment(e.start).format('YYYY-MM')} to ${e.start && !e.end ? 'present' : moment(e.end).format('YYYY-MM')}`}</div>
-                  </>
-                  : <div className='block sm:hidden grow text-left whitespace-nowrap'>{e.start && `${moment(e.start).format('YYYY-MM')} to ${e.start && !e.end ? 'present' : moment(e.end).format('YYYY-MM')}`}</div>}
-                </div>}
-                <div className='pl-4 space-y-2' dangerouslySetInnerHTML={{ __html: e.summaryHtml}}/>
+                <div sx={{ pl: 3, '& > * + *': { mt: 2 }}} dangerouslySetInnerHTML={{ __html: e.summaryHtml}}/>
                 {e.projects.length > 0 &&
-                <div className='space-y-8 pl-4'>
-                  <h3 className='text-lg sm:text-2xl mt-8'>Projects</h3>
+                <div sx={{ pl: 3, '& > * + *': { mt: 4 }}}>
+                  <h4 sx={{ mt: 4 }}>Projects</h4>
                   {e.projects.map(p => 
-                  <div key={p.id} className='space-y-2 pl-4 print:break-inside-avoid'>
-                    <div className='flex flex-row space-x-6'>
-                      <h4 className="text-md sm:text-lg grow-0 whitespace-nowrap text-ellipsis overflow-x-hidden">{p.title}</h4>
-                      {/* >= sm */}
+                  <div key={p.id} sx={{ pl: 3,
+                    '@media print': { breakInside: 'avoid' },
+                    '& > * + *': { mt: 2 },
+                  }}>
+                    <div sx={{ display: 'flex', flexWrap: 'wrap', flexDirection: 'row', '& > * + *': { ml: [3, 4], mt: 3 }}}>
+                      <h5 sx={{ flexGrow: 0, whiteSpace: 'nowrap', textOverflow: 'ellipsis', overflowX: 'hidden', width: ['100%', 'auto'] }}>{p.title}</h5>
                       {(p.portfolio || p.icons.length > 0) &&
-                      <div className='hidden sm:flex sm:flex-row sm:space-x-2 sm:items-center'>
+                      <div sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', '& > * + *': { ml: 2 }}}>
                         {p.portfolio &&
                         <a href={p.portfolio.link} target='_blank'>
-                          <Image className='drop-shadow max-h-6' src={svgPaths.Chain} alt={p.portfolio.hoverTitle} width={24} height={24} title={p.portfolio.hoverTitle} />
+                          <Image sx={{ maxHeight: '2rem' }} src={svgPaths.Chain} alt={p.portfolio.hoverTitle} width={24} height={24} title={p.portfolio.hoverTitle} />
                         </a>}
                         {p.icons.map((i, iIndex) => {
                           const t = p.tags.find(t => t.name === i);
                           return svgPaths[t.name] && (
-                            <Image key={iIndex} className='drop-shadow max-h-6' src={svgPaths[t.name]} alt={t.name} width={24} height={24} title={t.name} />
+                            <Image key={iIndex} sx={{ maxHeight: '2rem' }} src={svgPaths[t.name]} alt={t.name} width={24} height={24} title={t.name} />
                           )
                         })}
                       </div>}
-                      <div className='hidden sm:block grow text-right whitespace-nowrap'>{p.start && `${moment(p.start).format('YYYY-MM')} to ${p.start && !p.end ? 'present' : moment(p.end).format('YYYY-MM')}`}</div>
+                      <div sx={{ display: 'block', textAlign: [p.icons.length > 0 ? 'right' : 'left', 'right'], flexGrow: 1, whiteSpace: 'nowrap' }}>{p.start && `${moment(p.start).format('YYYY-MM')} to ${p.start && !p.end ? 'present' : moment(p.end).format('YYYY-MM')}`}</div>
                     </div>
-                    {/* < sm */}
-                    <div className='sm:hidden flex space-x-2 items-center'>
-                      {(p.portfolio || p.icons.length > 0) ?
-                      <>
-                        <div className='flex flex-row space-x-2 items-center pl-4 py-4'>
-                          {p.portfolio &&
-                          <a href={p.portfolio.link} target='_blank'>
-                            <Image className='drop-shadow max-h-6' src={svgPaths.Chain} alt={p.portfolio.hoverTitle} width={24} height={24} title={p.portfolio.hoverTitle} />
-                          </a>}
-                          {p.icons.map((i, iIndex) => {
-                            const t = p.tags.find(t => t.name === i);
-                            return svgPaths[t.name] && (
-                              <Image key={iIndex} className='drop-shadow max-h-6' src={svgPaths[t.name]} alt={t.name} width={24} height={24} title={t.name} />
-                            )
-                          })}
-                        </div>
-                        <div className='grow whitespace-nowrap text-right'>{p.start && `${moment(p.start).format('YYYY-MM')} to ${p.start && !p.end ? 'present' : moment(p.end).format('YYYY-MM')}`}</div>
-                      </>
-                      : <div className='grow whitespace-nowrap text-left pl-4 py-4'>{p.start && `${moment(p.start).format('YYYY-MM')} to ${p.start && !p.end ? 'present' : moment(p.end).format('YYYY-MM')}`}</div>}
-                    </div>
-                    <div className='pl-4 space-y-2' dangerouslySetInnerHTML={{ __html: p.summaryHtml }}/>
+                    <div sx={{ pl: 3, '& > * + *': { mt: 2 }}} dangerouslySetInnerHTML={{ __html: p.summaryHtml }}/>
                   </div>
                   )}
                 </div>}
@@ -193,15 +172,15 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) =
             )}
           </div>
         </div>
-        <div className='print:break-after-page'/>
-        <div className='space-y-2'>
-          <h2 className='text-4xl uppercase'>Education</h2>
-          <div className='space-y-2'>
-            <div className='flex-col space-y-4 sm:space-y-0 sm:flex sm:flex-row items-baseline'>
-              <h3 className='grow-0 text-xl'>San Jose State University</h3>
-              <div className='grow pl-4 sm:pl-0 sm:text-right'>2004-08 to 2009-12</div>
+        <div sx={{ '@media print': { breakAfter: 'page' }}}/>
+        <div sx={{ '& > * + *': { mt: 2 }}}>
+          <h2>Education</h2>
+          <div sx={{ '& > * + *': { mt: 2 }}}>
+            <div sx={{ display: 'flex', flexWrap: 'wrap', flexDirection: 'row', alignItems: 'baseline' }}>
+              <h4 sx={{ flexGrow: 0, width: ['100%', 'auto'] }} >San Jose State University</h4>
+              <div sx={{ flexGrow: 1, pl: 0, textAlign: ['left', 'right'], mt: [3, 0], ml: [3, 0] }}>2004-08 to 2009-12</div>
             </div>
-            <p className='pl-4'>Bachelor of Science - Computer Science</p>
+            <p sx={{ pl: 3 }}>Bachelor of Science - Computer Science</p>
           </div>
         </div>
       </main>
