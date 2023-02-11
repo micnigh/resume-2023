@@ -26,16 +26,24 @@ function MyApp({ Component, pageProps }: AppProps) {
             fontFamily: 'var(--font-capture-it)',
             fontWeight: 'normal',
           },
-          'h1': { fontSize: [5, 7] },
-          'h2': { fontSize: [4, 6] },
-          'h3': { fontSize: [3, 5] },
-          'h4': { fontSize: [2, 4] },
-          'h5': { fontSize: [1, 3] },
-          'h6': { fontSize: [0, 2] },
+          'h1': { fontSize: [5, 6] },
+          'h2': { fontSize: [4, 5] },
+          'h3': { fontSize: [3, 4] },
+          'h4': { fontSize: [2, 3] },
+          'h5': { fontSize: [1, 2] },
+          'h6': { fontSize: [0, 1] },
           'a': {
               color: 'black',
               textDecoration: 'none',
           },
+          '@media print': {
+            'h1': { fontSize: 6 },
+            'h2': { fontSize: 5 },
+            'h3': { fontSize: 4 },
+            'h4': { fontSize: 3 },
+            'h5': { fontSize: 2 },
+            'h6': { fontSize: 1 },
+          }
         }} />
         <div className={`${specialElite.variable} ${captureIt.variable}`} sx={{
           fontFamily: 'var(--font-special)',

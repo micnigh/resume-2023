@@ -75,6 +75,17 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) =
               display: 'inline-block',
               width: ['2rem', '1.5rem'],
               height: 'auto',
+            },
+            '@media print': {
+              position: 'absolute',
+              right: 0,
+              bottom: 0,
+              '& > * + *': {
+                ml: 3,
+              },
+              '.social-icon': {
+                width: '1.75rem',
+              }
             }
           }}>
             <a href='https://github.com/micnigh/' target='_blank'>
@@ -121,8 +132,8 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) =
                 '@media print': { breakInside: 'avoid' },
                 '& > * + *': { mt: 3 },
               }} key={e.id}>
-                <div sx={{ display: 'flex', flexDirection: 'row', flexWrap: ['wrap', 'nowrap'], alignItems: 'center', '& > * + *': { ml: [3, 4], mt: [3, 0] }}}>
-                  <h4 sx={{ flexGrow: 0, whiteSpace: 'nowrap', textOverflow: 'ellipsis', overflowX: 'hidden', width: ['100%', 'auto'] }}>{e.title}</h4>
+                <div sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', flexWrap: ['wrap', 'nowrap'], '& > * + *': { ml: [3, 4], mt: [3, 0] }, '@media print': { flexWrap: 'nowrap', '& > * + *': { ml: 4, mt: 0 }}}}>
+                  <h4 sx={{ flexGrow: 0, whiteSpace: 'nowrap', textOverflow: 'ellipsis', overflowX: 'hidden', width: ['100%', 'auto'], '@media print': { width: 'auto' } }}>{e.title}</h4>
                   {(e.portfolio || e.icons.length > 0) &&
                   <div sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', '& > * + *':{ ml: 2 }}}>
                     {e.portfolio &&
@@ -136,7 +147,7 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) =
                       )
                     })}
                   </div>}
-                  <div sx={{ display: 'flex', flexWrap: 'wrap', flexGrow: 1, justifyContent: [e.icons.length > 0 ? 'right' : 'left', 'right'], whiteSpace: 'nowrap', alignContent: 'end' }}>{e.start && `${moment(e.start).format('YYYY-MM')} to ${e.start && !e.end ? 'present' : moment(e.end).format('YYYY-MM')}`}</div>
+                  <div sx={{ display: 'flex', flexWrap: 'wrap', flexGrow: 1, justifyContent: [e.icons.length > 0 ? 'right' : 'left', 'right'], whiteSpace: 'nowrap', alignContent: 'end', '@media print': { justifyContent: 'right' } }}>{e.start && `${moment(e.start).format('YYYY-MM')} to ${e.start && !e.end ? 'present' : moment(e.end).format('YYYY-MM')}`}</div>
                 </div>
                 <div sx={{ pl: 3, '& > * + *': { mt: 2 }}} dangerouslySetInnerHTML={{ __html: e.summaryHtml}}/>
                 {e.projects.length > 0 &&
@@ -147,8 +158,8 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) =
                     '@media print': { breakInside: 'avoid' },
                     '& > * + *': { mt: 2 },
                   }}>
-                    <div sx={{ display: 'flex', flexWrap: ['wrap', 'nowrap'], flexDirection: 'row', '& > * + *': { ml: [3, 4], mt: [3, 0] }}}>
-                      <h5 sx={{ flexGrow: 0, whiteSpace: 'nowrap', textOverflow: 'ellipsis', overflowX: 'hidden', width: ['100%', 'auto'] }}>{p.title}</h5>
+                    <div sx={{ display: 'flex', flexWrap: ['wrap', 'nowrap'], flexDirection: 'row', '& > * + *': { ml: [3, 4], mt: [3, 0] }, '@media print': { flexWrap: 'nowrap', '& > * + *': { ml: 4, mt: 0 } }}}>
+                      <h5 sx={{ flexGrow: 0, whiteSpace: 'nowrap', textOverflow: 'ellipsis', overflowX: 'hidden', width: ['100%', 'auto'], '@media print': { width: 'auto'} }}>{p.title}</h5>
                       {(p.portfolio || p.icons.length > 0) &&
                       <div sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', '& > * + *': { ml: 2 }}}>
                         {p.portfolio &&
@@ -162,7 +173,7 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) =
                           )
                         })}
                       </div>}
-                      <div sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: [p.icons.length > 0 ? 'right' : 'left', 'right'], alignContent: 'end', flexGrow: 1, whiteSpace: 'nowrap' }}>{p.start && `${moment(p.start).format('YYYY-MM')} to ${p.start && !p.end ? 'present' : moment(p.end).format('YYYY-MM')}`}</div>
+                      <div sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: [p.icons.length > 0 ? 'right' : 'left', 'right'], alignContent: 'end', flexGrow: 1, whiteSpace: 'nowrap', '@media print': { justifyContent: 'right' }}}>{p.start && `${moment(p.start).format('YYYY-MM')} to ${p.start && !p.end ? 'present' : moment(p.end).format('YYYY-MM')}`}</div>
                     </div>
                     <div sx={{ pl: 3, '& > * + *': { mt: 2 }}} dangerouslySetInnerHTML={{ __html: p.summaryHtml }}/>
                   </div>
@@ -177,8 +188,8 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) =
           <h2>Education</h2>
           <div sx={{ '& > * + *': { mt: 2 }}}>
             <div sx={{ display: 'flex', flexWrap: 'wrap', flexDirection: 'row', alignItems: 'baseline' }}>
-              <h4 sx={{ flexGrow: 0, width: ['100%', 'auto'] }} >San Jose State University</h4>
-              <div sx={{ flexGrow: 1, pl: 0, textAlign: ['left', 'right'], mt: [3, 0], ml: [3, 0] }}>2004-08 to 2009-12</div>
+              <h4 sx={{ flexGrow: 0, width: ['100%', 'auto'], '@media print': { width: 'auto' } }} >San Jose State University</h4>
+              <div sx={{ flexGrow: 1, pl: 0, textAlign: ['left', 'right'], mt: [3, 0], ml: [3, 0], '@media print': { textAlign: 'right', mt: 0, ml: 0 } }}>2004-08 to 2009-12</div>
             </div>
             <p sx={{ pl: 3 }}>Bachelor of Science - Computer Science</p>
           </div>

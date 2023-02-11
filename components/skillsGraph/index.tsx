@@ -43,10 +43,10 @@ export const SkillsGraph = ({ tags }: SkillsGraphProps) => {
             fontFamily: 'var(--font-capture-it)',
           }} key={index} style={{ width: `${percentageWidth}%` }}>
             <span sx={{
-              fontSize: 4,
-              lineHeight: '1.75rem',
+              fontSize: [3, 4],
+              lineHeight: ['1.75rem', '2rem'],
               pr: 1,
-            }} className='text-xl pr-1'>{t.name}</span>
+            }}>{t.name}</span>
           </div>
         );
       })}
