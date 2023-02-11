@@ -34,10 +34,7 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) =
         '@media print': {
           p: 4,
         },
-        '@media (min-width: 540px)': {
-          p: 2,
-        },
-        p: 3,
+        p: [3, 2],
         pt: 4,
       }}>
         <div sx={{
@@ -69,23 +66,14 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) =
             display: 'flex',
             justifyContent: 'center',
             '& > * + *': {
-              ml: 4,
+              ml: [4, 3],
             },
-            '@media (min-width: 540px)': {
-              position: 'absolute',
-              right: 0,
-              bottom: 0,
-              '& > * + *': {
-                ml: 3,
-              },
-              '.social-icon': {
-                width: '1.5rem',
-              }
-            },
+            position: [null, 'absolute'],
+            right: [null, 0],
+            bottom: [null, 0],
             '.social-icon': {
-              // filter: 'drop-shadow(0 1px 2px rgb(0 0 0 / 0.1)) drop-shadow(0 1px 1px rgb(0 0 0 / 0.06))',
               display: 'inline-block',
-              width: '2rem',
+              width: ['2rem', '1.5rem'],
               height: 'auto',
             }
           }}>
