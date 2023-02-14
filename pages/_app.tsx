@@ -3,6 +3,9 @@ import type { AppProps } from 'next/app'
 import localFont from '@next/font/local'
 import { ThemeProvider, Global } from 'theme-ui'
 import { theme } from '../theme'
+import 'tippy.js/dist/tippy.css';
+import { useEffect } from 'react'
+import { generateTooltips } from '../lib/util/tooltip'
 
 const captureIt = localFont({
   src: '../lib/assets/font/capture-it.woff',
@@ -17,6 +20,11 @@ const specialElite = localFont({
 })
 
 function MyApp({ Component, pageProps }: AppProps) {
+
+  useEffect(() => {
+    generateTooltips();
+  }, [])
+
   return (
     <>
       <ThemeProvider theme={theme}>
@@ -43,6 +51,15 @@ function MyApp({ Component, pageProps }: AppProps) {
             'h4': { fontSize: 3 },
             'h5': { fontSize: 2 },
             'h6': { fontSize: 1 },
+          },
+          '.tippy-box': {
+            bg: 'black',
+            color: 'white',
+            fontFamily: '"Helvetica Neue",Helvetica,Arial,sans-serif',
+          },
+          '.tippy-content': {},
+          '.tippy-arrow': {
+            color: 'black',
           }
         }} />
         <div className={`${specialElite.variable} ${captureIt.variable}`} sx={{

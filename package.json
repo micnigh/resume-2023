@@ -35,6 +35,7 @@
     "postcss": "^8.4.21",
     "serve": "^14.2.0",
     "theme-ui": "^0.15.5",
+    "tippy.js": "^6.3.7",
     "typescript": "4.9.5",
     "uuid": "^9.0.0"
   },
