@@ -6,7 +6,7 @@ export let title = `LXC Deployment`;
 
 export let start = `2013-04`;
 export let end = `2013-09`;
-export let duration = moment.duration(moment(end).endOf(`month` as any).diff(moment(start))).toJSON();
+export let duration = moment.duration(moment.utc(end).endOf(`month` as any).diff(moment.utc(start))).toJSON();
 
 export let summaryMarkdown = `
 Created LXC wrapper to handle project deployment.  Vagrant like commands added to shell by custom ZSH plugin.  Utilized btrfs for caching to minimize redeployment time.  Supported Wordpress deployment and theme generation.

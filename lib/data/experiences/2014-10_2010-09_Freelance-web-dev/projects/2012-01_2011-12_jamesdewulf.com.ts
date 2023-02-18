@@ -6,7 +6,7 @@ export let title = `jamesdewulf.com`;
 
 export let start = `2011-12`;
 export let end = `2012-01`;
-export let duration = moment.duration(moment(end).endOf(`month` as any).diff(moment(start))).toJSON();
+export let duration = moment.duration(moment.utc(end).endOf(`month` as any).diff(moment.utc(start))).toJSON();
 
 export let summaryMarkdown = `
 Rebuilt site as an SPA to be much faster and added new features.  Features include jqZoom for product photos, fancybox display of press magazine articles, and videos of products.  Built with web app generator I began a few months prior.

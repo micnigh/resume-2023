@@ -11,7 +11,7 @@ const fulltimeStart = `2020-07`;
 
 export let start = `2019-04`;
 export let end = ``;
-export let duration = moment.duration(moment().endOf(`month` as any).diff(moment(start))).toJSON();
+export let duration = moment.duration(moment.utc().endOf(`month` as any).diff(moment.utc(start))).toJSON();
 
 export let summaryMarkdown = `
 **Senior Software Engineer**  ${fulltimeStart} to present

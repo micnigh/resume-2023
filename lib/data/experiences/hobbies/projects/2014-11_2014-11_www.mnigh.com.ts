@@ -6,7 +6,7 @@ export let title = `mnigh.com`;
 
 export let start = `2014-11`;
 export let end = `2014-11`;
-export let duration = moment.duration(moment(end).endOf(`month` as any).diff(moment(start))).toJSON();
+export let duration = moment.duration(moment.utc(end).endOf(`month` as any).diff(moment.utc(start))).toJSON();
 
 export let summaryMarkdown = `
 Created blog to increase my online presence and demonstrate technical knowledge in an informal way.  Built with NodeJs stack using custom Gulp tasks.

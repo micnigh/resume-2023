@@ -6,7 +6,7 @@ export let title = `resume.mnigh.com`;
 
 export let start = `2014-11`;
 export let end = `2014-12`;
-export let duration = moment.duration(moment(end).endOf(`month` as any).diff(moment(start))).toJSON();
+export let duration = moment.duration(moment.utc(end).endOf(`month` as any).diff(moment.utc(start))).toJSON();
 
 export let summaryMarkdown = `
 Rebuilt resume with NodeJs stack from custom Gulp tasks.  Snapshots of previous projects ported into Docker containers and run on a single VPS behind an Nginx proxy.

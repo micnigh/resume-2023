@@ -7,7 +7,7 @@ export let title = `Web Developer - Duovu Inc`;
 
 export let start = `2005-01`;
 export let end = `2007-01`;
-export let duration = moment.duration(moment(end).endOf(`month` as any).diff(moment(start))).toJSON();
+export let duration = moment.duration(moment.utc(end).endOf(`month` as any).diff(moment.utc(start))).toJSON();
 
 export let summaryMarkdown = `
 Built a Real Estate PHP/MYSQL website in a small team.  Created a blueprint drawing tool using an applet combined with a DOJO front end.  Utilized XML via JSON to communicate between server and client applications.  Also responsible for building and maintaining LAMP servers and virtual machines used by developers.

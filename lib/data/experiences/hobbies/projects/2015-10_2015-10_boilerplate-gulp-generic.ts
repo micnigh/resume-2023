@@ -6,7 +6,7 @@ export let title = `boilerplate gulp generic`;
 
 export let start = `2015-10`;
 export let end = `2015-10`;
-export let duration = moment.duration(moment(end).endOf(`month` as any).diff(moment(start))).toJSON();
+export let duration = moment.duration(moment.utc(end).endOf(`month` as any).diff(moment.utc(start))).toJSON();
 
 export let summaryMarkdown = `
 Boilerplate ES6 project using Gulp tasks and Babel.

@@ -24,7 +24,7 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) =
   return (
     <div>
       <Head>
-        <title>{`Michael Nigh - Resume - ${moment().format('YYYY-MM-DD')}`}</title>
+        <title>{`Michael Nigh - Resume - ${moment.utc().format('YYYY-MM-DD')}`}</title>
         <meta httpEquiv="Permissions-Policy" content="interest-cohort=()" />
       </Head>
       <main sx={{

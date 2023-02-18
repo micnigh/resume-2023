@@ -6,7 +6,7 @@ export let title = `Web App Generator`;
 
 export let start = `2011-11`;
 export let end = `2012-01`;
-export let duration = moment.duration(moment(end).endOf(`month` as any).diff(moment(start))).toJSON();
+export let duration = moment.duration(moment.utc(end).endOf(`month` as any).diff(moment.utc(start))).toJSON();
 
 export let summaryMarkdown = `
 Created Coffeescript based single page app generator.  Solved SEO by rendering first page from server and remaining pages from application.  Utilized TDD and BDD to ensure SPA worked well in all browsers.

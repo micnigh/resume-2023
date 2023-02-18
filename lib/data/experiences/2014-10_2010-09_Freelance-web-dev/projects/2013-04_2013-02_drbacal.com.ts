@@ -6,7 +6,7 @@ export let title = `drbacal.com`;
 
 export let start = `2013-02`;
 export let end = `2013-04`;
-export let duration = moment.duration(moment(end).endOf(`month` as any).diff(moment(start))).toJSON();
+export let duration = moment.duration(moment.utc(end).endOf(`month` as any).diff(moment.utc(start))).toJSON();
 
 export let summaryMarkdown = `
 Constructed WordPress backed website using custom deployment tools I built earlier with Sprinkle (similar to Chef).  Worked with client and SEO specialist for design and content.  Used Rails with LiveReload to generate SASS and Coffeescript of WordPress theme.

@@ -6,7 +6,7 @@ export let title = `Freelance Web Developer`;
 
 export let start = `2010-09`;
 export let end = `2014-10`;
-export let duration = moment.duration(moment(end).endOf(`month` as any).diff(moment(start))).toJSON();
+export let duration = moment.duration(moment.utc(end).endOf(`month` as any).diff(moment.utc(start))).toJSON();
 
 export let summaryMarkdown = `
 Building highly customized personal and small businesses websites.

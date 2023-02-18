@@ -8,7 +8,7 @@ export let title = `Learning Curve`;
 
 export let start = `2019-04`;
 export let end = ``;
-export let duration = moment.duration(moment().endOf(`month` as any).diff(moment(start))).toJSON();
+export let duration = moment.duration(moment.utc().endOf(`month` as any).diff(moment.utc(start))).toJSON();
 
 export let summaryMarkdown = `
 Learn topics by answering questions until a target score is reached

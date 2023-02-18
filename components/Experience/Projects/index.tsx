@@ -29,7 +29,7 @@ export const Projects = ({ projects }: { projects: ProjectType[] }) => {
                 )
               })}
             </div>}
-            <div sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: [p.icons.length > 0 ? 'right' : 'left', 'right'], alignContent: 'end', flexGrow: 1, whiteSpace: 'nowrap', '@media print': { justifyContent: 'right' }}}>{p.start && `${moment(p.start).format('YYYY-MM')} to ${p.start && !p.end ? 'present' : moment(p.end).format('YYYY-MM')}`}</div>
+            <div sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: [p.icons.length > 0 ? 'right' : 'left', 'right'], alignContent: 'end', flexGrow: 1, whiteSpace: 'nowrap', '@media print': { justifyContent: 'right' }}}>{p.start && `${moment.utc(p.start).format('YYYY-MM')} to ${p.start && !p.end ? 'present' : moment.utc(p.end).format('YYYY-MM')}`}</div>
           </div>
           <div sx={{ pl: 3, '& > * + *': { mt: 2 }}} dangerouslySetInnerHTML={{ __html: p.summaryHtml }}/>
         </div>

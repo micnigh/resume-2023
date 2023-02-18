@@ -6,7 +6,7 @@ export let title = `jenleearts.com`;
 
 export let start = `2011-07`;
 export let end = `2011-08`;
-export let duration = moment.duration(moment(end).endOf(`month` as any).diff(moment(start))).toJSON();
+export let duration = moment.duration(moment.utc(end).endOf(`month` as any).diff(moment.utc(start))).toJSON();
 
 export let summaryMarkdown = `
 Extended parveztaj.com GWT template to another site.  Setup domain, hosting, and CDN.

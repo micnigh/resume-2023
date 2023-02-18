@@ -9,15 +9,15 @@ export let title = `Senior Web Developer - NPS CED3 - GDIT`;
 export let start = `2015-02`;
 export let end = `2018-02`;
 
-export let duration = moment.duration(moment().diff(moment(start))).toJSON();
+export let duration = moment.duration(moment.utc().diff(moment.utc(start))).toJSON();
 
 export let startDeveloper = `2015-02`;
 export let endDeveloper = `2016-01`;
-export let durationDeveloper = moment.duration(moment(endDeveloper).diff(moment(startDeveloper))).toJSON();
+export let durationDeveloper = moment.duration(moment.utc(endDeveloper).diff(moment.utc(startDeveloper))).toJSON();
 
 export let startSeniorDeveloper = `2016-02`;
 export let endSeniorDeveloper = `2018-02`;
-export let durationSeniorDeveloper = moment.duration(moment().diff(moment(startSeniorDeveloper))).toJSON();
+export let durationSeniorDeveloper = moment.duration(moment.utc().diff(moment.utc(startSeniorDeveloper))).toJSON();
 
 export let summaryMarkdown = `
 **Senior Web Developer**  ${startSeniorDeveloper} to ${endSeniorDeveloper}

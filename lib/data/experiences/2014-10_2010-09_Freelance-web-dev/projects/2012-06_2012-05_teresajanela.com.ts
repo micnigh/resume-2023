@@ -6,7 +6,7 @@ export let title = `teresajanela.com`;
 
 export let start = `2012-05`;
 export let end = `2012-06`;
-export let duration = moment.duration(moment(end).endOf(`month` as any).diff(moment(start))).toJSON();
+export let duration = moment.duration(moment.utc(end).endOf(`month` as any).diff(moment.utc(start))).toJSON();
 
 export let summaryMarkdown = `
 Created simple Rails website, later porting to WordPress as a CMS.  Evaluated numerous deployment options, including Heroku, DotCloud, and AWS - eventually deployed to AWS using EC2, S3, and CloudFront.

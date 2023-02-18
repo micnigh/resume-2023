@@ -9,7 +9,7 @@ export let title = `Pathfinder`;
 export let start = `2019-04`;
 export let end = ``;
 
-export let duration = moment.duration(moment().diff(moment(start))).toJSON();
+export let duration = moment.duration(moment.utc().diff(moment.utc(start))).toJSON();
 
 export let summaryMarkdown = `
 Test student competency to generate studyplan on areas that need improvement

@@ -6,7 +6,7 @@ export let title = `Senior Web Developer - Home Depot`;
 
 export let start = `2018-02`;
 export let end = `2019-03`;
-export let duration = moment.duration(moment().endOf(`month` as any).diff(moment(start))).toJSON();
+export let duration = moment.duration(moment.utc().endOf(`month` as any).diff(moment.utc(start))).toJSON();
 
 export let summaryMarkdown = `
 **Contracted through Visionaire**

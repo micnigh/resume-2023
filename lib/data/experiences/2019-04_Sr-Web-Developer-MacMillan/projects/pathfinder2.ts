@@ -9,7 +9,7 @@ export let title = `Pathfinder 2`;
 export let start = `2019-10`;
 export let end = ``;
 
-export let duration = moment.duration(moment().diff(moment(start))).toJSON();
+export let duration = moment.duration(moment.utc().diff(moment.utc(start))).toJSON();
 
 export let summaryMarkdown = `
 Rewrite to reduce technical debt of pathfinder

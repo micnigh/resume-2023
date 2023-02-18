@@ -6,7 +6,7 @@ export let title = `resume.mnigh.com`;
 
 export let start = `2016-02`;
 export let end = `2016-04`;
-export let duration = moment.duration(moment(end).endOf(`month` as any).diff(moment(start))).toJSON();
+export let duration = moment.duration(moment.utc(end).endOf(`month` as any).diff(moment.utc(start))).toJSON();
 
 // tslint:disable
 export let summaryMarkdown = `

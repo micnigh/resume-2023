@@ -9,7 +9,7 @@ export let title = `Homer Fund`;
 export let start = `2018-02`;
 export let end = `2018-02`;
 
-export let duration = moment.duration(moment().diff(moment(start))).toJSON();
+export let duration = moment.duration(moment.utc().diff(moment.utc(start))).toJSON();
 
 export let summaryMarkdown = `
 Rapidly shipped updates to Python Flask app to support the Homer Fund 2018 charity.

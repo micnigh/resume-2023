@@ -6,7 +6,7 @@ export let title = `yet another isomorphic blog`;
 
 export let start = `2015-10`;
 export let end = `2015-11`;
-export let duration = moment.duration(moment(end).endOf(`month` as any).diff(moment(start))).toJSON();
+export let duration = moment.duration(moment.utc(end).endOf(`month` as any).diff(moment.utc(start))).toJSON();
 
 export let summaryMarkdown = `
 Created an isomorphic React blog.

@@ -29,7 +29,7 @@ export const Experience = ({ experiences }: { experiences: ExperienceType[] }) =
                   )
                 })}
               </div>}
-              <div sx={{ display: 'flex', flexWrap: 'wrap', flexGrow: 1, justifyContent: [e.icons.length > 0 ? 'right' : 'left', 'right'], whiteSpace: 'nowrap', alignContent: 'end', '@media print': { justifyContent: 'right' } }}>{e.start && `${moment(e.start).format('YYYY-MM')} to ${e.start && !e.end ? 'present' : moment(e.end).format('YYYY-MM')}`}</div>
+              <div sx={{ display: 'flex', flexWrap: 'wrap', flexGrow: 1, justifyContent: [e.icons.length > 0 ? 'right' : 'left', 'right'], whiteSpace: 'nowrap', alignContent: 'end', '@media print': { justifyContent: 'right' } }}>{e.start && `${moment.utc(e.start).format('YYYY-MM')} to ${e.start && !e.end ? 'present' : moment.utc(e.end).format('YYYY-MM')}`}</div>
             </div>
             <div sx={{ pl: 3, '& > * + *': { mt: 2 }}} dangerouslySetInnerHTML={{ __html: e.summaryHtml}}/>
             <Projects projects={e.projects}/>

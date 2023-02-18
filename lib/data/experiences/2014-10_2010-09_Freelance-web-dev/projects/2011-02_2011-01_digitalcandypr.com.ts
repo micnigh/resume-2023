@@ -6,7 +6,7 @@ export let title = `digitalcandypr.com`;
 
 export let start = `2011-01`;
 export let end = `2011-02`;
-export let duration = moment.duration(moment(end).endOf(`month` as any).diff(moment(start))).toJSON();
+export let duration = moment.duration(moment.utc(end).endOf(`month` as any).diff(moment.utc(start))).toJSON();
 
 export let summaryMarkdown = `
 Expanded on GWT experience to design small business site with a very simple clean look.  Features include Twitter integration and AWS hosting.

@@ -12,7 +12,7 @@ renderer.link = ( href, title, text ) => {
 };
 
 let formatTime = (time: string) => {
-  return time === `` ? time : moment(time).format();
+  return time === `` ? time : moment.utc(time).format();
 };
 
 export let createExperience = (options: NormalizedExperience): NormalizedExperience => {
