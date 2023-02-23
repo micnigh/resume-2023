@@ -10,13 +10,15 @@ import { generateTooltips } from '../lib/util/tooltip'
 const captureIt = localFont({
   src: '../lib/assets/font/capture-it.woff',
   variable: '--font-capture-it',
-  display: 'block',
+  display: 'swap',
+  adjustFontFallback: 'Times New Roman',
 })
 
 const specialElite = localFont({
   src: '../lib/assets/font/special-elite.woff',
   variable: '--font-special',
-  display: 'block',
+  display: 'swap',
+  adjustFontFallback: 'Arial',
 })
 
 function MyApp({ Component, pageProps }: AppProps) {
