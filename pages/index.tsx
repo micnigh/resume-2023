@@ -30,7 +30,7 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) =
       <main sx={{
         maxWidth: '56rem',
         m: 'auto',
-        p: [3, 2],
+        p: 3,
         pt: 4,
         '& > * + *': {
           mt: 5,
