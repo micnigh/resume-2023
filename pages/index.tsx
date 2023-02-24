@@ -32,7 +32,7 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) =
         m: 'auto',
         p: 3,
         pt: 4,
-        '& > * + *': {
+        '& > *:not(style) ~ *:not(style)': {
           mt: 5,
         },
         '@media print': {

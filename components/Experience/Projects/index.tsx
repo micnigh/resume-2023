@@ -7,17 +7,17 @@ export const Projects = ({ projects }: { projects: ProjectType[] }) => {
   return (
     <>
       {projects.length > 0 &&
-      <div sx={{ pl: 3, '& > * + *': { mt: 4 }}}>
+      <div sx={{ pl: 3, '& > *:not(style) ~ *:not(style)': { mt: 4 }}}>
         <h4 sx={{ mt: 4 }}>Projects</h4>
         {projects.map(p => 
         <div key={p.id} sx={{ pl: 3,
           '@media print': { breakInside: 'avoid' },
-          '& > * + *': { mt: 2 },
+          '& > *:not(style) ~ *:not(style)': { mt: 2 },
         }}>
-          <div sx={{ display: 'flex', flexWrap: ['wrap', 'nowrap'], flexDirection: 'row', '& > * + *': { ml: [3, 4], mt: [3, 0] }, '@media print': { flexWrap: 'nowrap', '& > * + *': { ml: 4, mt: 0 } }}}>
+          <div sx={{ display: 'flex', flexWrap: ['wrap', 'nowrap'], flexDirection: 'row', '& > *:not(style) ~ *:not(style)': { ml: [3, 4], mt: [3, 0] }, '@media print': { flexWrap: 'nowrap', '& > *:not(style) ~ *:not(style)': { ml: 4, mt: 0 } }}}>
             <h5 sx={{ flexGrow: 0, whiteSpace: 'nowrap', textOverflow: 'ellipsis', overflowX: 'hidden', width: ['100%', 'auto'], '@media print': { width: 'auto'} }}>{p.title}</h5>
             {(p.portfolio || p.icons.length > 0) &&
-            <div sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', '& > * + *': { ml: 2 }}}>
+            <div sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', '& > *:not(style) ~ *:not(style)': { ml: 2 }}}>
               {p.portfolio &&
               <a sx={{ display: 'flex', flexWrap: 'wrap', alignContent: 'center' }} href={p.portfolio.link} target='_blank'>
                 <Image sx={{ maxHeight: '2rem' }} src={svgPaths.Chain} alt={p.portfolio.hoverTitle} width={24} height={24} title={p.portfolio.hoverTitle} />
@@ -31,7 +31,7 @@ export const Projects = ({ projects }: { projects: ProjectType[] }) => {
             </div>}
             <div sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: [p.icons.length > 0 ? 'right' : 'left', 'right'], alignContent: 'end', flexGrow: 1, whiteSpace: 'nowrap', '@media print': { justifyContent: 'right' }}}>{p.start && `${moment.utc(p.start).format('YYYY-MM')} to ${p.start && !p.end ? 'present' : moment.utc(p.end).format('YYYY-MM')}`}</div>
           </div>
-          <div sx={{ pl: 3, '& > * + *': { mt: 2 }}} dangerouslySetInnerHTML={{ __html: p.summaryHtml }}/>
+          <div sx={{ pl: 3, '& > *:not(style) ~ *:not(style)': { mt: 2 }}} dangerouslySetInnerHTML={{ __html: p.summaryHtml }}/>
         </div>
         )}
       </div>}

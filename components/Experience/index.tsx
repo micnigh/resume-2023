@@ -6,18 +6,18 @@ import { Projects } from './Projects';
 
 export const Experience = ({ experiences }: { experiences: ExperienceType[] }) => {
   return (
-    <div sx={{ '& > * + *': { mt: 2 }}}>
+    <div sx={{ '& > *:not(style) ~ *:not(style)': { mt: 2 }}}>
       <h2>Experience</h2>
-      <div sx={{ '& > * + *': { mt: 5 }}}>
+      <div sx={{ '& > *:not(style) ~ *:not(style)': { mt: 5 }}}>
         {experiences.map(e =>
           <div sx={{
             '@media print': { breakInside: 'avoid' },
-            '& > * + *': { mt: 3 },
+            '& > *:not(style) ~ *:not(style)': { mt: 3 },
           }} key={e.id}>
-            <div sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', flexWrap: ['wrap', 'nowrap'], '& > * + *': { ml: [3, 4], mt: [3, 0] }, '@media print': { flexWrap: 'nowrap', '& > * + *': { ml: 4, mt: 0 }}}}>
+            <div sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', flexWrap: ['wrap', 'nowrap'], '& > *:not(style) ~ *:not(style)': { ml: [3, 4], mt: [3, 0] }, '@media print': { flexWrap: 'nowrap', '& > *:not(style) ~ *:not(style)': { ml: 4, mt: 0 }}}}>
               <h4 sx={{ flexGrow: 0, whiteSpace: 'nowrap', textOverflow: 'ellipsis', overflowX: 'hidden', width: ['100%', 'auto'], '@media print': { width: 'auto' } }}>{e.title}</h4>
               {(e.portfolio || e.icons.length > 0) &&
-              <div sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', '& > * + *':{ ml: 2 }}}>
+              <div sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', '& > *:not(style) ~ *:not(style)':{ ml: 2 }}}>
                 {e.portfolio &&
                 <a sx={{ display: 'flex', flexWrap: 'wrap', alignContent: 'center' }} href={e.portfolio.link} target='_blank'>
                   <Image sx={{ maxHeight: '2rem' }} src={svgPaths.Chain} alt={e.portfolio.hoverTitle} width={24} height={24} title={e.portfolio.hoverTitle} />
@@ -31,7 +31,7 @@ export const Experience = ({ experiences }: { experiences: ExperienceType[] }) =
               </div>}
               <div sx={{ display: 'flex', flexWrap: 'wrap', flexGrow: 1, justifyContent: [e.icons.length > 0 ? 'right' : 'left', 'right'], whiteSpace: 'nowrap', alignContent: 'end', '@media print': { justifyContent: 'right' } }}>{e.start && `${moment.utc(e.start).format('YYYY-MM')} to ${e.start && !e.end ? 'present' : moment.utc(e.end).format('YYYY-MM')}`}</div>
             </div>
-            <div sx={{ pl: 3, '& > * + *': { mt: 2 }}} dangerouslySetInnerHTML={{ __html: e.summaryHtml}}/>
+            <div sx={{ pl: 3, '& > *:not(style) ~ *:not(style)': { mt: 2 }}} dangerouslySetInnerHTML={{ __html: e.summaryHtml}}/>
             <Projects projects={e.projects}/>
           </div>
         )}

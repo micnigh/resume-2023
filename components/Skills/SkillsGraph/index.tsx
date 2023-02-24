@@ -25,7 +25,7 @@ export const SkillsGraph = ({ tags }: SkillsGraphProps) => {
 
   return (
     <div sx={{
-      '& > * + *': {
+      '& > *:not(style) ~ *:not(style)': {
         mt: '2px',
       }
     }}>

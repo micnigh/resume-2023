@@ -4,7 +4,7 @@ import SkillsGraph from "./SkillsGraph"
 export const Skills = ({ tags }: { tags: Tag[] }) => {
   return (
     <div sx={{
-      '& > * + *': {
+      '& > *:not(style) ~ *:not(style)': {
         mt: 3,
       },
       '@media print': {

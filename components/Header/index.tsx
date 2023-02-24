@@ -7,7 +7,7 @@ export const Header = () => {
       display: 'flex',
       flexDirection: 'column',
       position: 'relative',
-      '& > * + *': {
+      '& > *:not(style) ~ *:not(style)': {
         mt: 4,
       }
     }}>
@@ -31,7 +31,7 @@ export const Header = () => {
       <div sx={{
         display: 'flex',
         justifyContent: 'center',
-        '& > * + *': {
+        '& > *:not(style) ~ *:not(style)': {
           ml: [4, 3],
         },
         position: [null, 'absolute'],
@@ -46,7 +46,7 @@ export const Header = () => {
           position: 'absolute',
           right: 0,
           bottom: 0,
-          '& > * + *': {
+          '& > *:not(style) ~ *:not(style)': {
             ml: 3,
           },
           '.social-icon': {
