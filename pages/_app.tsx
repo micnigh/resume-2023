@@ -1,6 +1,6 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
-import localFont from '@next/font/local'
+import localFont from 'next/font/local'
 import { ThemeProvider, Global } from 'theme-ui'
 import { theme } from '../theme'
 import 'tippy.js/dist/tippy.css';
@@ -11,14 +11,14 @@ const captureIt = localFont({
   src: '../lib/assets/font/capture-it.woff',
   variable: '--font-capture-it',
   display: 'swap',
-  adjustFontFallback: 'Times New Roman',
+  fallback: ['Times New Roman'],
 })
 
 const specialElite = localFont({
   src: '../lib/assets/font/special-elite.woff',
   variable: '--font-special',
   display: 'swap',
-  adjustFontFallback: 'Arial',
+  fallback: ['Arial'],
 })
 
 function MyApp({ Component, pageProps }: AppProps) {

@@ -4,9 +4,9 @@ resume.mnigh.com
 
 ```sh
 # first time
-yarn install
+pnpm install
 
-yarn dev
+pnpm dev
 ```
 
 # Summary
