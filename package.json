@@ -9,12 +9,13 @@
     "deploy": "next build && next export && touch out/.nojekyll && echo 'resume.mnigh.com' > out/CNAME && gh-pages -d out"
   },
   "dependencies": {
+    "@tailwindcss/postcss": "^4.1.13",
     "next": "15.5.3",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "tailwindcss": "^4.1.13"
   },
   "devDependencies": {
-    "@emotion/react": "^11.10.5",
     "@mdx-js/loader": "^2.3.0",
     "@mdx-js/react": "^2.3.0",
     "@next/mdx": "15.5.3",
@@ -33,7 +34,6 @@
     "normalizr": "^3.6.2",
     "postcss": "^8.4.21",
     "serve": "^14.2.0",
-    "theme-ui": "^0.15.5",
     "tippy.js": "^6.3.7",
     "typescript": "4.9.5",
     "uuid": "^9.0.0"

@@ -3,16 +3,9 @@ import SkillsGraph from "./SkillsGraph"
 
 export const Skills = ({ tags }: { tags: Tag[] }) => {
   return (
-    <div sx={{
-      '& > *:not(style) ~ *:not(style)': {
-        mt: 3,
-      },
-      '@media print': {
-        breakAfter: 'page',
-      }
-    }}>
+    <div className="space-y-3 print:break-after-page">
       <h2>Skills</h2>
-      <div sx={{ pl: 3 }}>
+      <div className="pl-3">
         <SkillsGraph tags={tags} />
       </div>
     </div>

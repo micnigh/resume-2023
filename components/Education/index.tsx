@@ -1,14 +1,18 @@
 export const Education = () => {
   return (
-    <div sx={{ '& > *:not(style) ~ *:not(style)': { mt: 2 }}}>
+    <div className="space-y-2">
       <h2>Education</h2>
-      <div sx={{ '& > *:not(style) ~ *:not(style)': { mt: 2 }}}>
-        <div sx={{ display: 'flex', flexWrap: 'wrap', flexDirection: 'row', alignItems: 'baseline' }}>
-          <h4 sx={{ flexGrow: 0, width: ['100%', 'auto'], '@media print': { width: 'auto' } }} >San Jose State University</h4>
-          <div sx={{ flexGrow: 1, pl: 0, textAlign: ['left', 'right'], mt: [3, 0], ml: [3, 0], '@media print': { textAlign: 'right', mt: 0, ml: 0 } }}>2004-08 to 2009-12</div>
+      <div className="space-y-2">
+        <div className="flex flex-wrap flex-row items-baseline">
+          <h4 className="flex-grow-0 w-full md:w-auto print:w-auto">
+            San Jose State University
+          </h4>
+          <div className="flex-grow pl-0 text-left md:text-right mt-3 md:mt-0 ml-3 md:ml-0 print:text-right print:mt-0 print:ml-0">
+            2004-08 to 2009-12
+          </div>
         </div>
-        <p sx={{ pl: 3 }}>Bachelor of Science - Computer Science</p>
+        <p className="pl-3">Bachelor of Science - Computer Science</p>
       </div>
     </div>
-  )
-}
+  );
+};

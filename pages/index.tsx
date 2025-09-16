@@ -27,24 +27,15 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) =
         <title>{`Michael Nigh - Resume - ${moment.utc().format('YYYY-MM-DD')}`}</title>
         <meta httpEquiv="Permissions-Policy" content="interest-cohort=()" />
       </Head>
-      <main sx={{
-        maxWidth: '56rem',
-        m: 'auto',
-        p: 3,
-        pt: 4,
-        '& > *:not(style) ~ *:not(style)': {
-          mt: 5,
-        },
-        '@media print': {
-          p: 4,
-        },
-      }}>
-        <Header/>
-        <Summary/>
-        <Skills tags={tags}/>
-        <Experience experiences={experiences}/>
-        <div sx={{ '@media print': { breakAfter: 'page' }}}/>
-        <Education/>
+      <main
+        className="max-w-2xl mx-auto p-3 pt-4 space-y-5 print:p-4"
+      >
+        <Header />
+        <Summary />
+        <Skills tags={tags} />
+        <Experience experiences={experiences} />
+        <div className="print:break-after-page" />
+        <Education />
       </main>
     </div>
   )

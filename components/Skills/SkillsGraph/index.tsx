@@ -24,28 +24,25 @@ export const SkillsGraph = ({ tags }: SkillsGraphProps) => {
   let yearsToRender = moment.duration(maxDuration).asYears();
 
   return (
-    <div sx={{
-      '& > *:not(style) ~ *:not(style)': {
-        mt: '2px',
-      }
-    }}>
+    <div
+      className="space-y-px"
+    >
       {tags.map((t, index) => {
-        let normalizedDuration = moment.duration(t.duration).asMilliseconds() / moment.duration(maxDuration).asMilliseconds();
+        let normalizedDuration =
+          moment.duration(t.duration).asMilliseconds() /
+          moment.duration(maxDuration).asMilliseconds();
         let percentageWidth = Math.floor(normalizedDuration * 100);
         return (
-          <div sx={{
-            display: 'flex',
-            justifyContent: 'flex-end',
-            alignItems: 'center',
-            bg: 'black',
-            color: 'white',
-            fontFamily: 'var(--font-capture-it)',
-          }} key={index} style={{ width: `${percentageWidth}%` }}>
-            <span sx={{
-              fontSize: [3, 4],
-              lineHeight: ['1.75rem', '2rem'],
-              pr: 1,
-            }}>{t.name}</span>
+          <div
+            className="flex justify-end items-center bg-black text-white"
+            key={index}
+            style={{ width: `${percentageWidth}%` }}
+          >
+            <span
+              className="text-lg md:text-xl leading-7 md:leading-8 pr-1"
+            >
+              {t.name}
+            </span>
           </div>
         );
       })}
