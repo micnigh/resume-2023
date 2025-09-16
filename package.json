@@ -1,31 +1,25 @@
 {
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "export": "next export",
-    "start": "next start",
-    "serve": "next export && serve out",
-    "deploy": "next build && next export && touch out/.nojekyll && echo 'resume.mnigh.com' > out/CNAME && gh-pages -d out"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "deploy": "vite build && touch dist/.nojekyll && echo 'resume.mnigh.com' > dist/CNAME && cp dist/index.html dist/404.html && gh-pages -d dist"
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.1.13",
-    "next": "15.5.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "tailwindcss": "^4.1.13"
   },
   "devDependencies": {
-    "@mdx-js/loader": "^2.3.0",
-    "@mdx-js/react": "^2.3.0",
-    "@next/mdx": "15.5.3",
-    "@types/jest": "^29.4.0",
     "@types/lodash": "^4.14.191",
     "@types/marked": "^4.0.8",
     "@types/node": "18.13.0",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.10",
     "@types/uuid": "^9.0.0",
+    "@vitejs/plugin-react": "^4.2.1",
     "autoprefixer": "^10.4.13",
     "gh-pages": "^5.0.0",
     "lodash": "^4.17.21",
@@ -36,7 +30,8 @@
     "serve": "^14.2.0",
     "tippy.js": "^6.3.7",
     "typescript": "4.9.5",
-    "uuid": "^9.0.0"
+    "uuid": "^9.0.0",
+    "vite": "^5.1.0"
   },
   "engines": {
     "pnpm": ">=10.15.1"
