@@ -39,7 +39,7 @@ export const SkillsGraph = ({ tags }: SkillsGraphProps) => {
             style={{ width: `${percentageWidth}%` }}
           >
             <span
-              className="text-lg md:text-xl leading-7 md:leading-8 pr-1"
+              className="font-capture-it text-lg md:text-xl leading-7 md:leading-8 pr-1"
             >
               {t.name}
             </span>

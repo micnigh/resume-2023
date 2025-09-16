@@ -28,7 +28,7 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) =
         <meta httpEquiv="Permissions-Policy" content="interest-cohort=()" />
       </Head>
       <main
-        className="max-w-2xl mx-auto p-3 pt-4 space-y-5 print:p-4"
+        className="max-w-4xl mx-auto p-4 pt-8 space-y-5 print:p-4"
       >
         <Header />
         <Summary />

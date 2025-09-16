@@ -10,6 +10,18 @@
 }
 
 @layer base {
+  body, * {
+    font-family: var(--font-special);
+  }
+
+  .font-capture-it {
+    font-family: var(--font-capture-it);
+  }
+
+  .font-special-elite {
+    font-family: var(--font-special);
+  }
+  
   h1, h2, h3, h4, h5, h6 {
     margin-top: 0;
     margin-bottom: 0;
