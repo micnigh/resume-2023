@@ -1,0 +1,3 @@
+import{b as i,a as d,h as e}from"./index-DtMdzh94.js";let n="android app",t="2015-04",a="2015-05",o=e.duration(e.utc(a).endOf("month").diff(e.utc(t))).toJSON(),r=`
+Built networked application in a small team for a class.  The application needed to synchronize data between clients.  Credentials were validated via Google oAuth tokens and data was synced via an API server built in NodeJS express and socket.io .
+`,l=d(o,["NodeJS","Digital Ocean","Git","Docker","Android","socket.io","Java"]),s=["NodeJS","Docker","Java","Android"],c,u=i({title:n,start:t,end:a,duration:o,icons:s,tags:l,summaryMarkdown:r,portfolio:c});export{u as default,o as duration,a as end,s as icons,c as portfolio,u as project,t as start,r as summaryMarkdown,l as tags,n as title};

@@ -1,0 +1,3 @@
+import{b as a,a as s,h as e}from"./index-DtMdzh94.js";let i="Docker migration",t="2014-07",o="2014-08",r=e.duration(e.utc(o).endOf("month").diff(e.utc(t))).toJSON(),l=`
+Applied Docker to new and current web projects.  Moved away from shell and ruby scripts to Dockerfiles with simple build scripts.  Over time learned and applied best practices - based on docker usage in small and big companies.
+`,d=s(r,["NodeJS","Docker","Wordpress","Grunt","Gulp","Git","HTML","CSS"]),c=[],n,u=a({title:i,start:t,end:o,duration:r,icons:c,tags:d,summaryMarkdown:l,portfolio:n});export{u as default,r as duration,o as end,c as icons,n as portfolio,u as project,t as start,l as summaryMarkdown,d as tags,i as title};

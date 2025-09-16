@@ -1,0 +1,3 @@
+import{b as s,a as r,h as t}from"./index-DtMdzh94.js";let l="mnigh.com",e="2014-11",o="2014-11",a=t.duration(t.utc(o).endOf("month").diff(t.utc(e))).toJSON(),n=`
+Created blog to increase my online presence and demonstrate technical knowledge in an informal way.  Built with NodeJs stack using custom Gulp tasks.
+`,i=r(a,["NodeJS","Bootstrap","Gulp","Bower","Git","Sass","Coffeescript","HTML","CSS"]),c=["Gulp","NodeJS","Bower"],d,m=s({title:l,start:e,end:o,duration:a,icons:c,tags:i,summaryMarkdown:n,portfolio:d});export{m as default,a as duration,o as end,c as icons,d as portfolio,m as project,e as start,n as summaryMarkdown,i as tags,l as title};

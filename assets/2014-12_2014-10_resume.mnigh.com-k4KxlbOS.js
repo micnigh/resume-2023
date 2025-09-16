@@ -1,0 +1,3 @@
+import{b as s,a,h as e}from"./index-DtMdzh94.js";let i="resume.mnigh.com",t="2014-11",o="2014-12",r=e.duration(e.utc(o).endOf("month").diff(e.utc(t))).toJSON(),n=`
+Rebuilt resume with NodeJs stack from custom Gulp tasks.  Snapshots of previous projects ported into Docker containers and run on a single VPS behind an Nginx proxy.
+`,l=a(r,["NodeJS","Gulp","Bower","Digital Ocean","Git","Docker","Sass","Compass","Coffeescript","JQuery","HTML","CSS"]),c=["Gulp","NodeJS","Bower","Docker"],u,p=s({title:i,start:t,end:o,duration:r,icons:c,tags:l,summaryMarkdown:n,portfolio:u});export{p as default,r as duration,o as end,c as icons,u as portfolio,p as project,t as start,n as summaryMarkdown,l as tags,i as title};
