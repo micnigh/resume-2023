@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import denormalizeExperience from './lib/data/normalizr/denormalizr/experience'
 import { getExperiences } from './lib/data'
 
@@ -7,6 +7,7 @@ import { Summary } from './components/Summary'
 import { Skills } from './components/Skills'
 import { Experience } from './components/Experience'
 import { Education } from './components/Education'
+import { generateTooltips } from './lib/util/tooltip'
 
 // Load data directly at module level
 let data: any = null
@@ -30,6 +31,10 @@ const App: React.FC = () => {
   if (!data) {
     return <div>Loading...</div>
   }
+
+  useEffect(() => {
+    generateTooltips()
+  }, [])
 
   const { entities, result } = data
   const experiences = result.map(k => denormalizeExperience(k, entities))
