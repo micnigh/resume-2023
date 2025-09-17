@@ -2,8 +2,6 @@ import moment from 'moment';
 import { NormalizedProject } from '../../index.types';
 import { createProject, createTags } from '../../';
 
-import { tags as parentTags } from '../';
-
 export let title = `Forecast Tool`;
 
 export let start = `2018-03`;
@@ -22,22 +20,6 @@ Deployments using the [twelve-factor](http://12factor.net/) approach on [google 
 
 `;
 
-export let tags = parentTags.concat(createTags(duration, [
-  `Typescript`,
-  `NodeJS`,
-  `Webpack`,
-  `Git`,
-  `Docker`,
-  `Sass`,
-  `React`,
-  `Redux`,
-  `HTML`,
-  `CSS`,
-  `PostgreSQL`,
-  `GraphQL`,
-  `ExpressJS`,
-]));
-
 export let icons = [
   `Webpack`,
   `NodeJS`,
@@ -53,7 +35,21 @@ export let project: NormalizedProject = createProject({
   end,
   duration,
   icons,
-  tags,
+  tags: createTags(duration, [
+  `Typescript`,
+  `NodeJS`,
+  `Webpack`,
+  `Git`,
+  `Docker`,
+  `Sass`,
+  `React`,
+  `Redux`,
+  `HTML`,
+  `CSS`,
+  `PostgreSQL`,
+  `GraphQL`,
+  `ExpressJS`,
+]),
   summaryMarkdown,
   portfolio,
 });

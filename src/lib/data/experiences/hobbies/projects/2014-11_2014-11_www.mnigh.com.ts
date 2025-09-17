@@ -12,18 +12,6 @@ export let summaryMarkdown = `
 Created blog to increase my online presence and demonstrate technical knowledge in an informal way.  Built with NodeJs stack using custom Gulp tasks.
 `;
 
-export let tags = createTags(duration, [
-  `NodeJS`,
-  `Bootstrap`,
-  `Gulp`,
-  `Bower`,
-  `Git`,
-  `Sass`,
-  `Coffeescript`,
-  `HTML`,
-  `CSS`,
-]);
-
 export let icons = [
   `Gulp`,
   `NodeJS`,
@@ -38,7 +26,17 @@ export let project: NormalizedProject = createProject({
   end,
   duration,
   icons,
-  tags,
+  tags: createTags(duration, [
+  `NodeJS`,
+  `Bootstrap`,
+  `Gulp`,
+  `Bower`,
+  `Git`,
+  `Sass`,
+  `Coffeescript`,
+  `HTML`,
+  `CSS`,
+]),
   summaryMarkdown,
   portfolio,
 });

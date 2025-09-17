@@ -12,19 +12,6 @@ export let summaryMarkdown = `
 Expanded on GWT experience to design small business site with a very simple clean look.  Features include Twitter integration and AWS hosting.
 `;
 
-export let tags = createTags(duration, [
-  `GWT`,
-  `Twitter JS API`,
-  `Rackspace Cloud`,
-  `LAMP`,
-  `AWS EC2`,
-  `AWS S3`,
-  `AWS CloudFront`,
-  `HTML`,
-  `CSS`,
-  `Java`,
-]);
-
 export let icons = [
   `Java`,
 ];
@@ -35,7 +22,18 @@ export let project: NormalizedProject = createProject({
   end,
   duration,
   icons,
-  tags,
+  tags: createTags(duration, [
+  `GWT`,
+  `Twitter JS API`,
+  `Rackspace Cloud`,
+  `LAMP`,
+  `AWS EC2`,
+  `AWS S3`,
+  `AWS CloudFront`,
+  `HTML`,
+  `CSS`,
+  `Java`,
+]),
   summaryMarkdown,
 });
 

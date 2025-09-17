@@ -2,8 +2,6 @@ import moment from 'moment';
 import { NormalizedProject } from '../../index.types';
 import { createProject, createTags } from '../../';
 
-import { tags as parentTags } from '../';
-
 export let title = `Homer Fund`;
 
 export let start = `2018-02`;
@@ -18,12 +16,6 @@ Also created a small support service in Spring Boot to consume APIs otherwise in
 
 `;
 
-export let tags = parentTags.concat(createTags(duration, [
-  `Python`,
-  `Flask`,
-  `Java`,
-]));
-
 export let icons = [
   `Python`,
   `Java`,
@@ -37,7 +29,11 @@ export let project: NormalizedProject = createProject({
   end,
   duration,
   icons,
-  tags,
+  tags: createTags(duration, [
+  `Python`,
+  `Flask`,
+  `Java`,
+]),
   summaryMarkdown,
   portfolio,
 });

@@ -1,8 +1,6 @@
 import moment from 'moment';
 import { NormalizedProject } from '../../index.types';
-import { createProject, createTags } from '../..';
-
-import { tags as parentTags } from '..';
+import { createProject, createTags } from '../../utils';
 
 export let title = `Pathfinder 2`;
 
@@ -15,21 +13,6 @@ export let summaryMarkdown = `
 Rewrite to reduce technical debt of pathfinder
 
 `;
-
-export let tags = parentTags.concat(createTags(duration, [
-  `Typescript`,
-  `NodeJS`,
-  `Webpack`,
-  `Git`,
-  `Sass`,
-  `React`,
-  `Redux`,
-  `HTML`,
-  `CSS`,
-  `Koa`,
-  `Docker`,
-  `GraphQL`,
-]));
 
 export let icons = [
   `Webpack`,
@@ -46,7 +29,20 @@ export let project: NormalizedProject = createProject({
   end,
   duration,
   icons,
-  tags,
+  tags: createTags(duration, [
+  `Typescript`,
+  `NodeJS`,
+  `Webpack`,
+  `Git`,
+  `Sass`,
+  `React`,
+  `Redux`,
+  `HTML`,
+  `CSS`,
+  `Koa`,
+  `Docker`,
+  `GraphQL`,
+]),
   summaryMarkdown,
   portfolio,
 });

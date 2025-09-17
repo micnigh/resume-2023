@@ -2,8 +2,6 @@ import moment from 'moment';
 import { NormalizedProject } from '../../index.types';
 import { createProject, createTags } from '../../';
 
-import { tags as parentTags } from '../';
-
 export let title = `Article Render Squad`;
 
 export let start = `2018-10`;
@@ -25,19 +23,6 @@ Develop strategies to implement NextGen THD features.
 
 `;
 
-export let tags = parentTags.concat(createTags(duration, [
-  `Typescript`,
-  `NodeJS`,
-  `Webpack`,
-  `Git`,
-  `Docker`,
-  `Sass`,
-  `JQuery`,
-  `HTML`,
-  `CSS`,
-  `ExpressJS`,
-]));
-
 export let icons = [
   `Webpack`,
   `NodeJS`,
@@ -52,7 +37,18 @@ export let project: NormalizedProject = createProject({
   end,
   duration,
   icons,
-  tags,
+  tags: createTags(duration, [
+  `Typescript`,
+  `NodeJS`,
+  `Webpack`,
+  `Git`,
+  `Docker`,
+  `Sass`,
+  `JQuery`,
+  `HTML`,
+  `CSS`,
+  `ExpressJS`,
+]),
   summaryMarkdown,
   portfolio,
 });

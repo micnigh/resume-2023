@@ -12,7 +12,19 @@ export let summaryMarkdown = `
 Created web resume using Rails.  Featured custom fonts, mediaquery breakpoints, and a searchable PDF when printed from chrome.
 `;
 
-export let tags = createTags(duration, [
+export let icons = [
+  `Rails`,
+];
+
+export let portfolio = undefined;
+
+export let project: NormalizedProject = createProject({
+  title,
+  start,
+  end,
+  duration,
+  icons,
+  tags: createTags(duration, [
   `Rails`,
   `Unicorn`,
   `AWS EC2`,
@@ -45,21 +57,7 @@ export let tags = createTags(duration, [
   `qTipV2`,
   `HTML`,
   `CSS`,
-]);
-
-export let icons = [
-  `Rails`,
-];
-
-export let portfolio = undefined;
-
-export let project: NormalizedProject = createProject({
-  title,
-  start,
-  end,
-  duration,
-  icons,
-  tags,
+]),
   summaryMarkdown,
   portfolio,
 });

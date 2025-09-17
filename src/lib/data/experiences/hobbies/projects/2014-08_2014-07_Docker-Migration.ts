@@ -12,17 +12,6 @@ export let summaryMarkdown = `
 Applied Docker to new and current web projects.  Moved away from shell and ruby scripts to Dockerfiles with simple build scripts.  Over time learned and applied best practices - based on docker usage in small and big companies.
 `;
 
-export let tags = createTags(duration, [
-  `NodeJS`,
-  `Docker`,
-  `Wordpress`,
-  `Grunt`,
-  `Gulp`,
-  `Git`,
-  `HTML`,
-  `CSS`,
-]);
-
 export let icons = [
 
 ];
@@ -35,7 +24,16 @@ export let project: NormalizedProject = createProject({
   end,
   duration,
   icons,
-  tags,
+  tags: createTags(duration, [
+  `NodeJS`,
+  `Docker`,
+  `Wordpress`,
+  `Grunt`,
+  `Gulp`,
+  `Git`,
+  `HTML`,
+  `CSS`,
+]),
   summaryMarkdown,
   portfolio,
 });

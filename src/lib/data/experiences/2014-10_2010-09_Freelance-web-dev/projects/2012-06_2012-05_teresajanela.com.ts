@@ -12,7 +12,18 @@ export let summaryMarkdown = `
 Created simple Rails website, later porting to WordPress as a CMS.  Evaluated numerous deployment options, including Heroku, DotCloud, and AWS - eventually deployed to AWS using EC2, S3, and CloudFront.
 `;
 
-export let tags = createTags(duration, [
+export let icons = [
+  `Rails`,
+  `Wordpress`,
+];
+
+export let project: NormalizedProject = createProject({
+  title,
+  start,
+  end,
+  duration,
+  icons,
+  tags: createTags(duration, [
   `Rails`,
   `Wordpress`,
   `Unicorn`,
@@ -45,20 +56,7 @@ export let tags = createTags(duration, [
   `jQuery-cssHooks`,
   `HTML`,
   `CSS`,
-]);
-
-export let icons = [
-  `Rails`,
-  `Wordpress`,
-];
-
-export let project: NormalizedProject = createProject({
-  title,
-  start,
-  end,
-  duration,
-  icons,
-  tags,
+]),
   summaryMarkdown,
 });
 

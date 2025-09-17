@@ -1,112 +1,50 @@
-import { NormalizedExperience, NormalizedProject, Tag } from './index.types';
-import { merge } from 'lodash';
-import moment from 'moment';
-import * as uuid from 'uuid';
+import { NormalizedExperience } from './index.types';
+import { createExperience, createTags, projectsById, tags } from './utils';
 
-import { marked } from 'marked'
-const renderer = new marked.Renderer();
+// Experience imports
+import * as macmillanExperience from './2019-04_Sr-Web-Developer-MacMillan/';
+import * as homeDepotExperience from './2018-02_Sr-Web-Developer-Home-Depot/';
+import * as gditExperience from './2016-02_Sr-Web-Developer-GDIT/';
+import * as freelanceExperience from './2014-10_2010-09_Freelance-web-dev/';
+import * as sutisoftExperience from './2012-08_2012-04_Technical-Lead_Sutisoft/';
+import * as xtracoolExperience from './2012-03_2011-12_Mobile-Game-Dev_Xtracool/';
+import * as duovuExperience from './2007-01_2005-01_duovu.com_Duovu-Inc/';
+import * as hobbiesExperience from './hobbies/';
 
-renderer.link = ( href, title, text ) => {
-  return `<a target='_blank' class='font-bold' href='${ href }' title='${title || ''}' >${ text }</a>`;
-};
-
-let formatTime = (time: string) => {
-  return time === `` ? time : moment.utc(time).format();
-};
-
-export let createExperience = (options: NormalizedExperience): NormalizedExperience => {
-  let experience = merge(
-    {
-      id: uuid.v4(),
-    }, 
-    options,
-    {
-      start: formatTime(options.start),
-      end: formatTime(options.end),
-      summaryHtml: marked(options.summaryMarkdown, { renderer }),
-    }
-  );
-  if (typeof experience.portfolio !== 'undefined') {
-    experience.portfolio = merge(
-      { hoverTitle: `View snapshot of ${experience.title}` },
-      experience.portfolio
-    );
-  }
-  return experience;
-};
-
-let projectsById: { [guid: string]: NormalizedProject; } = {};
-export let createProject = (options: NormalizedProject): NormalizedProject => {
-  let project = merge(
-    { id: uuid.v4() },
-    options,
-    {
-      start: formatTime(options.start),
-      end: formatTime(options.end),
-      summaryHtml: marked(options.summaryMarkdown, { renderer }),
-    }
-  );
-  projectsById[project.id] = project;
-  if (typeof project.portfolio !== 'undefined') {
-    project.portfolio = merge(
-      { hoverTitle: `View snapshot of ${project.title}` },
-      project.portfolio
-    );
-  }
-  return project;
-};
-
-let tagCacheByName = {};
-export let tags: { [guid: string]: Tag; } = {};
-export let createTags = (duration: string, newTags: string[]): string[] => {
-  return newTags.map(t => {
-    let tag = tagCacheByName[t] as Tag;
-    if (typeof tag !== 'undefined') {
-      tag = merge(tag, {
-        duration: moment.duration(tag.duration).add(moment.duration(duration)).toJSON(),
-      });
-      return tag;
-    } else {
-      return createTag({ name: t, duration });
-    }
-  }).map(t => t.id) as string[];
-};
-let createTag = (options: Tag): Tag => {
-  let tag = merge(
-    { id: uuid.v4() }, 
-    options,
-  );
-  tagCacheByName[options.name] = tag;
-  tags[tag.id] = tag;
-  return tag;
-};
+// Re-export utilities for backward compatibility
+export { createExperience, createTags, createProject, tags } from './utils';
 
 export const getExperiences = async () => {
-  let experiencesAsArray: NormalizedExperience[] = [
-    await (await import('./2019-04_Sr-Web-Developer-MacMillan/')).getExperience(),
-    await (await import('./2018-02_Sr-Web-Developer-Home-Depot/')).getExperience(),
-    await (await import('./2016-02_Sr-Web-Developer-GDIT/')).getExperience(),
-    await (await import('./2014-10_2010-09_Freelance-web-dev/')).getExperience(),
-    await (await import('./2012-08_2012-04_Technical-Lead_Sutisoft/')).getExperience(),
-    await (await import('./2012-03_2011-12_Mobile-Game-Dev_Xtracool/')).getExperience(),
-    await (await import('./2007-01_2005-01_duovu.com_Duovu-Inc/')).getExperience(),
-    await (await import('./hobbies/')).getExperience(),
+  // Get the normalized data
+  let normalizedExperiences: NormalizedExperience[] = [
+    await macmillanExperience.getExperience(),
+    await homeDepotExperience.getExperience(),
+    await gditExperience.getExperience(),
+    await freelanceExperience.getExperience(),
+    await sutisoftExperience.getExperience(),
+    await xtracoolExperience.getExperience(),
+    await duovuExperience.getExperience(),
+    await hobbiesExperience.getExperience(),
   ];
 
-  let experiencesById: { [guid: string]: NormalizedExperience; } = {};
-  experiencesAsArray.forEach(e => experiencesById[e.id as string] = e);
-
+  // Create a proper entities structure manually since we already have normalized data
   const entities = {
-    experiences: experiencesById,
+    experiences: {},
     projects: projectsById,
     tags,
-  }
+  };
 
-  // const denormalizedExperiences = Object.keys(entities.experiences).map(k => denormalizeExperience(k, entities));
+  // Populate experiences
+  normalizedExperiences.forEach(exp => {
+    entities.experiences[exp.id] = exp;
+  });
+
+  // Create result array with experience IDs
+  const result = normalizedExperiences.map(exp => exp.id);
   
   return {
-    // experiences: denormalizedExperiences,
     entities,
+    result,
   }
 }
 

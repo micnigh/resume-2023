@@ -1,8 +1,6 @@
 import moment from 'moment';
 import { NormalizedProject } from '../../index.types';
-import { createProject, createTags } from '../..';
-
-import { tags as parentTags } from '..';
+import { createProject, createTags } from '../../utils';
 
 export let title = `Reading`;
 
@@ -14,20 +12,6 @@ export let duration = moment.duration(moment.utc().diff(moment.utc(start))).toJS
 export let summaryMarkdown = `
 Ebook reader and note taking tool
 `;
-
-export let tags = parentTags.concat(createTags(duration, [
-  `NodeJS`,
-  `Webpack`,
-  `Git`,
-  `Sass`,
-  `React`,
-  `Redux`,
-  `HTML`,
-  `CSS`,
-  `Koa`,
-  `Docker`,
-  `GraphQL`,
-]));
 
 export let icons = [
   `Webpack`,
@@ -44,7 +28,19 @@ export let project: NormalizedProject = createProject({
   end,
   duration,
   icons,
-  tags,
+  tags: createTags(duration, [
+    `NodeJS`,
+    `Webpack`,
+    `Git`,
+    `Sass`,
+    `React`,
+    `Redux`,
+    `HTML`,
+    `CSS`,
+    `Koa`,
+    `Docker`,
+    `GraphQL`,
+  ]),
   summaryMarkdown,
   portfolio,
 });

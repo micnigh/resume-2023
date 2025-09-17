@@ -14,18 +14,6 @@ Created Coffeescript based single page app generator.  Solved SEO by rendering f
 Interesting features include an AATree (heavily stress and performance tested), priority based image download queue, and a package system similar to AMD for modular code and easy mocking.
 `;
 
-export let tags = createTags(duration, [
-  `NodeJS`,
-  `Coffeescript`,
-  `CoffeeKup`,
-  `Jasmine`,
-  `SEO`,
-  `BDD`,
-  `TDD`,
-  `HTML`,
-  `CSS`,
-]);
-
 export let icons = [
   `NodeJS`,
 ];
@@ -38,7 +26,17 @@ export let project: NormalizedProject = createProject({
   end,
   duration,
   icons,
-  tags,
+  tags: createTags(duration, [
+  `NodeJS`,
+  `Coffeescript`,
+  `CoffeeKup`,
+  `Jasmine`,
+  `SEO`,
+  `BDD`,
+  `TDD`,
+  `HTML`,
+  `CSS`,
+]),
   summaryMarkdown,
   portfolio,
 });

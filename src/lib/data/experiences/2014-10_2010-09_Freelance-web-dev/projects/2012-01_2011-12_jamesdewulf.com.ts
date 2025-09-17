@@ -12,7 +12,17 @@ export let summaryMarkdown = `
 Rebuilt site as an SPA to be much faster and added new features.  Features include jqZoom for product photos, fancybox display of press magazine articles, and videos of products.  Built with web app generator I began a few months prior.
 `;
 
-export let tags = createTags(duration, [
+export let icons = [
+  `NodeJS`,
+];
+
+export let project: NormalizedProject = createProject({
+  title,
+  start,
+  end,
+  duration,
+  icons,
+  tags: createTags(duration, [
   `NodeJS`,
   `Coffeescript`,
   `CoffeeKup`,
@@ -27,19 +37,7 @@ export let tags = createTags(duration, [
   `Flowplayer`,
   `HTML`,
   `CSS`,
-]);
-
-export let icons = [
-  `NodeJS`,
-];
-
-export let project: NormalizedProject = createProject({
-  title,
-  start,
-  end,
-  duration,
-  icons,
-  tags,
+]),
   summaryMarkdown,
 });
 

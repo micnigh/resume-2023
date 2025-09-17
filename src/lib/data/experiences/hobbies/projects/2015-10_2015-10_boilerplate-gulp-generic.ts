@@ -12,15 +12,6 @@ export let summaryMarkdown = `
 Boilerplate ES6 project using Gulp tasks and Babel.
 `;
 
-export let tags = createTags(duration, [
-  `NodeJS`,
-  `Gulp`,
-  `Git`,
-  `Sass`,
-  `HTML`,
-  `CSS`,
-]);
-
 export let icons = [
   `Gulp`,
   `NodeJS`,
@@ -37,7 +28,14 @@ export let project: NormalizedProject = createProject({
   end,
   duration,
   icons,
-  tags,
+  tags: createTags(duration, [
+  `NodeJS`,
+  `Gulp`,
+  `Git`,
+  `Sass`,
+  `HTML`,
+  `CSS`,
+]),
   summaryMarkdown,
   portfolio,
 });

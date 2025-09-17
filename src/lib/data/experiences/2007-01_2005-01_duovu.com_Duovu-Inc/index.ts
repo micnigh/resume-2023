@@ -1,7 +1,7 @@
 import moment from 'moment';
 
 import { NormalizedExperience } from '../index.types';
-import { createExperience, createTags } from '../';
+import { createExperience, createTags } from '../utils';
 
 export let title = `Web Developer - Duovu Inc`;
 

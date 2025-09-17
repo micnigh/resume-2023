@@ -1,8 +1,6 @@
 import moment from 'moment';
 import { NormalizedProject } from '../../index.types';
-import { createProject, createTags } from '../..';
-
-import { tags as parentTags } from '..';
+import { createProject, createTags } from '../../utils';
 
 export let title = `Learning Curve`;
 
@@ -14,20 +12,6 @@ export let summaryMarkdown = `
 Learn topics by answering questions until a target score is reached
 
 `;
-
-export let tags = parentTags.concat(createTags(duration, [
-  `NodeJS`,
-  `Webpack`,
-  `Git`,
-  `Sass`,
-  `React`,
-  `Redux`,
-  `HTML`,
-  `CSS`,
-  `Koa`,
-  `Docker`,
-  `PHP`,
-]));
 
 export let icons = [
   `PHP`,
@@ -45,7 +29,19 @@ export let project: NormalizedProject = createProject({
   end,
   duration,
   icons,
-  tags,
+  tags: createTags(duration, [
+    `NodeJS`,
+    `Webpack`,
+    `Git`,
+    `Sass`,
+    `React`,
+    `Redux`,
+    `HTML`,
+    `CSS`,
+    `Koa`,
+    `Docker`,
+    `PHP`,
+  ]),
   summaryMarkdown,
   portfolio,
 });

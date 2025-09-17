@@ -12,21 +12,6 @@ export let summaryMarkdown = `
 Rebuilt resume with NodeJs stack from custom Gulp tasks.  Snapshots of previous projects ported into Docker containers and run on a single VPS behind an Nginx proxy.
 `;
 
-export let tags = createTags(duration, [
-  `NodeJS`,
-  `Gulp`,
-  `Bower`,
-  `Digital Ocean`,
-  `Git`,
-  `Docker`,
-  `Sass`,
-  `Compass`,
-  `Coffeescript`,
-  `JQuery`,
-  `HTML`,
-  `CSS`,
-]);
-
 export let icons = [
   `Gulp`,
   `NodeJS`,
@@ -42,7 +27,20 @@ export let project: NormalizedProject = createProject({
   end,
   duration,
   icons,
-  tags,
+  tags: createTags(duration, [
+  `NodeJS`,
+  `Gulp`,
+  `Bower`,
+  `Digital Ocean`,
+  `Git`,
+  `Docker`,
+  `Sass`,
+  `Compass`,
+  `Coffeescript`,
+  `JQuery`,
+  `HTML`,
+  `CSS`,
+]),
   summaryMarkdown,
   portfolio,
 });

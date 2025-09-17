@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import denormalizeExperience from './lib/data/normalizr/denormalizr/experience'
 import { getExperiences } from './lib/data'
 
@@ -8,36 +8,32 @@ import { Skills } from './components/Skills'
 import { Experience } from './components/Experience'
 import { Education } from './components/Education'
 
+// Load data directly at module level
+let data: any = null
+let loadError: Error | null = null
+
+// Initialize data synchronously
+getExperiences()
+  .then(experiences => {
+    data = experiences
+  })
+  .catch(error => {
+    loadError = error
+    console.error('Failed to load data:', error)
+  })
+
 const App: React.FC = () => {
-  const [data, setData] = useState<any>(null)
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    const loadData = async () => {
-      try {
-        const experiences = await getExperiences()
-        setData(experiences)
-      } catch (error) {
-        console.error('Failed to load data:', error)
-      } finally {
-        setLoading(false)
-      }
-    }
-    
-    loadData()
-  }, [])
-
-  if (loading) {
-    return <div>Loading...</div>
-  }
-
-  if (!data) {
+  if (loadError) {
     return <div>Failed to load data</div>
   }
 
-  const { entities } = data
-  const experiences = Object.keys(entities.experiences).map(k => denormalizeExperience(k, entities))
-  const tags = Object.keys(entities.tags).map(id => entities.tags[id])
+  if (!data) {
+    return <div>Loading...</div>
+  }
+
+  const { entities, result } = data
+  const experiences = result.map(k => denormalizeExperience(k, entities))
+  const tags = entities.tags ? Object.keys(entities.tags).map(id => entities.tags[id]) : []
 
   return (
     <div className="font-special">

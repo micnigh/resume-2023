@@ -2,8 +2,6 @@ import moment from 'moment';
 import { NormalizedProject } from '../../index.types';
 import { createProject, createTags } from '../../';
 
-import { tags as parentTags } from '../';
-
 export let title = `Account Creation`;
 
 export let start = `2018-09`;
@@ -14,19 +12,6 @@ export let duration = moment.duration(moment.utc().diff(moment.utc(start))).toJS
 export let summaryMarkdown = `
 Rapidly created a React/Redux SPA to integrate with simple API.
 `;
-
-export let tags = parentTags.concat(createTags(duration, [
-  `Typescript`,
-  `NodeJS`,
-  `Webpack`,
-  `Git`,
-  `Sass`,
-  `React`,
-  `Redux`,
-  `HTML`,
-  `CSS`,
-  `ExpressJS`,
-]));
 
 export let icons = [
   `Webpack`,
@@ -42,7 +27,18 @@ export let project: NormalizedProject = createProject({
   end,
   duration,
   icons,
-  tags,
+  tags: createTags(duration, [
+  `Typescript`,
+  `NodeJS`,
+  `Webpack`,
+  `Git`,
+  `Sass`,
+  `React`,
+  `Redux`,
+  `HTML`,
+  `CSS`,
+  `ExpressJS`,
+]),
   summaryMarkdown,
   portfolio,
 });

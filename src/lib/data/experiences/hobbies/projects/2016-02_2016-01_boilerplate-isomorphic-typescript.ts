@@ -16,18 +16,6 @@ Experimented with various build systems such as JSPM, Webpack, and Gulp, then co
 `;
 // tslint:enable
 
-export let tags = createTags(duration, [
-  `NodeJS`,
-  `Gulp`,
-  `Git`,
-  `Sass`,
-  `HTML`,
-  `CSS`,
-  `React`,
-  `Redux`,
-  `Typescript`,
-]);
-
 export let icons = [
   `Gulp`,
   `NodeJS`,
@@ -45,7 +33,17 @@ export let project: NormalizedProject = createProject({
   end,
   duration,
   icons,
-  tags,
+  tags: createTags(duration, [
+  `NodeJS`,
+  `Gulp`,
+  `Git`,
+  `Sass`,
+  `HTML`,
+  `CSS`,
+  `React`,
+  `Redux`,
+  `Typescript`,
+]),
   summaryMarkdown,
   portfolio,
 });

@@ -12,7 +12,18 @@ export let summaryMarkdown = `
 Constructed WordPress backed website using custom deployment tools I built earlier with Sprinkle (similar to Chef).  Worked with client and SEO specialist for design and content.  Used Rails with LiveReload to generate SASS and Coffeescript of WordPress theme.
 `;
 
-export let tags = createTags(duration, [
+export let icons = [
+  `Rails`,
+  `Wordpress`,
+];
+
+export let project: NormalizedProject = createProject({
+  title,
+  start,
+  end,
+  duration,
+  icons,
+  tags: createTags(duration, [
   `Rails`,
   `Wordpress`,
   `AWS EC2`,
@@ -33,20 +44,7 @@ export let tags = createTags(duration, [
   `Sprinkle`,
   `HTML`,
   `CSS`,
-]);
-
-export let icons = [
-  `Rails`,
-  `Wordpress`,
-];
-
-export let project: NormalizedProject = createProject({
-  title,
-  start,
-  end,
-  duration,
-  icons,
-  tags,
+]),
   summaryMarkdown,
 });
 

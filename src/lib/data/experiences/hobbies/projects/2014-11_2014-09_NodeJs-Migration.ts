@@ -12,19 +12,6 @@ export let summaryMarkdown = `
 Shifted from Rails to Nodejs to unify stack and take advantage of better build tools.  Created Gulp tasks for rapid generation of SPAs and websites.  Modularized tasks using NPM so that new projects can be bootstraped based on application type.  Features include ES6 transpiling, integration testing, Livereload, preprocesser support (SASS, Coffeescript, Jade), and optimized assets based on environment.
 `;
 
-export let tags = createTags(duration, [
-  `NodeJS`,
-  `Bootstrap`,
-  `Gulp`,
-  `Bower`,
-  `Ember`,
-  `Git`,
-  `Sass`,
-  `Coffeescript`,
-  `HTML`,
-  `CSS`,
-]);
-
 export let icons = [
   `Gulp`,
   `NodeJS`,
@@ -39,7 +26,18 @@ export let project: NormalizedProject = createProject({
   end,
   duration,
   icons,
-  tags,
+  tags: createTags(duration, [
+  `NodeJS`,
+  `Bootstrap`,
+  `Gulp`,
+  `Bower`,
+  `Ember`,
+  `Git`,
+  `Sass`,
+  `Coffeescript`,
+  `HTML`,
+  `CSS`,
+]),
   summaryMarkdown,
   portfolio,
 });

@@ -12,21 +12,6 @@ export let summaryMarkdown = `
 Updated, upgraded, and easier to maintain after working on various Docker and Gulp projects over the last year.
 `;
 
-export let tags = createTags(duration, [
-  `NodeJS`,
-  `Gulp`,
-  `Bower`,
-  `Digital Ocean`,
-  `Git`,
-  `Docker`,
-  `Sass`,
-  `Compass`,
-  `Coffeescript`,
-  `JQuery`,
-  `HTML`,
-  `CSS`,
-]);
-
 export let icons = [
   `Gulp`,
   `NodeJS`,
@@ -42,7 +27,20 @@ export let project: NormalizedProject = createProject({
   end,
   duration,
   icons,
-  tags,
+  tags: createTags(duration, [
+  `NodeJS`,
+  `Gulp`,
+  `Bower`,
+  `Digital Ocean`,
+  `Git`,
+  `Docker`,
+  `Sass`,
+  `Compass`,
+  `Coffeescript`,
+  `JQuery`,
+  `HTML`,
+  `CSS`,
+]),
   summaryMarkdown,
   portfolio,
 });

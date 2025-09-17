@@ -12,16 +12,6 @@ export let summaryMarkdown = `
 Built networked application in a small team for a class.  The application needed to synchronize data between clients.  Credentials were validated via Google oAuth tokens and data was synced via an API server built in NodeJS express and socket.io .
 `;
 
-export let tags = createTags(duration, [
-  `NodeJS`,
-  `Digital Ocean`,
-  `Git`,
-  `Docker`,
-  `Android`,
-  `socket.io`,
-  `Java`,
-]);
-
 export let icons = [
   `NodeJS`,
   `Docker`,
@@ -37,7 +27,15 @@ export let project: NormalizedProject = createProject({
   end,
   duration,
   icons,
-  tags,
+  tags: createTags(duration, [
+  `NodeJS`,
+  `Digital Ocean`,
+  `Git`,
+  `Docker`,
+  `Android`,
+  `socket.io`,
+  `Java`,
+]),
   summaryMarkdown,
   portfolio,
 });

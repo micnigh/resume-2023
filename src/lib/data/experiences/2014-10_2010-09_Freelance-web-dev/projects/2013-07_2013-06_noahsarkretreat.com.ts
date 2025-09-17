@@ -12,7 +12,18 @@ export let summaryMarkdown = `
 Recovered website from [WayBackMachine](https://archive.org/web/) and ported to Wordpress theme.  Extended original site and added features such as responsive image galleries.  Updated content and added new pages.  During development used Rails with LiveReload to generate Coffeescript and SASS of WordPress theme.
 `;
 
-export let tags = createTags(duration, [
+export let icons = [
+  `Rails`,
+  `Wordpress`,
+];
+
+export let project: NormalizedProject = createProject({
+  title,
+  start,
+  end,
+  duration,
+  icons,
+  tags: createTags(duration, [
   `Rails`,
   `Wordpress`,
   `Ramnode`,
@@ -31,20 +42,7 @@ export let tags = createTags(duration, [
   `Sprinkle`,
   `HTML`,
   `CSS`,
-]);
-
-export let icons = [
-  `Rails`,
-  `Wordpress`,
-];
-
-export let project: NormalizedProject = createProject({
-  title,
-  start,
-  end,
-  duration,
-  icons,
-  tags,
+]),
   summaryMarkdown,
 });
 

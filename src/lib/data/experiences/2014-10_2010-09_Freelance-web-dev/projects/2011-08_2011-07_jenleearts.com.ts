@@ -12,18 +12,6 @@ export let summaryMarkdown = `
 Extended parveztaj.com GWT template to another site.  Setup domain, hosting, and CDN.
 `;
 
-export let tags = createTags(duration, [
-  `GWT`,
-  `JQuery`,
-  `Typeface`,
-  `Java`,
-  `Javascript`,
-  `Rackspace CloudFiles`,
-  `Rackspace Cloud`,
-  `HTML`,
-  `CSS`,
-]);
-
 export let icons = [
   `Java`,
 ];
@@ -34,7 +22,17 @@ export let project: NormalizedProject = createProject({
   end,
   duration,
   icons,
-  tags,
+  tags: createTags(duration, [
+  `GWT`,
+  `JQuery`,
+  `Typeface`,
+  `Java`,
+  `Javascript`,
+  `Rackspace CloudFiles`,
+  `Rackspace Cloud`,
+  `HTML`,
+  `CSS`,
+]),
   summaryMarkdown,
 });
 

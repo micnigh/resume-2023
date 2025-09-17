@@ -38,7 +38,7 @@ export const Projects = ({ projects }: { projects: ProjectType[] }) => {
                     {p.icons.map((i, iIndex) => {
                       const t = p.tags.find((t) => t.name === i);
                       return (
-                        svgPaths[t.name] && (
+                        t && svgPaths[t.name] && (
                           <img
                             key={iIndex}
                             className="max-h-8"

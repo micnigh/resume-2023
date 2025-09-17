@@ -1,8 +1,13 @@
 import moment from 'moment';
 import { NormalizedExperience, NormalizedProject } from '../index.types';
-import { createExperience, createTags } from '../';
+import { createExperience, createTags } from '../utils';
 
 import * as _ from 'lodash';
+
+// Project imports
+import * as hurricaneDecisionSimulatorProject from './projects/hurricane-decision-simulator';
+import * as montereyPhoenixProject from './projects/monterey-phoenix';
+import * as postAssessProject from './projects/post-assess';
 
 export let title = `Senior Web Developer - NPS CED3 - GDIT`;
 
@@ -71,9 +76,9 @@ export let icons = [];
 
 export const getExperience = async () => {
   let projects = ([
-    (await import('./projects/hurricane-decision-simulator')).project,
-    (await import('./projects/monterey-phoenix')).project,
-    (await import('./projects/post-assess')).project,
+    hurricaneDecisionSimulatorProject.project,
+    montereyPhoenixProject.project,
+    postAssessProject.project,
   ] as NormalizedProject[]).map(p => p.id) as string[];
 
   let experience: NormalizedExperience = createExperience({

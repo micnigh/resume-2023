@@ -14,17 +14,6 @@ Created an isomorphic React blog.
 Bootstrapped from past boilerplate project, creates a static isomorphic website which can be hosted on github pages at no cost.
 `;
 
-export let tags = createTags(duration, [
-  `NodeJS`,
-  `Gulp`,
-  `Git`,
-  `Sass`,
-  `HTML`,
-  `CSS`,
-  `React`,
-  `jsonapi`,
-]);
-
 export let icons = [
   `Gulp`,
   `NodeJS`,
@@ -42,7 +31,16 @@ export let project: NormalizedProject = createProject({
   end,
   duration,
   icons,
-  tags,
+  tags: createTags(duration, [
+  `NodeJS`,
+  `Gulp`,
+  `Git`,
+  `Sass`,
+  `HTML`,
+  `CSS`,
+  `React`,
+  `jsonapi`,
+]),
   summaryMarkdown,
   portfolio,
 });

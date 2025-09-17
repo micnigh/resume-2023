@@ -12,7 +12,21 @@ export let summaryMarkdown = `
 Created LXC wrapper to handle project deployment.  Vagrant like commands added to shell by custom ZSH plugin.  Utilized btrfs for caching to minimize redeployment time.  Supported Wordpress deployment and theme generation.
 `;
 
-export let tags = createTags(duration, [
+export let icons = [
+  `Rails`,
+  `Wordpress`,
+  `Linux`,
+];
+
+export let portfolio = undefined;
+
+export let project: NormalizedProject = createProject({
+  title,
+  start,
+  end,
+  duration,
+  icons,
+  tags: createTags(duration, [
   `Rails`,
   `Wordpress`,
   `Bootstrap`,
@@ -35,23 +49,7 @@ export let tags = createTags(duration, [
   `Sprinkle`,
   `HTML`,
   `CSS`,
-]);
-
-export let icons = [
-  `Rails`,
-  `Wordpress`,
-  `Linux`,
-];
-
-export let portfolio = undefined;
-
-export let project: NormalizedProject = createProject({
-  title,
-  start,
-  end,
-  duration,
-  icons,
-  tags,
+]),
   summaryMarkdown,
   portfolio,
 });

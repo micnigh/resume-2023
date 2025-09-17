@@ -1,6 +1,12 @@
 import moment from 'moment';
 import { NormalizedExperience, NormalizedProject } from '../index.types';
-import { createExperience, createTags } from '../';
+import { createExperience, createTags } from '../utils';
+
+// Project imports
+import * as articleRenderProject from './projects/article-render';
+import * as accountCreationProject from './projects/account-creation';
+import * as forecastToolProject from './projects/forecast-tool';
+import * as homerFundProject from './projects/homer-fund';
 
 export let title = `Senior Web Developer - Home Depot`;
 
@@ -25,10 +31,10 @@ export let icons = [
 
 export const getExperience = async () => {
   let projects = ([
-    (await import('./projects/article-render')).project,
-    (await import('./projects/account-creation')).project,
-    (await import('./projects/forecast-tool')).project,
-    (await import('./projects/homer-fund')).project,
+    articleRenderProject.project,
+    accountCreationProject.project,
+    forecastToolProject.project,
+    homerFundProject.project,
   ] as NormalizedProject[]).map(p => p.id) as string[];
 
   let experience: NormalizedExperience = createExperience({

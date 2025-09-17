@@ -12,21 +12,6 @@ export let summaryMarkdown = `
 Development spike to experiment with Backbone after a few books and [backbonerails.com](http://backbonerails.com) screencast.  Built in NodeJs with seperate Grunt tasks for retrieving data, serving a REST API, and rendering.  Did not pursue due to high licensing cost of financial data.
 `;
 
-export let tags = createTags(duration, [
-  `NodeJS`,
-  `Bootstrap`,
-  `Grunt`,
-  `MongoDB`,
-  `Mongoose`,
-  `Git`,
-  `Backbone`,
-  `Marionette`,
-  `Sass`,
-  `Coffeescript`,
-  `HTML`,
-  `CSS`,
-]);
-
 export let icons = [
   `Grunt`,
   `NodeJS`,
@@ -42,7 +27,20 @@ export let project: NormalizedProject = createProject({
   end,
   duration,
   icons,
-  tags,
+  tags: createTags(duration, [
+  `NodeJS`,
+  `Bootstrap`,
+  `Grunt`,
+  `MongoDB`,
+  `Mongoose`,
+  `Git`,
+  `Backbone`,
+  `Marionette`,
+  `Sass`,
+  `Coffeescript`,
+  `HTML`,
+  `CSS`,
+]),
   summaryMarkdown,
   portfolio,
 });

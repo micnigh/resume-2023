@@ -38,7 +38,7 @@ export const Experience = ({ experiences }: { experiences: ExperienceType[] }) =
                   {e.icons.map((i, iIndex) => {
                     const t = e.tags.find((t) => t.name === i);
                     return (
-                      svgPaths[t.name] && (
+                      t && svgPaths[t.name] && (
                         <img
                           key={iIndex}
                           className="max-h-8"
