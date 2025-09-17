@@ -1,3 +1,0 @@
-import{b as i,a as n,h as t}from"./index-DtMdzh94.js";let r="digitalcandypr.com",e="2011-01",a="2011-02",o=t.duration(t.utc(a).endOf("month").diff(t.utc(e))).toJSON(),s=`
-Expanded on GWT experience to design small business site with a very simple clean look.  Features include Twitter integration and AWS hosting.
-`,l=n(o,["GWT","Twitter JS API","Rackspace Cloud","LAMP","AWS EC2","AWS S3","AWS CloudFront","HTML","CSS","Java"]),d=["Java"],u=i({title:r,start:e,end:a,duration:o,icons:d,tags:l,summaryMarkdown:s});export{u as default,o as duration,a as end,d as icons,u as project,e as start,s as summaryMarkdown,l as tags,r as title};

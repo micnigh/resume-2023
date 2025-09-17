@@ -1,3 +1,0 @@
-import{c as o,a,h as e}from"./index-DtMdzh94.js";let r="Mobile Game Dev - xtracool",t="2011-12",i="2012-03",n=e.duration(e.utc(i).endOf("month").diff(e.utc(t))).toJSON(),s=`
-Architected cross platform game engine for use with iOS and Android.  Built on the Moai SDK with game and game engine written in Moonscript and Lua.  Built against actively evolving SDKs.  Chipmunk used for physics and collision detection.
-`,c=a(n,["iOS","Apple","Android","Moai SDK","Moonscript","Lua","Chipmunk"]),l=["Apple"];const m=async()=>o({title:r,start:t,end:i,duration:n,icons:l,tags:c,projects:[],summaryMarkdown:s});export{m as default,n as duration,i as end,m as getExperience,l as icons,t as start,s as summaryMarkdown,c as tags,r as title};

@@ -1,7 +1,0 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/article-render-QHL9Lc9m.js","assets/index-DtMdzh94.js","assets/index-BXQimGPm.css","assets/account-creation-D9uY60J-.js","assets/forecast-tool-DYx3Uw2b.js","assets/homer-fund-B_TLzZpj.js"])))=>i.map(i=>d[i]);
-import{_ as e,c as i,a as c,h as o}from"./index-DtMdzh94.js";let p="Senior Web Developer - Home Depot",r="2018-02",s="2019-03",a=o.duration(o.utc().endOf("month").diff(o.utc(r))).toJSON(),_=`
-**Contracted through Visionaire**
-
-Develop internal applications and support homedepot.com content creation using a variety of modern and legacy tools for front and backend.
-
-`,d=c(a,[]),l=[];const E=async()=>{let n=[(await e(async()=>{const{project:t}=await import("./article-render-QHL9Lc9m.js");return{project:t}},__vite__mapDeps([0,1,2]))).project,(await e(async()=>{const{project:t}=await import("./account-creation-D9uY60J-.js");return{project:t}},__vite__mapDeps([3,1,2]))).project,(await e(async()=>{const{project:t}=await import("./forecast-tool-DYx3Uw2b.js");return{project:t}},__vite__mapDeps([4,1,2]))).project,(await e(async()=>{const{project:t}=await import("./homer-fund-B_TLzZpj.js");return{project:t}},__vite__mapDeps([5,1,2]))).project].map(t=>t.id);return i({title:p,start:r,end:s,duration:a,icons:l,tags:d,projects:n,summaryMarkdown:_})};export{E as default,a as duration,s as end,E as getExperience,l as icons,r as start,_ as summaryMarkdown,d as tags,p as title};

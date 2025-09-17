@@ -1,3 +1,0 @@
-import{b as o,h as t,a as r}from"./index-DtMdzh94.js";import{tags as s}from"./index-DVGArEru.js";let c="Pathfinder",e="2019-04",d="",a=t.duration(t.utc().diff(t.utc(e))).toJSON(),n=`
-Test student competency to generate studyplan on areas that need improvement
-`,i=s.concat(r(a,["Typescript","NodeJS","Webpack","Git","Sass","React","Redux","HTML","CSS","Koa","Docker","GraphQL","AWS"])),l=["Webpack","NodeJS","Docker","React"],p,f=o({title:c,start:e,end:d,duration:a,icons:l,tags:i,summaryMarkdown:n,portfolio:p});export{f as default,a as duration,d as end,l as icons,p as portfolio,f as project,e as start,n as summaryMarkdown,i as tags,c as title};

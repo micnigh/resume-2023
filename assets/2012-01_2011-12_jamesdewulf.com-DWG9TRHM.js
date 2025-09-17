@@ -1,3 +1,0 @@
-import{b as s,a as r,h as e}from"./index-DtMdzh94.js";let d="jamesdewulf.com",t="2011-12",a="2012-01",o=e.duration(e.utc(a).endOf("month").diff(e.utc(t))).toJSON(),l=`
-Rebuilt site as an SPA to be much faster and added new features.  Features include jqZoom for product photos, fancybox display of press magazine articles, and videos of products.  Built with web app generator I began a few months prior.
-`,c=r(o,["NodeJS","Coffeescript","CoffeeKup","Jasmine","SEO","BDD","TDD","Rackspace Cloud","Rackspace CloudFiles","fancyBox","jqZoom","Flowplayer","HTML","CSS"]),i=["NodeJS"],f=s({title:d,start:t,end:a,duration:o,icons:i,tags:c,summaryMarkdown:l});export{f as default,o as duration,a as end,i as icons,f as project,t as start,l as summaryMarkdown,c as tags,d as title};

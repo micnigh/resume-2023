@@ -1,3 +1,0 @@
-import{b as a,a as i,h as t}from"./index-DtMdzh94.js";let r="boilerplate gulp generic",e="2015-10",l="2015-10",o=t.duration(t.utc(l).endOf("month").diff(t.utc(e))).toJSON(),p=`
-Boilerplate ES6 project using Gulp tasks and Babel.
-`,s=i(o,["NodeJS","Gulp","Git","Sass","HTML","CSS"]),u=["Gulp","NodeJS"],c={link:"https://github.com/micnigh/boilerplate-gulp-generic/",hoverTitle:"View public git repo"},d=a({title:r,start:e,end:l,duration:o,icons:u,tags:s,summaryMarkdown:p,portfolio:c});export{d as default,o as duration,l as end,u as icons,c as portfolio,d as project,e as start,p as summaryMarkdown,s as tags,r as title};

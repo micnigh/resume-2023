@@ -1,3 +1,0 @@
-import{b as r,a as s,h as e}from"./index-DtMdzh94.js";let i="resume.mnigh.com",t="2015-07",o="2015-08",a=e.duration(e.utc(o).endOf("month").diff(e.utc(t))).toJSON(),l=`
-Updated, upgraded, and easier to maintain after working on various Docker and Gulp projects over the last year.
-`,d=s(a,["NodeJS","Gulp","Bower","Digital Ocean","Git","Docker","Sass","Compass","Coffeescript","JQuery","HTML","CSS"]),n=["Gulp","NodeJS","Bower","Docker"],c,p=r({title:i,start:t,end:o,duration:a,icons:n,tags:d,summaryMarkdown:l,portfolio:c});export{p as default,a as duration,o as end,n as icons,c as portfolio,p as project,t as start,l as summaryMarkdown,d as tags,i as title};

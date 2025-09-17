@@ -1,3 +1,0 @@
-import{b as o,h as t,a as r}from"./index-DtMdzh94.js";import{tags as s}from"./index-DM4lBgKe.js";let c="Account Creation",e="2018-09",i="2018-09",a=t.duration(t.utc().diff(t.utc(e))).toJSON(),l=`
-Rapidly created a React/Redux SPA to integrate with simple API.
-`,d=s.concat(r(a,["Typescript","NodeJS","Webpack","Git","Sass","React","Redux","HTML","CSS","ExpressJS"])),p=["Webpack","NodeJS","React"],n,m=o({title:c,start:e,end:i,duration:a,icons:p,tags:d,summaryMarkdown:l,portfolio:n});export{m as default,a as duration,i as end,p as icons,n as portfolio,m as project,e as start,l as summaryMarkdown,d as tags,c as title};

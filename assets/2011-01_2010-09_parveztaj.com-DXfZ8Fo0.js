@@ -1,5 +1,0 @@
-import{b as i,a as n,h as e}from"./index-DtMdzh94.js";let s="parveztaj.com",t="2010-09",a="2011-01",o=e.duration(e.utc(a).endOf("month").diff(e.utc(t))).toJSON(),c=`
-Constructed art gallery website using a variety of tools, including GWT, JQuery, and Typeface.  Emphasis on design, compatibility, and performance.  Expanded GWT to allow exact positioning, shadows, custom fonts, and history support.  Worked directly with the client to achieve the exact look and feel they needed.
-
-Maintained and added new content coinciding with launch events for a few years; This included adding new collections, sending out newsletters, and posting to various social media.  Assisted in migration to ecommerce by importing existing products into new Shopify site in 2014.
-`,d=n(o,["GWT","JQuery","Typeface","Java","Javascript","Rackspace Cloud","Rackspace CloudFiles","Flowplayer","Facebook","YouTube","Constant Contact","HTML","CSS"]),r=["Java"],u=i({title:s,start:t,end:a,duration:o,icons:r,tags:d,summaryMarkdown:c});export{u as default,o as duration,a as end,r as icons,u as project,t as start,c as summaryMarkdown,d as tags,s as title};

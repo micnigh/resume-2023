@@ -1,3 +1,0 @@
-import{b as a,h as e,a as o}from"./index-DtMdzh94.js";import{tags as r}from"./index-1-SN4_H4.js";let i="Hurricane Decision Simulator",s="",l="",t=e.duration({months:3}).toJSON(),n=`
-Simulation of decisions that occur as a result of a hurricane heading towards a major city and how to handle its evacuation.
-`,c=r.concat(o(t,["matlab"])),u=["Gulp","NodeJS","Docker","Backbone","Java"],d={link:"http://eddy.nps.edu/hurricaneSim/",hoverTitle:"View public website"},p=a({title:i,start:s,end:l,duration:t,icons:u,tags:c,summaryMarkdown:n,portfolio:d});export{p as default,t as duration,l as end,u as icons,d as portfolio,p as project,s as start,n as summaryMarkdown,c as tags,i as title};
