@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Capture It';
+  src: url('../lib/assets/font/capture-it.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Special Elite';
+  src: url('../lib/assets/font/special-elite.woff') format('woff');
+  font-display: swap;
+}
+
+@theme {
+  --font-family-capture-it: var(--font-capture-it);
+  --font-family-special: var(--font-special);
+  --font-capture-it: 'Capture It', 'Times New Roman', serif;
+  --font-special: 'Special Elite', Arial, sans-serif;
+  --breakpoint-sm: 34em;
+  --breakpoint-md: 40em;
+  --breakpoint-lg: 52em;
+  --breakpoint-xl: 64em;
+}
