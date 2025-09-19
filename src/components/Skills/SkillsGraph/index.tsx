@@ -33,7 +33,7 @@ export const SkillsGraph = ({ tags }: SkillsGraphProps) => {
         let percentageWidth = Math.floor(normalizedDuration * 100);
         return (
           <div
-            className="flex justify-end items-center bg-black text-white"
+            className="flex justify-end items-center bg-black text-white print:bg-gray-200 print:text-black print:mb-1 print:border-r-2"
             key={index}
             style={{ width: `${percentageWidth}%` }}
           >
