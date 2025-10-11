@@ -1,5 +1,5 @@
 import React from 'react';
-import { Project as ProjectType } from '../../../lib/data/experiences/index.types';
+import { type Project as ProjectType } from '../../../lib/data/experiences/index.types';
 import { IconsDisplay } from '../../shared/IconsDisplay';
 import { DateRange } from '../../shared/DateRange';
 
@@ -21,8 +21,16 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
             <h5 className="flex-grow-0 whitespace-nowrap text-ellipsis overflow-x-hidden w-full md:w-auto print:w-auto mr-3 md:mr-4 mt-3 md:mt-0">
               {p.title}
             </h5>
-            <IconsDisplay portfolio={p.portfolio} icons={p.icons} tags={p.tags} />
-            <DateRange start={p.start} end={p.end} className="print:justify-end" />
+            <IconsDisplay
+              portfolio={p.portfolio}
+              icons={p.icons}
+              tags={p.tags}
+            />
+            <DateRange
+              start={p.start}
+              end={p.end}
+              className="print:justify-end"
+            />
           </div>
           {p.summaryHtml && (
             <div

@@ -21,8 +21,8 @@ interface ProjectNoRelations {
   summaryMarkdown: string;
 
   portfolio?: {
-    link: string,
-    hoverTitle?: string,
+    link: string;
+    hoverTitle?: string;
   };
 }
 

@@ -1,4 +1,4 @@
-import { NormalizedProject } from '../../index.types';
+import { type NormalizedProject } from '../../index.types';
 import { createProject, createTags } from '../../utils';
 import { calculateDuration, formatDuration } from '../../../../util/dates';
 
@@ -13,12 +13,7 @@ export const summaryMarkdown = `
 Test student competency to generate studyplan on areas that need improvement
 `;
 
-export const icons = [
-  'Webpack',
-  'NodeJS',
-  'Docker',
-  'React',
-];
+export const icons = ['Webpack', 'NodeJS', 'Docker', 'React'];
 
 export const portfolio = undefined;
 

@@ -9,6 +9,26 @@ pnpm install
 pnpm dev
 ```
 
+# Code Quality
+
+Lint and format your code:
+
+```sh
+# Run ESLint to check for code issues
+pnpm lint
+
+# Run ESLint and auto-fix issues
+pnpm lint:fix
+
+# Format code with Prettier
+pnpm format
+
+# Check if code is formatted correctly
+pnpm format:check
+```
+
+Pre-commit hooks are automatically set up via Husky to run linting and formatting on staged files.
+
 # Testing
 
 Run Playwright tests:

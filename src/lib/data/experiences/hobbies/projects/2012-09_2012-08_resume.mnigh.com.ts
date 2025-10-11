@@ -1,5 +1,5 @@
 import { calculateDuration, formatDuration } from '../../../../util/dates';
-import { NormalizedProject } from '../../index.types';
+import { type NormalizedProject } from '../../index.types';
 import { createProject, createTags } from '../../utils';
 
 export const title = 'resume.mnigh.com';
@@ -12,9 +12,7 @@ export const summaryMarkdown = `
 Created web resume using Rails.  Featured custom fonts, mediaquery breakpoints, and a searchable PDF when printed from chrome.
 `;
 
-export const icons = [
-  'Rails',
-];
+export const icons = ['Rails'];
 
 export const portfolio = undefined;
 
@@ -25,39 +23,39 @@ export const project: NormalizedProject = createProject({
   duration,
   icons,
   tags: createTags(duration, [
-  'Rails',
-  'Unicorn',
-  'AWS EC2',
-  'AWS S3',
-  'AWS CloudFront',
-  'Git',
-  'Capistrano',
-  'VirtualBox',
-  'PostgreSQL',
-  'Sass',
-  'Compass',
-  'Fancy-Buttons',
-  'Ruby',
-  'Coffeescript',
-  'JQuery',
-  'Slim',
-  'Mongoid',
-  'Devise',
-  'CanCan',
-  'Rolify',
-  'Paperclip',
-  'Asset-Sync',
-  'Vagrant',
-  'Veewee',
-  'Sprinkle',
-  'Guard',
-  'Guard-LiveReload',
-  'Modernizr',
-  'jQuery-cssHooks',
-  'qTipV2',
-  'HTML',
-  'CSS',
-]),
+    'Rails',
+    'Unicorn',
+    'AWS EC2',
+    'AWS S3',
+    'AWS CloudFront',
+    'Git',
+    'Capistrano',
+    'VirtualBox',
+    'PostgreSQL',
+    'Sass',
+    'Compass',
+    'Fancy-Buttons',
+    'Ruby',
+    'Coffeescript',
+    'JQuery',
+    'Slim',
+    'Mongoid',
+    'Devise',
+    'CanCan',
+    'Rolify',
+    'Paperclip',
+    'Asset-Sync',
+    'Vagrant',
+    'Veewee',
+    'Sprinkle',
+    'Guard',
+    'Guard-LiveReload',
+    'Modernizr',
+    'jQuery-cssHooks',
+    'qTipV2',
+    'HTML',
+    'CSS',
+  ]),
   summaryMarkdown,
   portfolio,
 });

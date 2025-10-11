@@ -1,5 +1,5 @@
 import React from 'react';
-import { Experience as ExperienceType } from '../../lib/data/experiences/index.types';
+import { type Experience as ExperienceType } from '../../lib/data/experiences/index.types';
 import { Projects } from './Projects';
 import { IconsDisplay } from '../shared/IconsDisplay';
 import { DateRange } from '../shared/DateRange';
@@ -19,7 +19,11 @@ export const Experience: React.FC<ExperienceProps> = ({ experiences }) => {
               <h4 className="flex-grow-0 whitespace-nowrap text-ellipsis overflow-x-hidden w-full md:w-auto print:w-auto mr-3 md:mr-4 mt-3 md:mt-0">
                 {e.title}
               </h4>
-              <IconsDisplay portfolio={e.portfolio} icons={e.icons} tags={e.tags} />
+              <IconsDisplay
+                portfolio={e.portfolio}
+                icons={e.icons}
+                tags={e.tags}
+              />
               <DateRange start={e.start} end={e.end} />
             </div>
             {e.summaryHtml && (

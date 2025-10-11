@@ -1,5 +1,5 @@
 import { calculateDuration, formatDuration } from '../../../../util/dates';
-import { NormalizedProject } from '../../index.types';
+import { type NormalizedProject } from '../../index.types';
 import { createProject, createTags } from '../../utils';
 
 export const title = 'resume.mnigh.com';
@@ -16,11 +16,7 @@ Fork of previous boilerplate project, streamlined and improved from past iterati
 `;
 // tslint:enable
 
-export const icons = [
-  'Gulp',
-  'NodeJS',
-  'React',
-];
+export const icons = ['Gulp', 'NodeJS', 'React'];
 
 export const portfolio = {
   link: 'https://github.com/micnigh/resume-2016/',
@@ -34,16 +30,16 @@ export const project: NormalizedProject = createProject({
   duration,
   icons,
   tags: createTags(duration, [
-  'NodeJS',
-  'Gulp',
-  'Git',
-  'Sass',
-  'HTML',
-  'CSS',
-  'React',
-  'Redux',
-  'Typescript',
-]),
+    'NodeJS',
+    'Gulp',
+    'Git',
+    'Sass',
+    'HTML',
+    'CSS',
+    'React',
+    'Redux',
+    'Typescript',
+  ]),
   summaryMarkdown,
   portfolio,
 });

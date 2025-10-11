@@ -1,5 +1,5 @@
-import { Tag } from "../../lib/data/experiences/index.types"
-import SkillsGraph from "./SkillsGraph"
+import { type Tag } from '../../lib/data/experiences/index.types';
+import SkillsGraph from './SkillsGraph';
 
 export const Skills = ({ tags }: { tags: Tag[] }) => {
   return (
@@ -9,5 +9,5 @@ export const Skills = ({ tags }: { tags: Tag[] }) => {
         <SkillsGraph tags={tags} />
       </div>
     </div>
-  )
-}
+  );
+};

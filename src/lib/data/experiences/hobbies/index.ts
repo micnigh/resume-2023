@@ -1,4 +1,7 @@
-import { NormalizedExperience, NormalizedProject } from '../index.types';
+import {
+  type NormalizedExperience,
+  type NormalizedProject,
+} from '../index.types';
 import { createExperience, createTags } from '../utils';
 
 // Project imports
@@ -31,23 +34,25 @@ export const tags = createTags(duration, []);
 
 export const icons: string[] = [];
 
-export const getExperience = async (): Promise<NormalizedExperience> => {
-  const projects = ([
-    resume2016Project.project,
-    boilerplateIsomorphicTypescriptProject.project,
-    yetAnotherIsomorphicBlogProject.project,
-    boilerplateGulpGenericProject.project,
-    resume2015Project.project,
-    androidAppProject.project,
-    resume2014Project.project,
-    wwwMnighProject.project,
-    nodejsMigrationProject.project,
-    dockerMigrationProject.project,
-    backboneFinancialAppProject.project,
-    lxcDeploymentProject.project,
-    resume2012Project.project,
-    webAppGeneratorProject.project,
-  ] as NormalizedProject[]).map((p) => p.id) as string[];
+export const getExperience = (): Promise<NormalizedExperience> => {
+  const projects = (
+    [
+      resume2016Project.project,
+      boilerplateIsomorphicTypescriptProject.project,
+      yetAnotherIsomorphicBlogProject.project,
+      boilerplateGulpGenericProject.project,
+      resume2015Project.project,
+      androidAppProject.project,
+      resume2014Project.project,
+      wwwMnighProject.project,
+      nodejsMigrationProject.project,
+      dockerMigrationProject.project,
+      backboneFinancialAppProject.project,
+      lxcDeploymentProject.project,
+      resume2012Project.project,
+      webAppGeneratorProject.project,
+    ] as NormalizedProject[]
+  ).map((p) => p.id) as string[];
 
   const experience: NormalizedExperience = createExperience({
     title,
@@ -60,7 +65,7 @@ export const getExperience = async (): Promise<NormalizedExperience> => {
     summaryMarkdown,
   });
 
-  return experience;
+  return Promise.resolve(experience);
 };
 
 export default getExperience;

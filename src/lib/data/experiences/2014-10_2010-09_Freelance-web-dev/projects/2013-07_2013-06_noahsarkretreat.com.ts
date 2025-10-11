@@ -1,5 +1,5 @@
 import { calculateDuration, formatDuration } from '../../../../util/dates';
-import { NormalizedProject } from '../../index.types';
+import { type NormalizedProject } from '../../index.types';
 import { createProject, createTags } from '../../utils';
 
 export const title = 'noahsarkretreat.com';
@@ -12,10 +12,7 @@ export const summaryMarkdown = `
 Recovered website from [WayBackMachine](https://archive.org/web/) and ported to Wordpress theme.  Extended original site and added features such as responsive image galleries.  Updated content and added new pages.  During development used Rails with LiveReload to generate Coffeescript and SASS of WordPress theme.
 `;
 
-export const icons = [
-  'Rails',
-  'Wordpress',
-];
+export const icons = ['Rails', 'Wordpress'];
 
 export const project: NormalizedProject = createProject({
   title,
@@ -24,25 +21,25 @@ export const project: NormalizedProject = createProject({
   duration,
   icons,
   tags: createTags(duration, [
-  'Rails',
-  'Wordpress',
-  'Ramnode',
-  'Git',
-  'VirtualBox',
-  'Sass',
-  'Compass',
-  'Ruby',
-  'PHP',
-  'Coffeescript',
-  'JQuery',
-  'Vagrant',
-  'lxc',
-  'zsh',
-  'oh-my-zsh',
-  'Sprinkle',
-  'HTML',
-  'CSS',
-]),
+    'Rails',
+    'Wordpress',
+    'Ramnode',
+    'Git',
+    'VirtualBox',
+    'Sass',
+    'Compass',
+    'Ruby',
+    'PHP',
+    'Coffeescript',
+    'JQuery',
+    'Vagrant',
+    'lxc',
+    'zsh',
+    'oh-my-zsh',
+    'Sprinkle',
+    'HTML',
+    'CSS',
+  ]),
   summaryMarkdown,
 });
 

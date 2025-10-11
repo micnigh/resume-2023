@@ -1,4 +1,4 @@
-import { NormalizedExperience } from '../index.types';
+import { type NormalizedExperience } from '../index.types';
 import { createExperience, createTags } from '../utils';
 import { calculateDuration, formatDuration } from '../../../util/dates';
 
@@ -24,7 +24,7 @@ export const tags = createTags(duration, [
 
 export const icons = ['Apple'];
 
-export const getExperience = async (): Promise<NormalizedExperience> => {
+export const getExperience = (): Promise<NormalizedExperience> => {
   const projects: string[] = [];
 
   const experience: NormalizedExperience = createExperience({
@@ -38,7 +38,7 @@ export const getExperience = async (): Promise<NormalizedExperience> => {
     summaryMarkdown,
   });
 
-  return experience;
+  return Promise.resolve(experience);
 };
 
 export default getExperience;

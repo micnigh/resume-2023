@@ -1,4 +1,4 @@
-import { NormalizedProject } from '../../index.types';
+import { type NormalizedProject } from '../../index.types';
 import { createProject, createTags } from '../../utils';
 
 export const title = 'Monterey Phoenix';
@@ -12,12 +12,7 @@ export const summaryMarkdown = `
 Code editor for the [Monterey Phoenix language](https://wiki.nps.edu/display/MP/Monterey+Phoenix+Home) with graph visualizations and automated layouts.  Used to examine process flow in a variety of disciplines to clarify and find problems in the execution of asynchronous events.
 `;
 
-export const icons = [
-  'Gulp',
-  'NodeJS',
-  'Docker',
-  'Backbone',
-];
+export const icons = ['Gulp', 'NodeJS', 'Docker', 'Backbone'];
 
 export const portfolio = {
   link: 'http://firebird.nps.edu/',
@@ -30,9 +25,7 @@ export const project: NormalizedProject = createProject({
   end,
   duration,
   icons,
-  tags: createTags(duration, [
-  'socket.io',
-]),
+  tags: createTags(duration, ['socket.io']),
   summaryMarkdown,
   portfolio,
 });

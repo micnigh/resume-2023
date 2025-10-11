@@ -1,5 +1,5 @@
 import { calculateDuration, formatDuration } from '../../../../util/dates';
-import { NormalizedProject } from '../../index.types';
+import { type NormalizedProject } from '../../index.types';
 import { createProject, createTags } from '../../utils';
 
 export const title = 'boilerplate gulp generic';
@@ -12,10 +12,7 @@ export const summaryMarkdown = `
 Boilerplate ES6 project using Gulp tasks and Babel.
 `;
 
-export const icons = [
-  'Gulp',
-  'NodeJS',
-];
+export const icons = ['Gulp', 'NodeJS'];
 
 export const portfolio = {
   link: 'https://github.com/micnigh/boilerplate-gulp-generic/',
@@ -28,14 +25,7 @@ export const project: NormalizedProject = createProject({
   end,
   duration,
   icons,
-  tags: createTags(duration, [
-  'NodeJS',
-  'Gulp',
-  'Git',
-  'Sass',
-  'HTML',
-  'CSS',
-]),
+  tags: createTags(duration, ['NodeJS', 'Gulp', 'Git', 'Sass', 'HTML', 'CSS']),
   summaryMarkdown,
   portfolio,
 });

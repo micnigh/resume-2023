@@ -1,5 +1,5 @@
 import { calculateDuration, formatDuration } from '../../../../util/dates';
-import { NormalizedProject } from '../../index.types';
+import { type NormalizedProject } from '../../index.types';
 import { createProject, createTags } from '../../utils';
 
 export const title = 'Account Creation';
@@ -13,11 +13,7 @@ export const summaryMarkdown = `
 Rapidly created a React/Redux SPA to integrate with simple API.
 `;
 
-export const icons = [
-  'Webpack',
-  'NodeJS',
-  'React',
-];
+export const icons = ['Webpack', 'NodeJS', 'React'];
 
 export const portfolio = undefined;
 
@@ -28,17 +24,17 @@ export const project: NormalizedProject = createProject({
   duration,
   icons,
   tags: createTags(duration, [
-  'Typescript',
-  'NodeJS',
-  'Webpack',
-  'Git',
-  'Sass',
-  'React',
-  'Redux',
-  'HTML',
-  'CSS',
-  'ExpressJS',
-]),
+    'Typescript',
+    'NodeJS',
+    'Webpack',
+    'Git',
+    'Sass',
+    'React',
+    'Redux',
+    'HTML',
+    'CSS',
+    'ExpressJS',
+  ]),
   summaryMarkdown,
   portfolio,
 });

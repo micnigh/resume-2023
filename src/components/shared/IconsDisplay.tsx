@@ -1,6 +1,6 @@
 import React from 'react';
 import * as svgPaths from '../../lib/data/experiences/tags/icons';
-import { Tag } from '../../lib/data/experiences/index.types';
+import { type Tag } from '../../lib/data/experiences/index.types';
 import { ExternalLink } from './ExternalLink';
 
 interface Portfolio {
@@ -14,7 +14,11 @@ interface IconsDisplayProps {
   tags: Tag[];
 }
 
-export const IconsDisplay: React.FC<IconsDisplayProps> = ({ portfolio, icons, tags }) => {
+export const IconsDisplay: React.FC<IconsDisplayProps> = ({
+  portfolio,
+  icons,
+  tags,
+}) => {
   if (!portfolio && icons.length === 0) {
     return null;
   }
@@ -58,4 +62,3 @@ export const IconsDisplay: React.FC<IconsDisplayProps> = ({ portfolio, icons, ta
     </div>
   );
 };
-

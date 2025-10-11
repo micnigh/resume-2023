@@ -1,5 +1,5 @@
 import { calculateDuration, formatDuration } from '../../../../util/dates';
-import { NormalizedProject } from '../../index.types';
+import { type NormalizedProject } from '../../index.types';
 import { createProject, createTags } from '../../utils';
 
 export const title = 'Web App Generator';
@@ -14,9 +14,7 @@ Created Coffeescript based single page app generator.  Solved SEO by rendering f
 Interesting features include an AATree (heavily stress and performance tested), priority based image download queue, and a package system similar to AMD for modular code and easy mocking.
 `;
 
-export const icons = [
-  'NodeJS',
-];
+export const icons = ['NodeJS'];
 
 export const portfolio = undefined;
 
@@ -27,16 +25,16 @@ export const project: NormalizedProject = createProject({
   duration,
   icons,
   tags: createTags(duration, [
-  'NodeJS',
-  'Coffeescript',
-  'CoffeeKup',
-  'Jasmine',
-  'SEO',
-  'BDD',
-  'TDD',
-  'HTML',
-  'CSS',
-]),
+    'NodeJS',
+    'Coffeescript',
+    'CoffeeKup',
+    'Jasmine',
+    'SEO',
+    'BDD',
+    'TDD',
+    'HTML',
+    'CSS',
+  ]),
   summaryMarkdown,
   portfolio,
 });

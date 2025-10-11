@@ -1,4 +1,4 @@
-import { NormalizedExperience } from '../index.types';
+import { type NormalizedExperience } from '../index.types';
 import { createExperience, createTags } from '../utils';
 import { calculateDuration, formatDuration } from '../../../util/dates';
 
@@ -8,7 +8,7 @@ export const start = '2012-04';
 export const end = '2012-08';
 export const duration = formatDuration(calculateDuration(start, end));
 
-export let summaryMarkdown = `
+export const summaryMarkdown = `
 Began development on internal company project by creating a prototype.  Project required WYSIWYG functionality using recent HTML5 and CSS3 techniques.  The prototype was green lighted - and the skeleton of the project was built in Rails.  Researched and implemented the skeleton, choosing between various open source libraries.
 `;
 
@@ -50,7 +50,7 @@ export const tags = createTags(duration, [
 
 export const icons = ['Rails'];
 
-export const getExperience = async (): Promise<NormalizedExperience> => {
+export const getExperience = (): Promise<NormalizedExperience> => {
   const projects: string[] = [];
 
   const experience: NormalizedExperience = createExperience({
@@ -64,7 +64,7 @@ export const getExperience = async (): Promise<NormalizedExperience> => {
     summaryMarkdown,
   });
 
-  return experience;
+  return Promise.resolve(experience);
 };
 
 export default getExperience;

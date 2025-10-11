@@ -1,4 +1,4 @@
-import { NormalizedProject } from '../../index.types';
+import { type NormalizedProject } from '../../index.types';
 import { createProject, createTags } from '../../utils';
 
 export const title = 'Hurricane Decision Simulator';
@@ -11,13 +11,7 @@ export const summaryMarkdown = `
 Simulation of decisions that occur as a result of a hurricane heading towards a major city and how to handle its evacuation.
 `;
 
-export const icons = [
-  'Gulp',
-  'NodeJS',
-  'Docker',
-  'Backbone',
-  'Java',
-];
+export const icons = ['Gulp', 'NodeJS', 'Docker', 'Backbone', 'Java'];
 
 export const portfolio = {
   link: 'http://eddy.nps.edu/hurricaneSim/',
@@ -30,9 +24,7 @@ export const project: NormalizedProject = createProject({
   end,
   duration,
   icons,
-  tags: createTags(duration, [
-  'matlab',
-]),
+  tags: createTags(duration, ['matlab']),
   summaryMarkdown,
   portfolio,
 });

@@ -1,4 +1,4 @@
-import { NormalizedProject } from '../../index.types';
+import { type NormalizedProject } from '../../index.types';
 import { createProject, createTags } from '../../utils';
 import { calculateDuration, formatDuration } from '../../../../util/dates';
 
@@ -13,13 +13,7 @@ Learn topics by answering questions until a target score is reached
 
 `;
 
-export const icons = [
-  'PHP',
-  'Webpack',
-  'NodeJS',
-  'Docker',
-  'React',
-];
+export const icons = ['PHP', 'Webpack', 'NodeJS', 'Docker', 'React'];
 
 export const portfolio = undefined;
 

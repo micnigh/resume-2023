@@ -1,7 +1,11 @@
-import { NormalizedExperience, NormalizedProject, Tag } from './index.types';
+import {
+  type NormalizedExperience,
+  type NormalizedProject,
+  type Tag,
+} from './index.types';
 import { merge } from 'lodash';
 import { v4 as uuidv4 } from 'uuid';
-import { addDurations, formatDuration } from '../../util/dates';
+import { addDurations } from '../../util/dates';
 
 import { marked } from 'marked';
 const renderer = new marked.Renderer();
@@ -16,11 +20,13 @@ const formatTime = (time: string): string => {
   return date.toISOString();
 };
 
-export const createExperience = (options: NormalizedExperience): NormalizedExperience => {
+export const createExperience = (
+  options: NormalizedExperience
+): NormalizedExperience => {
   const experience = merge(
     {
       id: uuidv4(),
-    }, 
+    },
     options,
     {
       start: formatTime(options.start),
@@ -39,17 +45,15 @@ export const createExperience = (options: NormalizedExperience): NormalizedExper
 
 const projectsById: { [guid: string]: NormalizedProject } = {};
 
-export const createProject = (options: NormalizedProject): NormalizedProject => {
-  const project = merge(
-    { id: uuidv4() },
-    options,
-    {
-      start: formatTime(options.start),
-      end: formatTime(options.end),
-      summaryHtml: marked(options.summaryMarkdown, { renderer }),
-    }
-  );
-  projectsById[project.id!] = project;
+export const createProject = (
+  options: NormalizedProject
+): NormalizedProject => {
+  const project = merge({ id: uuidv4() }, options, {
+    start: formatTime(options.start),
+    end: formatTime(options.end),
+    summaryHtml: marked(options.summaryMarkdown, { renderer }),
+  });
+  projectsById[project.id] = project;
   if (typeof project.portfolio !== 'undefined') {
     project.portfolio = merge(
       { hoverTitle: `View snapshot of ${project.title}` },
@@ -63,28 +67,27 @@ const tagCacheByName: { [name: string]: Tag } = {};
 export const tags: { [guid: string]: Tag } = {};
 
 export const createTags = (duration: string, newTags: string[]): string[] => {
-  return newTags.map((t) => {
-    const tag = tagCacheByName[t];
-    if (typeof tag !== 'undefined') {
-      const updatedTag = merge({}, tag, {
-        duration: addDurations(tag.duration, duration),
-      });
-      tagCacheByName[t] = updatedTag;
-      tags[updatedTag.id!] = updatedTag;
-      return updatedTag;
-    } else {
-      return createTag({ name: t, duration });
-    }
-  }).map((t) => t.id) as string[];
+  return newTags
+    .map((t) => {
+      const tag = tagCacheByName[t];
+      if (typeof tag !== 'undefined') {
+        const updatedTag = merge({}, tag, {
+          duration: addDurations(tag.duration, duration),
+        });
+        tagCacheByName[t] = updatedTag;
+        tags[updatedTag.id!] = updatedTag;
+        return updatedTag;
+      } else {
+        return createTag({ name: t, duration });
+      }
+    })
+    .map((t) => t.id) as string[];
 };
 
 const createTag = (options: Tag): Tag => {
-  const tag = merge(
-    { id: uuidv4() }, 
-    options,
-  );
+  const tag = merge({ id: uuidv4() }, options);
   tagCacheByName[options.name] = tag;
-  tags[tag.id!] = tag;
+  tags[tag.id] = tag;
   return tag;
 };
 

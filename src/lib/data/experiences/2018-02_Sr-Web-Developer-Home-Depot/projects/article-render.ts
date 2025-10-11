@@ -1,5 +1,5 @@
 import { calculateDuration, formatDuration } from '../../../../util/dates';
-import { NormalizedProject } from '../../index.types';
+import { type NormalizedProject } from '../../index.types';
 import { createProject, createTags } from '../../utils';
 
 export const title = 'Article Render Squad';
@@ -23,11 +23,7 @@ Develop strategies to implement NextGen THD features.
 
 `;
 
-export const icons = [
-  'Webpack',
-  'NodeJS',
-  'Docker',
-];
+export const icons = ['Webpack', 'NodeJS', 'Docker'];
 
 export const portfolio = undefined;
 
@@ -38,17 +34,17 @@ export const project: NormalizedProject = createProject({
   duration,
   icons,
   tags: createTags(duration, [
-  'Typescript',
-  'NodeJS',
-  'Webpack',
-  'Git',
-  'Docker',
-  'Sass',
-  'JQuery',
-  'HTML',
-  'CSS',
-  'ExpressJS',
-]),
+    'Typescript',
+    'NodeJS',
+    'Webpack',
+    'Git',
+    'Docker',
+    'Sass',
+    'JQuery',
+    'HTML',
+    'CSS',
+    'ExpressJS',
+  ]),
   summaryMarkdown,
   portfolio,
 });

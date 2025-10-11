@@ -1,4 +1,7 @@
-import { NormalizedExperience, NormalizedProject } from '../index.types';
+import {
+  type NormalizedExperience,
+  type NormalizedProject,
+} from '../index.types';
 import { createExperience, createTags } from '../utils';
 import { calculateDuration, formatDuration } from '../../../util/dates';
 
@@ -35,13 +38,15 @@ export const tags = createTags(duration, []);
 
 export const icons: string[] = [];
 
-export const getExperience = async (): Promise<NormalizedExperience> => {
-  const projects = ([
-    pathfinderProject.project,
-    learningcurveProject.project,
-    readingProject.project,
-    // pathfinder2Project.project,
-  ] as NormalizedProject[]).map((p) => p.id) as string[];
+export const getExperience = (): Promise<NormalizedExperience> => {
+  const projects = (
+    [
+      pathfinderProject.project,
+      learningcurveProject.project,
+      readingProject.project,
+      // pathfinder2Project.project,
+    ] as NormalizedProject[]
+  ).map((p) => p.id) as string[];
 
   const experience: NormalizedExperience = createExperience({
     title,
@@ -54,8 +59,7 @@ export const getExperience = async (): Promise<NormalizedExperience> => {
     summaryMarkdown,
   });
 
-  return experience;
+  return Promise.resolve(experience);
 };
-
 
 export default getExperience;

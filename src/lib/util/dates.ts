@@ -42,20 +42,29 @@ export const addDurations = (duration1: string, duration2: string): string => {
  */
 export const parseDuration = (duration: string): number => {
   // Simple parser for ISO 8601 duration format (PT###S or P#Y#M#DT#H#M#S)
-  const regex = /P(?:(\d+)Y)?(?:(\d+)M)?(?:(\d+)D)?(?:T(?:(\d+)H)?(?:(\d+)M)?(?:(\d+(?:\.\d+)?)S)?)?/;
+  const regex =
+    /P(?:(\d+)Y)?(?:(\d+)M)?(?:(\d+)D)?(?:T(?:(\d+)H)?(?:(\d+)M)?(?:(\d+(?:\.\d+)?)S)?)?/;
   const matches = duration.match(regex);
-  
+
   if (!matches) return 0;
-  
-  const [, years = '0', months = '0', days = '0', hours = '0', minutes = '0', seconds = '0'] = matches;
-  
+
+  const [
+    ,
+    years = '0',
+    months = '0',
+    days = '0',
+    hours = '0',
+    minutes = '0',
+    seconds = '0',
+  ] = matches;
+
   const msPerYear = 365.25 * 24 * 60 * 60 * 1000;
   const msPerMonth = 30.44 * 24 * 60 * 60 * 1000;
   const msPerDay = 24 * 60 * 60 * 1000;
   const msPerHour = 60 * 60 * 1000;
   const msPerMinute = 60 * 1000;
   const msPerSecond = 1000;
-  
+
   return (
     parseFloat(years) * msPerYear +
     parseFloat(months) * msPerMonth +
@@ -76,23 +85,22 @@ export const formatDuration = (milliseconds: number): string => {
   const days = hours / 24;
   const months = days / 30.44;
   const years = months / 12;
-  
+
   if (years >= 1) {
     const y = Math.floor(years);
     const m = Math.floor((years - y) * 12);
     return m > 0 ? `P${y}Y${m}M` : `P${y}Y`;
   }
-  
+
   if (months >= 1) {
     const m = Math.floor(months);
     const d = Math.floor((months - m) * 30.44);
     return d > 0 ? `P${m}M${d}D` : `P${m}M`;
   }
-  
+
   if (days >= 1) {
     return `P${Math.floor(days)}D`;
   }
-  
+
   return `PT${Math.floor(seconds)}S`;
 };
-

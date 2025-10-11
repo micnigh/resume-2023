@@ -1,5 +1,5 @@
 import { calculateDuration, formatDuration } from '../../../../util/dates';
-import { NormalizedProject } from '../../index.types';
+import { type NormalizedProject } from '../../index.types';
 import { createProject, createTags } from '../../utils';
 
 export const title = 'parveztaj.com';
@@ -14,9 +14,7 @@ Constructed art gallery website using a variety of tools, including GWT, JQuery,
 Maintained and added new content coinciding with launch events for a few years; This included adding new collections, sending out newsletters, and posting to various social media.  Assisted in migration to ecommerce by importing existing products into new Shopify site in 2014.
 `;
 
-export const icons = [
-  'Java',
-];
+export const icons = ['Java'];
 
 export const project: NormalizedProject = createProject({
   title,
@@ -25,20 +23,20 @@ export const project: NormalizedProject = createProject({
   duration,
   icons,
   tags: createTags(duration, [
-  'GWT',
-  'JQuery',
-  'Typeface',
-  'Java',
-  'Javascript',
-  'Rackspace Cloud',
-  'Rackspace CloudFiles',
-  'Flowplayer',
-  'Facebook',
-  'YouTube',
-  'Constant Contact',
-  'HTML',
-  'CSS',
-]),
+    'GWT',
+    'JQuery',
+    'Typeface',
+    'Java',
+    'Javascript',
+    'Rackspace Cloud',
+    'Rackspace CloudFiles',
+    'Flowplayer',
+    'Facebook',
+    'YouTube',
+    'Constant Contact',
+    'HTML',
+    'CSS',
+  ]),
   summaryMarkdown,
 });
 

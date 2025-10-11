@@ -1,5 +1,5 @@
 import { calculateDuration, formatDuration } from '../../../../util/dates';
-import { NormalizedProject } from '../../index.types';
+import { type NormalizedProject } from '../../index.types';
 import { createProject, createTags } from '../../utils';
 
 export const title = 'Docker migration';
@@ -12,9 +12,7 @@ export const summaryMarkdown = `
 Applied Docker to new and current web projects.  Moved away from shell and ruby scripts to Dockerfiles with simple build scripts.  Over time learned and applied best practices - based on docker usage in small and big companies.
 `;
 
-export const icons = [
-
-];
+export const icons = [];
 
 export const portfolio = undefined;
 
@@ -25,15 +23,15 @@ export const project: NormalizedProject = createProject({
   duration,
   icons,
   tags: createTags(duration, [
-  'NodeJS',
-  'Docker',
-  'Wordpress',
-  'Grunt',
-  'Gulp',
-  'Git',
-  'HTML',
-  'CSS',
-]),
+    'NodeJS',
+    'Docker',
+    'Wordpress',
+    'Grunt',
+    'Gulp',
+    'Git',
+    'HTML',
+    'CSS',
+  ]),
   summaryMarkdown,
   portfolio,
 });

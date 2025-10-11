@@ -1,5 +1,5 @@
 import { calculateDuration, formatDuration } from '../../../../util/dates';
-import { NormalizedProject } from '../../index.types';
+import { type NormalizedProject } from '../../index.types';
 import { createProject, createTags } from '../../utils';
 
 export const title = 'yet another isomorphic blog';
@@ -14,11 +14,7 @@ Created an isomorphic React blog.
 Bootstrapped from past boilerplate project, creates a static isomorphic website which can be hosted on github pages at no cost.
 `;
 
-export const icons = [
-  'Gulp',
-  'NodeJS',
-  'React',
-];
+export const icons = ['Gulp', 'NodeJS', 'React'];
 
 export const portfolio = {
   link: 'https://github.com/micnigh/yet-another-isomorphic-blog/',
@@ -32,15 +28,15 @@ export const project: NormalizedProject = createProject({
   duration,
   icons,
   tags: createTags(duration, [
-  'NodeJS',
-  'Gulp',
-  'Git',
-  'Sass',
-  'HTML',
-  'CSS',
-  'React',
-  'jsonapi',
-]),
+    'NodeJS',
+    'Gulp',
+    'Git',
+    'Sass',
+    'HTML',
+    'CSS',
+    'React',
+    'jsonapi',
+  ]),
   summaryMarkdown,
   portfolio,
 });

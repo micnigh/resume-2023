@@ -1,5 +1,5 @@
 import { calculateDuration, formatDuration } from '../../../../util/dates';
-import { NormalizedProject } from '../../index.types';
+import { type NormalizedProject } from '../../index.types';
 import { createProject, createTags } from '../../utils';
 
 export const title = 'Forecast Tool';
@@ -20,12 +20,7 @@ Deployments using the [twelve-factor](http://12factor.net/) approach on [google 
 
 `;
 
-export const icons = [
-  'Webpack',
-  'NodeJS',
-  'Docker',
-  'React',
-];
+export const icons = ['Webpack', 'NodeJS', 'Docker', 'React'];
 
 export const portfolio = undefined;
 
@@ -36,20 +31,20 @@ export const project: NormalizedProject = createProject({
   duration,
   icons,
   tags: createTags(duration, [
-  'Typescript',
-  'NodeJS',
-  'Webpack',
-  'Git',
-  'Docker',
-  'Sass',
-  'React',
-  'Redux',
-  'HTML',
-  'CSS',
-  'PostgreSQL',
-  'GraphQL',
-  'ExpressJS',
-]),
+    'Typescript',
+    'NodeJS',
+    'Webpack',
+    'Git',
+    'Docker',
+    'Sass',
+    'React',
+    'Redux',
+    'HTML',
+    'CSS',
+    'PostgreSQL',
+    'GraphQL',
+    'ExpressJS',
+  ]),
   summaryMarkdown,
   portfolio,
 });

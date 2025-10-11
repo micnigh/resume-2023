@@ -1,4 +1,4 @@
-import { NormalizedProject } from '../../index.types';
+import { type NormalizedProject } from '../../index.types';
 import { createProject, createTags } from '../../utils';
 
 export const title = 'Post & Assess';
@@ -14,12 +14,7 @@ Tool for students to publish posts, be assessed by peers, and graded by an instr
 Hides posts until each period is over, preventing students from being influenced by early posts.
 `;
 
-export const icons = [
-  'Gulp',
-  'NodeJS',
-  'Docker',
-  'React',
-];
+export const icons = ['Gulp', 'NodeJS', 'Docker', 'React'];
 
 export const portfolio = undefined;
 
@@ -29,11 +24,7 @@ export const project: NormalizedProject = createProject({
   end,
   duration,
   icons,
-  tags: createTags(duration, [
-  'React',
-  'Redux',
-  'Typescript',
-]),
+  tags: createTags(duration, ['React', 'Redux', 'Typescript']),
   summaryMarkdown,
   portfolio,
 });

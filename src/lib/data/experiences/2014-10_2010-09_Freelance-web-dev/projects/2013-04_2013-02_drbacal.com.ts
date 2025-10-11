@@ -1,5 +1,5 @@
 import { calculateDuration, formatDuration } from '../../../../util/dates';
-import { NormalizedProject } from '../../index.types';
+import { type NormalizedProject } from '../../index.types';
 import { createProject, createTags } from '../../utils';
 
 export const title = 'drbacal.com';
@@ -12,10 +12,7 @@ export const summaryMarkdown = `
 Constructed WordPress backed website using custom deployment tools I built earlier with Sprinkle (similar to Chef).  Worked with client and SEO specialist for design and content.  Used Rails with LiveReload to generate SASS and Coffeescript of WordPress theme.
 `;
 
-export const icons = [
-  'Rails',
-  'Wordpress',
-];
+export const icons = ['Rails', 'Wordpress'];
 
 export const project: NormalizedProject = createProject({
   title,
@@ -24,27 +21,27 @@ export const project: NormalizedProject = createProject({
   duration,
   icons,
   tags: createTags(duration, [
-  'Rails',
-  'Wordpress',
-  'AWS EC2',
-  'AWS S3',
-  'AWS CloudFront',
-  'Git',
-  'VirtualBox',
-  'Sass',
-  'Compass',
-  'Ruby',
-  'PHP',
-  'Coffeescript',
-  'JQuery',
-  'Vagrant',
-  'lxc',
-  'zsh',
-  'oh-my-zsh',
-  'Sprinkle',
-  'HTML',
-  'CSS',
-]),
+    'Rails',
+    'Wordpress',
+    'AWS EC2',
+    'AWS S3',
+    'AWS CloudFront',
+    'Git',
+    'VirtualBox',
+    'Sass',
+    'Compass',
+    'Ruby',
+    'PHP',
+    'Coffeescript',
+    'JQuery',
+    'Vagrant',
+    'lxc',
+    'zsh',
+    'oh-my-zsh',
+    'Sprinkle',
+    'HTML',
+    'CSS',
+  ]),
   summaryMarkdown,
 });
 

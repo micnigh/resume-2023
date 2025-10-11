@@ -1,5 +1,5 @@
 import { calculateDuration, formatDuration } from '../../../../util/dates';
-import { NormalizedProject } from '../../index.types';
+import { type NormalizedProject } from '../../index.types';
 import { createProject, createTags } from '../../utils';
 
 export const title = 'jenleearts.com';
@@ -12,9 +12,7 @@ export const summaryMarkdown = `
 Extended parveztaj.com GWT template to another site.  Setup domain, hosting, and CDN.
 `;
 
-export const icons = [
-  'Java',
-];
+export const icons = ['Java'];
 
 export const project: NormalizedProject = createProject({
   title,
@@ -23,16 +21,16 @@ export const project: NormalizedProject = createProject({
   duration,
   icons,
   tags: createTags(duration, [
-  'GWT',
-  'JQuery',
-  'Typeface',
-  'Java',
-  'Javascript',
-  'Rackspace CloudFiles',
-  'Rackspace Cloud',
-  'HTML',
-  'CSS',
-]),
+    'GWT',
+    'JQuery',
+    'Typeface',
+    'Java',
+    'Javascript',
+    'Rackspace CloudFiles',
+    'Rackspace Cloud',
+    'HTML',
+    'CSS',
+  ]),
   summaryMarkdown,
 });
 

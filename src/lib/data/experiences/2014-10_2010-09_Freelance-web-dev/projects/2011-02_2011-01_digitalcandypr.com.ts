@@ -1,5 +1,5 @@
 import { calculateDuration, formatDuration } from '../../../../util/dates';
-import { NormalizedProject } from '../../index.types';
+import { type NormalizedProject } from '../../index.types';
 import { createProject, createTags } from '../../utils';
 
 export const title = 'digitalcandypr.com';
@@ -12,9 +12,7 @@ export const summaryMarkdown = `
 Expanded on GWT experience to design small business site with a very simple clean look.  Features include Twitter integration and AWS hosting.
 `;
 
-export const icons = [
-  'Java',
-];
+export const icons = ['Java'];
 
 export const project: NormalizedProject = createProject({
   title,
@@ -23,17 +21,17 @@ export const project: NormalizedProject = createProject({
   duration,
   icons,
   tags: createTags(duration, [
-  'GWT',
-  'Twitter JS API',
-  'Rackspace Cloud',
-  'LAMP',
-  'AWS EC2',
-  'AWS S3',
-  'AWS CloudFront',
-  'HTML',
-  'CSS',
-  'Java',
-]),
+    'GWT',
+    'Twitter JS API',
+    'Rackspace Cloud',
+    'LAMP',
+    'AWS EC2',
+    'AWS S3',
+    'AWS CloudFront',
+    'HTML',
+    'CSS',
+    'Java',
+  ]),
   summaryMarkdown,
 });
 

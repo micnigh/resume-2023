@@ -1,4 +1,7 @@
-import { NormalizedExperience, NormalizedProject } from '../index.types';
+import {
+  type NormalizedExperience,
+  type NormalizedProject,
+} from '../index.types';
 import { createExperience, createTags } from '../utils';
 import { calculateDuration, formatDuration } from '../../../util/dates';
 import * as _ from 'lodash';
@@ -17,13 +20,17 @@ export const duration = formatDuration(calculateDuration(start, end));
 
 export const startDeveloper = '2015-02';
 export const endDeveloper = '2016-01';
-export const durationDeveloper = formatDuration(calculateDuration(startDeveloper, endDeveloper));
+export const durationDeveloper = formatDuration(
+  calculateDuration(startDeveloper, endDeveloper)
+);
 
 export const startSeniorDeveloper = '2016-02';
 export const endSeniorDeveloper = '2018-02';
-export const durationSeniorDeveloper = formatDuration(calculateDuration(startSeniorDeveloper, endSeniorDeveloper));
+export const durationSeniorDeveloper = formatDuration(
+  calculateDuration(startSeniorDeveloper, endSeniorDeveloper)
+);
 
-export let summaryMarkdown = `
+export const summaryMarkdown = `
 **Senior Web Developer**  ${startSeniorDeveloper} to ${endSeniorDeveloper}
 
 **Web Developer**  ${startDeveloper} to ${endDeveloper}
@@ -73,12 +80,14 @@ export const tags = _.uniq(tagsDeveloper.concat(tagsSeniorDeveloper));
 
 export const icons: string[] = [];
 
-export const getExperience = async (): Promise<NormalizedExperience> => {
-  const projects = ([
-    hurricaneDecisionSimulatorProject.project,
-    montereyPhoenixProject.project,
-    postAssessProject.project,
-  ] as NormalizedProject[]).map((p) => p.id) as string[];
+export const getExperience = (): Promise<NormalizedExperience> => {
+  const projects = (
+    [
+      hurricaneDecisionSimulatorProject.project,
+      montereyPhoenixProject.project,
+      postAssessProject.project,
+    ] as NormalizedProject[]
+  ).map((p) => p.id) as string[];
 
   const experience: NormalizedExperience = createExperience({
     title,
@@ -91,7 +100,7 @@ export const getExperience = async (): Promise<NormalizedExperience> => {
     summaryMarkdown,
   });
 
-  return experience;
+  return Promise.resolve(experience);
 };
 
 export default getExperience;

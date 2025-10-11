@@ -1,5 +1,5 @@
 import { calculateDuration, formatDuration } from '../../../../util/dates';
-import { NormalizedProject } from '../../index.types';
+import { type NormalizedProject } from '../../index.types';
 import { createProject, createTags } from '../../utils';
 
 export const title = 'Homer Fund';
@@ -16,10 +16,7 @@ Also created a small support service in Spring Boot to consume APIs otherwise in
 
 `;
 
-export const icons = [
-  'Python',
-  'Java',
-];
+export const icons = ['Python', 'Java'];
 
 export const portfolio = undefined;
 
@@ -29,11 +26,7 @@ export const project: NormalizedProject = createProject({
   end,
   duration,
   icons,
-  tags: createTags(duration, [
-  'Python',
-  'Flask',
-  'Java',
-]),
+  tags: createTags(duration, ['Python', 'Flask', 'Java']),
   summaryMarkdown,
   portfolio,
 });

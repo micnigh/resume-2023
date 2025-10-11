@@ -1,5 +1,5 @@
-import { Experience, Tag } from './index.types';
-import { createExperience, createTags, projectsById, tags } from './utils';
+import { type Experience, type Tag } from './index.types';
+import { projectsById, tags } from './utils';
 
 // Experience imports
 import * as macmillanExperience from './2019-04_Sr-Web-Developer-MacMillan/';
@@ -17,7 +17,10 @@ export { createExperience, createTags, createProject, tags } from './utils';
 /**
  * Denormalizes experiences by resolving project and tag IDs to full objects
  */
-const denormalizeExperiences = async (): Promise<{ experiences: Experience[]; tags: Tag[] }> => {
+const denormalizeExperiences = async (): Promise<{
+  experiences: Experience[];
+  tags: Tag[];
+}> => {
   // Get all normalized experiences
   const normalizedExperiences = [
     await macmillanExperience.getExperience(),
@@ -48,7 +51,9 @@ const denormalizeExperiences = async (): Promise<{ experiences: Experience[]; ta
           tags: projectTags,
         };
       })
-      .filter((project): project is NonNullable<typeof project> => project !== null);
+      .filter(
+        (project): project is NonNullable<typeof project> => project !== null
+      );
 
     // Resolve tag IDs to full Tag objects for the experience
     const experienceTags = exp.tags
@@ -63,7 +68,9 @@ const denormalizeExperiences = async (): Promise<{ experiences: Experience[]; ta
   });
 
   // Get all tags as an array
-  const allTags = Object.values(tags).filter((tag): tag is Tag => tag !== undefined);
+  const allTags = Object.values(tags).filter(
+    (tag): tag is Tag => tag !== undefined
+  );
 
   return {
     experiences,

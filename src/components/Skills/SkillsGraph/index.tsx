@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tag } from '../../../lib/data/experiences/index.types';
+import { type Tag } from '../../../lib/data/experiences/index.types';
 import { parseDuration } from '../../../lib/util/dates';
 
 const tagsToDisplay = [

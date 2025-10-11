@@ -7,13 +7,18 @@ interface DateRangeProps {
   className?: string;
 }
 
-export const DateRange: React.FC<DateRangeProps> = ({ start, end, className = '' }) => {
+export const DateRange: React.FC<DateRangeProps> = ({
+  start,
+  end,
+  className = '',
+}) => {
   if (!start) return null;
 
   return (
-    <div className={`flex flex-wrap justify-end content-end flex-grow whitespace-nowrap ${className}`}>
+    <div
+      className={`flex flex-wrap justify-end content-end flex-grow whitespace-nowrap ${className}`}
+    >
       {formatDateRange(start, end)}
     </div>
   );
 };
-

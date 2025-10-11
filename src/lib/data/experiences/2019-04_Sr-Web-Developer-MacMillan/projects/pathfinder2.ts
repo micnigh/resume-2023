@@ -1,4 +1,4 @@
-import { NormalizedProject } from '../../index.types';
+import { type NormalizedProject } from '../../index.types';
 import { createProject, createTags } from '../../utils';
 import { calculateDuration, formatDuration } from '../../../../util/dates';
 
@@ -14,12 +14,7 @@ Rewrite to reduce technical debt of pathfinder
 
 `;
 
-export const icons = [
-  'Webpack',
-  'NodeJS',
-  'Docker',
-  'React',
-];
+export const icons = ['Webpack', 'NodeJS', 'Docker', 'React'];
 
 export const portfolio = undefined;
 

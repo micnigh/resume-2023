@@ -1,5 +1,5 @@
 import { calculateDuration, formatDuration } from '../../../../util/dates';
-import { NormalizedProject } from '../../index.types';
+import { type NormalizedProject } from '../../index.types';
 import { createProject, createTags } from '../../utils';
 
 export const title = 'LXC Deployment';
@@ -12,11 +12,7 @@ export const summaryMarkdown = `
 Created LXC wrapper to handle project deployment.  Vagrant like commands added to shell by custom ZSH plugin.  Utilized btrfs for caching to minimize redeployment time.  Supported Wordpress deployment and theme generation.
 `;
 
-export const icons = [
-  'Rails',
-  'Wordpress',
-  'Linux',
-];
+export const icons = ['Rails', 'Wordpress', 'Linux'];
 
 export const portfolio = undefined;
 
@@ -27,29 +23,29 @@ export const project: NormalizedProject = createProject({
   duration,
   icons,
   tags: createTags(duration, [
-  'Rails',
-  'Wordpress',
-  'Bootstrap',
-  'AWS EC2',
-  'AWS S3',
-  'AWS CloudFront',
-  'Git',
-  'VirtualBox',
-  'Sass',
-  'Compass',
-  'Ruby',
-  'PHP',
-  'Coffeescript',
-  'JQuery',
-  'Vagrant',
-  'Linux',
-  'lxc',
-  'zsh',
-  'oh-my-zsh',
-  'Sprinkle',
-  'HTML',
-  'CSS',
-]),
+    'Rails',
+    'Wordpress',
+    'Bootstrap',
+    'AWS EC2',
+    'AWS S3',
+    'AWS CloudFront',
+    'Git',
+    'VirtualBox',
+    'Sass',
+    'Compass',
+    'Ruby',
+    'PHP',
+    'Coffeescript',
+    'JQuery',
+    'Vagrant',
+    'Linux',
+    'lxc',
+    'zsh',
+    'oh-my-zsh',
+    'Sprinkle',
+    'HTML',
+    'CSS',
+  ]),
   summaryMarkdown,
   portfolio,
 });
