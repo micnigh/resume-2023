@@ -45,9 +45,6 @@ importers:
       marked:
         specifier: ^16.3.0
         version: 16.3.0
-      normalizr:
-        specifier: ^3.6.2
-        version: 3.6.2
       tailwindcss:
         specifier: ^4.1.13
         version: 4.1.13
@@ -888,9 +885,6 @@ packages:
 
   node-releases@2.0.21:
     resolution: {integrity: sha512-5b0pgg78U3hwXkCM8Z9b2FJdPZlr9Psr9V2gQPESdGHqbntyFJKFW4r5TeWGFzafGY3hzs1JC62VEQMbl1JFkw==}
-
-  normalizr@3.6.2:
-    resolution: {integrity: sha512-30qCybsBaCBciotorvuOZTCGEg2AXrJfADMT2Kk/lvpIAcipHdK0zc33nNtwKzyfQAqIJXAcqET6YgflYUgsoQ==}
 
   p-limit@2.3.0:
     resolution: {integrity: sha512-//88mFWSJx8lxCzwdAABTJL2MyWB12+eIY7MDL2SqLmAkeKU9qxRvWuSyTjm3FUmpBEMuFfckAIqEaVGUDxb6w==}
@@ -1782,8 +1776,6 @@ snapshots:
   nanoid@3.3.11: {}
 
   node-releases@2.0.21: {}
-
-  normalizr@3.6.2: {}
 
   p-limit@2.3.0:
     dependencies:

@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import denormalizeExperience from './lib/data/normalizr/denormalizr/experience';
 import { data } from './lib/data';
 
 import { Header } from './components/Header';
@@ -9,20 +8,14 @@ import { Experience } from './components/Experience';
 import { Education } from './components/Education';
 import { ErrorBoundary } from './components/shared/ErrorBoundary';
 import { generateTooltips } from './lib/util/tooltip';
-import type { Experience as ExperienceType, Tag } from './lib/data/experiences/index.types';
 
 const App: React.FC = () => {
   useEffect(() => {
     generateTooltips();
   }, []);
 
-  const { entities, result } = data;
-  const experiences: ExperienceType[] = result
-    .filter((k): k is string => k !== undefined)
-    .map((k) => denormalizeExperience(k, entities));
-  const tags: Tag[] = entities.tags
-    ? Object.keys(entities.tags).map((id) => entities.tags[id]).filter((tag): tag is Tag => tag !== undefined)
-    : [];
+  // Data is now already denormalized - use it directly!
+  const { experiences, tags } = data;
 
   return (
     <ErrorBoundary>

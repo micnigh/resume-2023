@@ -22,7 +22,6 @@
     "gh-pages": "^6.3.0",
     "lodash": "^4.17.21",
     "marked": "^16.3.0",
-    "normalizr": "^3.6.2",
     "tailwindcss": "^4.1.13",
     "tippy.js": "^6.3.7",
     "typescript": "5.9.2",

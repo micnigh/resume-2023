@@ -1,4 +1,4 @@
-import { NormalizedExperience } from './index.types';
+import { Experience, Tag } from './index.types';
 import { createExperience, createTags, projectsById, tags } from './utils';
 
 // Experience imports
@@ -14,9 +14,12 @@ import * as hobbiesExperience from './hobbies/';
 // Re-export utilities for backward compatibility
 export { createExperience, createTags, createProject, tags } from './utils';
 
-export const getExperiences = async () => {
-  // Get the normalized data
-  let normalizedExperiences: NormalizedExperience[] = [
+/**
+ * Denormalizes experiences by resolving project and tag IDs to full objects
+ */
+const denormalizeExperiences = async (): Promise<{ experiences: Experience[]; tags: Tag[] }> => {
+  // Get all normalized experiences
+  const normalizedExperiences = [
     await macmillanExperience.getExperience(),
     await homeDepotExperience.getExperience(),
     await gditExperience.getExperience(),
@@ -27,26 +30,47 @@ export const getExperiences = async () => {
     await hobbiesExperience.getExperience(),
   ];
 
-  // Create a proper entities structure manually since we already have normalized data
-  const entities = {
-    experiences: {},
-    projects: projectsById,
-    tags,
-  };
+  // Convert normalized experiences to full Experience objects
+  const experiences: Experience[] = normalizedExperiences.map((exp) => {
+    // Resolve project IDs to full Project objects
+    const projects = exp.projects
+      .map((projectId) => {
+        const normalizedProject = projectsById[projectId];
+        if (!normalizedProject) return null;
 
-  // Populate experiences
-  normalizedExperiences.forEach(exp => {
-    entities.experiences[exp.id] = exp;
+        // Resolve tag IDs to full Tag objects for this project
+        const projectTags = normalizedProject.tags
+          .map((tagId) => tags[tagId])
+          .filter((tag): tag is Tag => tag !== undefined);
+
+        return {
+          ...normalizedProject,
+          tags: projectTags,
+        };
+      })
+      .filter((project): project is NonNullable<typeof project> => project !== null);
+
+    // Resolve tag IDs to full Tag objects for the experience
+    const experienceTags = exp.tags
+      .map((tagId) => tags[tagId])
+      .filter((tag): tag is Tag => tag !== undefined);
+
+    return {
+      ...exp,
+      projects,
+      tags: experienceTags,
+    };
   });
 
-  // Create result array with experience IDs
-  const result = normalizedExperiences.map(exp => exp.id);
-  
-  return {
-    entities,
-    result,
-  }
-}
+  // Get all tags as an array
+  const allTags = Object.values(tags).filter((tag): tag is Tag => tag !== undefined);
 
+  return {
+    experiences,
+    tags: allTags,
+  };
+};
+
+export const getExperiences = denormalizeExperiences;
 
 export default getExperiences;
