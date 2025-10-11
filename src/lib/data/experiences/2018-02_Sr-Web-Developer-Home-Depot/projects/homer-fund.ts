@@ -1,38 +1,38 @@
-import moment from 'moment';
+import { calculateDuration, formatDuration } from '../../../../util/dates';
 import { NormalizedProject } from '../../index.types';
-import { createProject, createTags } from '../../';
+import { createProject, createTags } from '../../utils';
 
-export let title = `Homer Fund`;
+export const title = 'Homer Fund';
 
-export let start = `2018-02`;
-export let end = `2018-02`;
+export const start = '2018-02';
+export const end = '2018-02';
 
-export let duration = moment.duration(moment.utc().diff(moment.utc(start))).toJSON();
+export const duration = formatDuration(calculateDuration(start, end));
 
-export let summaryMarkdown = `
+export const summaryMarkdown = `
 Rapidly shipped updates to Python Flask app to support the Homer Fund 2018 charity.
 
 Also created a small support service in Spring Boot to consume APIs otherwise innacessible internally through Python.
 
 `;
 
-export let icons = [
-  `Python`,
-  `Java`,
+export const icons = [
+  'Python',
+  'Java',
 ];
 
-export let portfolio = undefined;
+export const portfolio = undefined;
 
-export let project: NormalizedProject = createProject({
+export const project: NormalizedProject = createProject({
   title,
   start,
   end,
   duration,
   icons,
   tags: createTags(duration, [
-  `Python`,
-  `Flask`,
-  `Java`,
+  'Python',
+  'Flask',
+  'Java',
 ]),
   summaryMarkdown,
   portfolio,

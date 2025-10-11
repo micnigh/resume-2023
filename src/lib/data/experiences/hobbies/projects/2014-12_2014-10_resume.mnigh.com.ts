@@ -1,45 +1,45 @@
-import moment from 'moment';
+import { calculateDuration, formatDuration } from '../../../../util/dates';
 import { NormalizedProject } from '../../index.types';
-import { createProject, createTags } from '../../';
+import { createProject, createTags } from '../../utils';
 
-export let title = `resume.mnigh.com`;
+export const title = 'resume.mnigh.com';
 
-export let start = `2014-11`;
-export let end = `2014-12`;
-export let duration = moment.duration(moment.utc(end).endOf(`month` as any).diff(moment.utc(start))).toJSON();
+export const start = '2014-11';
+export const end = '2014-12';
+export const duration = formatDuration(calculateDuration(start, end));
 
-export let summaryMarkdown = `
+export const summaryMarkdown = `
 Rebuilt resume with NodeJs stack from custom Gulp tasks.  Snapshots of previous projects ported into Docker containers and run on a single VPS behind an Nginx proxy.
 `;
 
-export let icons = [
-  `Gulp`,
-  `NodeJS`,
-  `Bower`,
-  `Docker`,
+export const icons = [
+  'Gulp',
+  'NodeJS',
+  'Bower',
+  'Docker',
 ];
 
-export let portfolio = undefined;
+export const portfolio = undefined;
 
-export let project: NormalizedProject = createProject({
+export const project: NormalizedProject = createProject({
   title,
   start,
   end,
   duration,
   icons,
   tags: createTags(duration, [
-  `NodeJS`,
-  `Gulp`,
-  `Bower`,
-  `Digital Ocean`,
-  `Git`,
-  `Docker`,
-  `Sass`,
-  `Compass`,
-  `Coffeescript`,
-  `JQuery`,
-  `HTML`,
-  `CSS`,
+  'NodeJS',
+  'Gulp',
+  'Bower',
+  'Digital Ocean',
+  'Git',
+  'Docker',
+  'Sass',
+  'Compass',
+  'Coffeescript',
+  'JQuery',
+  'HTML',
+  'CSS',
 ]),
   summaryMarkdown,
   portfolio,

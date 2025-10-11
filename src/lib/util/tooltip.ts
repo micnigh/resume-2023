@@ -1,16 +1,22 @@
-import { default as tippy } from 'tippy.js'
+import tippy, { Instance } from 'tippy.js';
 
-const selector = `*[title]`;
+const selector = '*[title]';
 
-export const generateTooltips = (element: HTMLElement | Document | null = document) => {
-  element = element ? element : document;
-  let elements = Array.from(element.querySelectorAll(selector));
-  elements = elements.filter(e => e.attributes['title'].value.length > 0);
-  return tippy(elements, {
+export const generateTooltips = (element: HTMLElement | Document = document): Instance[] => {
+  const elements = Array.from(element.querySelectorAll<HTMLElement>(selector));
+  const filteredElements = elements.filter((e) => {
+    const title = e.getAttribute('title');
+    return title !== null && title.length > 0;
+  });
+  
+  return tippy(filteredElements, {
     placement: 'top',
     animation: 'fade',
     duration: 100,
     arrow: true,
-    content: (e: HTMLElement) => e.attributes['title'].value,
-  }) as any[];
+    content: (e) => {
+      const element = e as HTMLElement;
+      return element.getAttribute('title') || '';
+    },
+  });
 };

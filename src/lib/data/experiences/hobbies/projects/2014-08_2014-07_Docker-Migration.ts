@@ -1,38 +1,38 @@
-import moment from 'moment';
+import { calculateDuration, formatDuration } from '../../../../util/dates';
 import { NormalizedProject } from '../../index.types';
-import { createProject, createTags } from '../../';
+import { createProject, createTags } from '../../utils';
 
-export let title = `Docker migration`;
+export const title = 'Docker migration';
 
-export let start = `2014-07`;
-export let end = `2014-08`;
-export let duration = moment.duration(moment.utc(end).endOf(`month` as any).diff(moment.utc(start))).toJSON();
+export const start = '2014-07';
+export const end = '2014-08';
+export const duration = formatDuration(calculateDuration(start, end));
 
-export let summaryMarkdown = `
+export const summaryMarkdown = `
 Applied Docker to new and current web projects.  Moved away from shell and ruby scripts to Dockerfiles with simple build scripts.  Over time learned and applied best practices - based on docker usage in small and big companies.
 `;
 
-export let icons = [
+export const icons = [
 
 ];
 
-export let portfolio = undefined;
+export const portfolio = undefined;
 
-export let project: NormalizedProject = createProject({
+export const project: NormalizedProject = createProject({
   title,
   start,
   end,
   duration,
   icons,
   tags: createTags(duration, [
-  `NodeJS`,
-  `Docker`,
-  `Wordpress`,
-  `Grunt`,
-  `Gulp`,
-  `Git`,
-  `HTML`,
-  `CSS`,
+  'NodeJS',
+  'Docker',
+  'Wordpress',
+  'Grunt',
+  'Gulp',
+  'Git',
+  'HTML',
+  'CSS',
 ]),
   summaryMarkdown,
   portfolio,

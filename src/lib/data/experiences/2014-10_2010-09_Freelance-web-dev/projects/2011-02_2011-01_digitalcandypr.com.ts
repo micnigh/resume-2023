@@ -1,38 +1,38 @@
-import moment from 'moment';
+import { calculateDuration, formatDuration } from '../../../../util/dates';
 import { NormalizedProject } from '../../index.types';
-import { createProject, createTags } from '../../';
+import { createProject, createTags } from '../../utils';
 
-export let title = `digitalcandypr.com`;
+export const title = 'digitalcandypr.com';
 
-export let start = `2011-01`;
-export let end = `2011-02`;
-export let duration = moment.duration(moment.utc(end).endOf(`month` as any).diff(moment.utc(start))).toJSON();
+export const start = '2011-01';
+export const end = '2011-02';
+export const duration = formatDuration(calculateDuration(start, end));
 
-export let summaryMarkdown = `
+export const summaryMarkdown = `
 Expanded on GWT experience to design small business site with a very simple clean look.  Features include Twitter integration and AWS hosting.
 `;
 
-export let icons = [
-  `Java`,
+export const icons = [
+  'Java',
 ];
 
-export let project: NormalizedProject = createProject({
+export const project: NormalizedProject = createProject({
   title,
   start,
   end,
   duration,
   icons,
   tags: createTags(duration, [
-  `GWT`,
-  `Twitter JS API`,
-  `Rackspace Cloud`,
-  `LAMP`,
-  `AWS EC2`,
-  `AWS S3`,
-  `AWS CloudFront`,
-  `HTML`,
-  `CSS`,
-  `Java`,
+  'GWT',
+  'Twitter JS API',
+  'Rackspace Cloud',
+  'LAMP',
+  'AWS EC2',
+  'AWS S3',
+  'AWS CloudFront',
+  'HTML',
+  'CSS',
+  'Java',
 ]),
   summaryMarkdown,
 });

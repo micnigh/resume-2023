@@ -1,40 +1,40 @@
-import moment from 'moment';
+import { calculateDuration, formatDuration } from '../../../../util/dates';
 import { NormalizedProject } from '../../index.types';
-import { createProject, createTags } from '../../';
+import { createProject, createTags } from '../../utils';
 
-export let title = `boilerplate gulp generic`;
+export const title = 'boilerplate gulp generic';
 
-export let start = `2015-10`;
-export let end = `2015-10`;
-export let duration = moment.duration(moment.utc(end).endOf(`month` as any).diff(moment.utc(start))).toJSON();
+export const start = '2015-10';
+export const end = '2015-10';
+export const duration = formatDuration(calculateDuration(start, end));
 
-export let summaryMarkdown = `
+export const summaryMarkdown = `
 Boilerplate ES6 project using Gulp tasks and Babel.
 `;
 
-export let icons = [
-  `Gulp`,
-  `NodeJS`,
+export const icons = [
+  'Gulp',
+  'NodeJS',
 ];
 
-export let portfolio = {
-  link: `https://github.com/micnigh/boilerplate-gulp-generic/`,
-  hoverTitle: `View public git repo`,
+export const portfolio = {
+  link: 'https://github.com/micnigh/boilerplate-gulp-generic/',
+  hoverTitle: 'View public git repo',
 };
 
-export let project: NormalizedProject = createProject({
+export const project: NormalizedProject = createProject({
   title,
   start,
   end,
   duration,
   icons,
   tags: createTags(duration, [
-  `NodeJS`,
-  `Gulp`,
-  `Git`,
-  `Sass`,
-  `HTML`,
-  `CSS`,
+  'NodeJS',
+  'Gulp',
+  'Git',
+  'Sass',
+  'HTML',
+  'CSS',
 ]),
   summaryMarkdown,
   portfolio,

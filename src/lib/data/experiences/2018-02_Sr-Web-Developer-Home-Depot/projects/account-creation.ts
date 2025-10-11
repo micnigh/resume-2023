@@ -1,43 +1,43 @@
-import moment from 'moment';
+import { calculateDuration, formatDuration } from '../../../../util/dates';
 import { NormalizedProject } from '../../index.types';
-import { createProject, createTags } from '../../';
+import { createProject, createTags } from '../../utils';
 
-export let title = `Account Creation`;
+export const title = 'Account Creation';
 
-export let start = `2018-09`;
-export let end = `2018-09`;
+export const start = '2018-09';
+export const end = '2018-09';
 
-export let duration = moment.duration(moment.utc().diff(moment.utc(start))).toJSON();
+export const duration = formatDuration(calculateDuration(start, end));
 
-export let summaryMarkdown = `
+export const summaryMarkdown = `
 Rapidly created a React/Redux SPA to integrate with simple API.
 `;
 
-export let icons = [
-  `Webpack`,
-  `NodeJS`,
-  `React`,
+export const icons = [
+  'Webpack',
+  'NodeJS',
+  'React',
 ];
 
-export let portfolio = undefined;
+export const portfolio = undefined;
 
-export let project: NormalizedProject = createProject({
+export const project: NormalizedProject = createProject({
   title,
   start,
   end,
   duration,
   icons,
   tags: createTags(duration, [
-  `Typescript`,
-  `NodeJS`,
-  `Webpack`,
-  `Git`,
-  `Sass`,
-  `React`,
-  `Redux`,
-  `HTML`,
-  `CSS`,
-  `ExpressJS`,
+  'Typescript',
+  'NodeJS',
+  'Webpack',
+  'Git',
+  'Sass',
+  'React',
+  'Redux',
+  'HTML',
+  'CSS',
+  'ExpressJS',
 ]),
   summaryMarkdown,
   portfolio,

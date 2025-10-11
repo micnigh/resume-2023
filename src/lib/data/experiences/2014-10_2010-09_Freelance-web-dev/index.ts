@@ -1,6 +1,6 @@
-import moment from 'moment';
 import { NormalizedExperience, NormalizedProject } from '../index.types';
 import { createExperience, createTags } from '../utils';
+import { calculateDuration, formatDuration } from '../../../util/dates';
 
 // Project imports
 import * as noahsarkretreatProject from './projects/2013-07_2013-06_noahsarkretreat.com';
@@ -11,29 +11,24 @@ import * as jenleeartsProject from './projects/2011-08_2011-07_jenleearts.com';
 import * as digitalcandyprProject from './projects/2011-02_2011-01_digitalcandypr.com';
 import * as parveztajProject from './projects/2011-01_2010-09_parveztaj.com';
 
-export let title = `Freelance Web Developer`;
+export const title = 'Freelance Web Developer';
 
-export let start = `2010-09`;
-export let end = `2014-10`;
-export let duration = moment.duration(moment.utc(end).endOf(`month` as any).diff(moment.utc(start))).toJSON();
+export const start = '2010-09';
+export const end = '2014-10';
+export const duration = formatDuration(calculateDuration(start, end));
 
-export let summaryMarkdown = `
+export const summaryMarkdown = `
 Building highly customized personal and small businesses websites.
 
 See projects for details.
 `;
 
-export let tags = createTags(duration, [
+export const tags = createTags(duration, []);
 
-]);
+export const icons: string[] = [];
 
-export let icons = [
-
-];
-
-
-export const getExperience = async () => {
-  let projects = ([
+export const getExperience = async (): Promise<NormalizedExperience> => {
+  const projects = ([
     noahsarkretreatProject.project,
     drbacalProject.project,
     teresajanelaProject.project,
@@ -41,9 +36,9 @@ export const getExperience = async () => {
     jenleeartsProject.project,
     digitalcandyprProject.project,
     parveztajProject.project,
-  ] as NormalizedProject[]).map(p => p.id) as string[];
+  ] as NormalizedProject[]).map((p) => p.id) as string[];
 
-  let experience: NormalizedExperience = createExperience({
+  const experience: NormalizedExperience = createExperience({
     title,
     start,
     end,
@@ -55,6 +50,6 @@ export const getExperience = async () => {
   });
 
   return experience;
-}
+};
 
 export default getExperience;

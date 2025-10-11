@@ -1,46 +1,46 @@
-import moment from 'moment';
 import { NormalizedProject } from '../../index.types';
 import { createProject, createTags } from '../../utils';
+import { calculateDuration, formatDuration } from '../../../../util/dates';
 
-export let title = `Learning Curve`;
+export const title = 'Learning Curve';
 
-export let start = `2019-04`;
-export let end = ``;
-export let duration = moment.duration(moment.utc().endOf(`month` as any).diff(moment.utc(start))).toJSON();
+export const start = '2019-04';
+export const end = '';
+export const duration = formatDuration(calculateDuration(start, end));
 
-export let summaryMarkdown = `
+export const summaryMarkdown = `
 Learn topics by answering questions until a target score is reached
 
 `;
 
-export let icons = [
-  `PHP`,
-  `Webpack`,
-  `NodeJS`,
-  `Docker`,
-  `React`,
+export const icons = [
+  'PHP',
+  'Webpack',
+  'NodeJS',
+  'Docker',
+  'React',
 ];
 
-export let portfolio = undefined;
+export const portfolio = undefined;
 
-export let project: NormalizedProject = createProject({
+export const project: NormalizedProject = createProject({
   title,
   start,
   end,
   duration,
   icons,
   tags: createTags(duration, [
-    `NodeJS`,
-    `Webpack`,
-    `Git`,
-    `Sass`,
-    `React`,
-    `Redux`,
-    `HTML`,
-    `CSS`,
-    `Koa`,
-    `Docker`,
-    `PHP`,
+    'NodeJS',
+    'Webpack',
+    'Git',
+    'Sass',
+    'React',
+    'Redux',
+    'HTML',
+    'CSS',
+    'Koa',
+    'Docker',
+    'PHP',
   ]),
   summaryMarkdown,
   portfolio,

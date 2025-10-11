@@ -1,47 +1,47 @@
-import moment from 'moment';
+import { calculateDuration, formatDuration } from '../../../../util/dates';
 import { NormalizedProject } from '../../index.types';
-import { createProject, createTags } from '../../';
+import { createProject, createTags } from '../../utils';
 
-export let title = `noahsarkretreat.com`;
+export const title = 'noahsarkretreat.com';
 
-export let start = `2013-06`;
-export let end = `2013-07`;
-export let duration = moment.duration(moment.utc(end).endOf(`month` as any).diff(moment.utc(start))).toJSON();
+export const start = '2013-06';
+export const end = '2013-07';
+export const duration = formatDuration(calculateDuration(start, end));
 
-export let summaryMarkdown = `
+export const summaryMarkdown = `
 Recovered website from [WayBackMachine](https://archive.org/web/) and ported to Wordpress theme.  Extended original site and added features such as responsive image galleries.  Updated content and added new pages.  During development used Rails with LiveReload to generate Coffeescript and SASS of WordPress theme.
 `;
 
-export let icons = [
-  `Rails`,
-  `Wordpress`,
+export const icons = [
+  'Rails',
+  'Wordpress',
 ];
 
-export let project: NormalizedProject = createProject({
+export const project: NormalizedProject = createProject({
   title,
   start,
   end,
   duration,
   icons,
   tags: createTags(duration, [
-  `Rails`,
-  `Wordpress`,
-  `Ramnode`,
-  `Git`,
-  `VirtualBox`,
-  `Sass`,
-  `Compass`,
-  `Ruby`,
-  `PHP`,
-  `Coffeescript`,
-  `JQuery`,
-  `Vagrant`,
-  `lxc`,
-  `zsh`,
-  `oh-my-zsh`,
-  `Sprinkle`,
-  `HTML`,
-  `CSS`,
+  'Rails',
+  'Wordpress',
+  'Ramnode',
+  'Git',
+  'VirtualBox',
+  'Sass',
+  'Compass',
+  'Ruby',
+  'PHP',
+  'Coffeescript',
+  'JQuery',
+  'Vagrant',
+  'lxc',
+  'zsh',
+  'oh-my-zsh',
+  'Sprinkle',
+  'HTML',
+  'CSS',
 ]),
   summaryMarkdown,
 });

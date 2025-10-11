@@ -1,14 +1,14 @@
-import moment from 'moment';
+import { calculateDuration, formatDuration } from '../../../../util/dates';
 import { NormalizedProject } from '../../index.types';
-import { createProject, createTags } from '../../';
+import { createProject, createTags } from '../../utils';
 
-export let title = `Article Render Squad`;
+export const title = 'Article Render Squad';
 
-export let start = `2018-10`;
-export let end = `2019-03`;
-export let duration = moment.duration(moment.utc().endOf(`month` as any).diff(moment.utc(start))).toJSON();
+export const start = '2018-10';
+export const end = '2019-03';
+export const duration = formatDuration(calculateDuration(start, end));
 
-export let summaryMarkdown = `
+export const summaryMarkdown = `
 Work with product owners to optimize SEO and render new article content as lead front end engineer.
 
 Analyze SEO impact of React usage with THD architects as an SPA, element replacement, and SSR.
@@ -23,31 +23,31 @@ Develop strategies to implement NextGen THD features.
 
 `;
 
-export let icons = [
-  `Webpack`,
-  `NodeJS`,
-  `Docker`,
+export const icons = [
+  'Webpack',
+  'NodeJS',
+  'Docker',
 ];
 
-export let portfolio = undefined;
+export const portfolio = undefined;
 
-export let project: NormalizedProject = createProject({
+export const project: NormalizedProject = createProject({
   title,
   start,
   end,
   duration,
   icons,
   tags: createTags(duration, [
-  `Typescript`,
-  `NodeJS`,
-  `Webpack`,
-  `Git`,
-  `Docker`,
-  `Sass`,
-  `JQuery`,
-  `HTML`,
-  `CSS`,
-  `ExpressJS`,
+  'Typescript',
+  'NodeJS',
+  'Webpack',
+  'Git',
+  'Docker',
+  'Sass',
+  'JQuery',
+  'HTML',
+  'CSS',
+  'ExpressJS',
 ]),
   summaryMarkdown,
   portfolio,

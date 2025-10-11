@@ -1,47 +1,47 @@
-import moment from 'moment';
 import { NormalizedProject } from '../../index.types';
 import { createProject, createTags } from '../../utils';
+import { calculateDuration, formatDuration } from '../../../../util/dates';
 
-export let title = `Pathfinder`;
+export const title = 'Pathfinder';
 
-export let start = `2019-04`;
-export let end = ``;
+export const start = '2019-04';
+export const end = '';
 
-export let duration = moment.duration(moment.utc().diff(moment.utc(start))).toJSON();
+export const duration = formatDuration(calculateDuration(start, end));
 
-export let summaryMarkdown = `
+export const summaryMarkdown = `
 Test student competency to generate studyplan on areas that need improvement
 `;
 
-export let icons = [
-  `Webpack`,
-  `NodeJS`,
-  `Docker`,
-  `React`,
+export const icons = [
+  'Webpack',
+  'NodeJS',
+  'Docker',
+  'React',
 ];
 
-export let portfolio = undefined;
+export const portfolio = undefined;
 
-export let project: NormalizedProject = createProject({
+export const project: NormalizedProject = createProject({
   title,
   start,
   end,
   duration,
   icons,
   tags: createTags(duration, [
-    `Typescript`,
-    `NodeJS`,
-    `Webpack`,
-    `Git`,
-    `Sass`,
-    `React`,
-    `Redux`,
-    `HTML`,
-    `CSS`,
-    `Koa`,
-    `Docker`,
-    `GraphQL`,
-    `AWS`,
+    'Typescript',
+    'NodeJS',
+    'Webpack',
+    'Git',
+    'Sass',
+    'React',
+    'Redux',
+    'HTML',
+    'CSS',
+    'Koa',
+    'Docker',
+    'GraphQL',
+    'AWS',
   ]),
   summaryMarkdown,
   portfolio,

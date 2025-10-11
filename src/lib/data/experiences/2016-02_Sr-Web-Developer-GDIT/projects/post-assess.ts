@@ -1,39 +1,38 @@
-import moment from 'moment';
 import { NormalizedProject } from '../../index.types';
-import { createProject, createTags } from '../../';
+import { createProject, createTags } from '../../utils';
 
-export let title = `Post & Assess`;
+export const title = 'Post & Assess';
 
-export let start = ``;
-export let end = ``;
+export const start = '';
+export const end = '';
 
-export let duration = moment.duration({ months: 3 }).toJSON();
+export const duration = 'P3M'; // 3 months in ISO 8601 duration format
 
-export let summaryMarkdown = `
+export const summaryMarkdown = `
 Tool for students to publish posts, be assessed by peers, and graded by an instructor.
 
 Hides posts until each period is over, preventing students from being influenced by early posts.
 `;
 
-export let icons = [
-  `Gulp`,
-  `NodeJS`,
-  `Docker`,
-  `React`,
+export const icons = [
+  'Gulp',
+  'NodeJS',
+  'Docker',
+  'React',
 ];
 
-export let portfolio = undefined;
+export const portfolio = undefined;
 
-export let project: NormalizedProject = createProject({
+export const project: NormalizedProject = createProject({
   title,
   start,
   end,
   duration,
   icons,
   tags: createTags(duration, [
-  `React`,
-  `Redux`,
-  `Typescript`,
+  'React',
+  'Redux',
+  'Typescript',
 ]),
   summaryMarkdown,
   portfolio,

@@ -1,7 +1,6 @@
-import moment from 'moment';
 import { NormalizedExperience, NormalizedProject } from '../index.types';
 import { createExperience, createTags } from '../utils';
-
+import { calculateDuration, formatDuration } from '../../../util/dates';
 import * as _ from 'lodash';
 
 // Project imports
@@ -9,20 +8,20 @@ import * as hurricaneDecisionSimulatorProject from './projects/hurricane-decisio
 import * as montereyPhoenixProject from './projects/monterey-phoenix';
 import * as postAssessProject from './projects/post-assess';
 
-export let title = `Senior Web Developer - NPS CED3 - GDIT`;
+export const title = 'Senior Web Developer - NPS CED3 - GDIT';
 
-export let start = `2015-02`;
-export let end = `2018-02`;
+export const start = '2015-02';
+export const end = '2018-02';
 
-export let duration = moment.duration(moment.utc().diff(moment.utc(start))).toJSON();
+export const duration = formatDuration(calculateDuration(start, end));
 
-export let startDeveloper = `2015-02`;
-export let endDeveloper = `2016-01`;
-export let durationDeveloper = moment.duration(moment.utc(endDeveloper).diff(moment.utc(startDeveloper))).toJSON();
+export const startDeveloper = '2015-02';
+export const endDeveloper = '2016-01';
+export const durationDeveloper = formatDuration(calculateDuration(startDeveloper, endDeveloper));
 
-export let startSeniorDeveloper = `2016-02`;
-export let endSeniorDeveloper = `2018-02`;
-export let durationSeniorDeveloper = moment.duration(moment.utc().diff(moment.utc(startSeniorDeveloper))).toJSON();
+export const startSeniorDeveloper = '2016-02';
+export const endSeniorDeveloper = '2018-02';
+export const durationSeniorDeveloper = formatDuration(calculateDuration(startSeniorDeveloper, endSeniorDeveloper));
 
 export let summaryMarkdown = `
 **Senior Web Developer**  ${startSeniorDeveloper} to ${endSeniorDeveloper}
@@ -40,48 +39,48 @@ Frontends with React/Redux and Webpack for bundling.
 Legacy systems in PHP, Java Wicket, and Backbone.
 `;
 
-let tagsDeveloper = createTags(durationDeveloper, [
-  `NodeJS`,
-  `Gulp`,
-  `Git`,
-  `Docker`,
-  `Less`,
-  `JQuery`,
-  `Backbone`,
-  `Java`,
-  `HTML`,
-  `CSS`,
+const tagsDeveloper = createTags(durationDeveloper, [
+  'NodeJS',
+  'Gulp',
+  'Git',
+  'Docker',
+  'Less',
+  'JQuery',
+  'Backbone',
+  'Java',
+  'HTML',
+  'CSS',
 ]);
 
-let tagsSeniorDeveloper = createTags(durationSeniorDeveloper, [
-  `NodeJS`,
-  `Webpack`,
-  `Git`,
-  `Docker`,
-  `Sass`,
-  `JQuery`,
-  `React`,
-  `Redux`,
-  `Java`,
-  `HTML`,
-  `CSS`,
-  `Typescript`,
-  `Gulp`,
-  `Backbone`,
+const tagsSeniorDeveloper = createTags(durationSeniorDeveloper, [
+  'NodeJS',
+  'Webpack',
+  'Git',
+  'Docker',
+  'Sass',
+  'JQuery',
+  'React',
+  'Redux',
+  'Java',
+  'HTML',
+  'CSS',
+  'Typescript',
+  'Gulp',
+  'Backbone',
 ]);
 
-export let tags = _.uniq(tagsDeveloper.concat(tagsSeniorDeveloper));
+export const tags = _.uniq(tagsDeveloper.concat(tagsSeniorDeveloper));
 
-export let icons = [];
+export const icons: string[] = [];
 
-export const getExperience = async () => {
-  let projects = ([
+export const getExperience = async (): Promise<NormalizedExperience> => {
+  const projects = ([
     hurricaneDecisionSimulatorProject.project,
     montereyPhoenixProject.project,
     postAssessProject.project,
-  ] as NormalizedProject[]).map(p => p.id) as string[];
+  ] as NormalizedProject[]).map((p) => p.id) as string[];
 
-  let experience: NormalizedExperience = createExperience({
+  const experience: NormalizedExperience = createExperience({
     title,
     start,
     end,
@@ -93,6 +92,6 @@ export const getExperience = async () => {
   });
 
   return experience;
-}
+};
 
 export default getExperience;

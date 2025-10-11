@@ -1,37 +1,37 @@
-import moment from 'moment';
+import { calculateDuration, formatDuration } from '../../../../util/dates';
 import { NormalizedProject } from '../../index.types';
-import { createProject, createTags } from '../../';
+import { createProject, createTags } from '../../utils';
 
-export let title = `jenleearts.com`;
+export const title = 'jenleearts.com';
 
-export let start = `2011-07`;
-export let end = `2011-08`;
-export let duration = moment.duration(moment.utc(end).endOf(`month` as any).diff(moment.utc(start))).toJSON();
+export const start = '2011-07';
+export const end = '2011-08';
+export const duration = formatDuration(calculateDuration(start, end));
 
-export let summaryMarkdown = `
+export const summaryMarkdown = `
 Extended parveztaj.com GWT template to another site.  Setup domain, hosting, and CDN.
 `;
 
-export let icons = [
-  `Java`,
+export const icons = [
+  'Java',
 ];
 
-export let project: NormalizedProject = createProject({
+export const project: NormalizedProject = createProject({
   title,
   start,
   end,
   duration,
   icons,
   tags: createTags(duration, [
-  `GWT`,
-  `JQuery`,
-  `Typeface`,
-  `Java`,
-  `Javascript`,
-  `Rackspace CloudFiles`,
-  `Rackspace Cloud`,
-  `HTML`,
-  `CSS`,
+  'GWT',
+  'JQuery',
+  'Typeface',
+  'Java',
+  'Javascript',
+  'Rackspace CloudFiles',
+  'Rackspace Cloud',
+  'HTML',
+  'CSS',
 ]),
   summaryMarkdown,
 });

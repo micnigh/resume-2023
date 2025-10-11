@@ -1,15 +1,15 @@
-import moment from 'moment';
+import { calculateDuration, formatDuration } from '../../../../util/dates';
 import { NormalizedProject } from '../../index.types';
-import { createProject, createTags } from '../../';
+import { createProject, createTags } from '../../utils';
 
-export let title = `Forecast Tool`;
+export const title = 'Forecast Tool';
 
-export let start = `2018-03`;
-export let end = `2018-08`;
+export const start = '2018-03';
+export const end = '2018-08';
 
-export let duration = moment.duration(moment.utc().diff(moment.utc(start))).toJSON();
+export const duration = formatDuration(calculateDuration(start, end));
 
-export let summaryMarkdown = `
+export const summaryMarkdown = `
 Architected modern React/Redux SPA of internal HR budgeting application used throughout the .com organization.
 
 Backend built using NodeJS Express with apis written in Apollo GraphQL pulling data from PostgreSQL.
@@ -20,35 +20,35 @@ Deployments using the [twelve-factor](http://12factor.net/) approach on [google 
 
 `;
 
-export let icons = [
-  `Webpack`,
-  `NodeJS`,
-  `Docker`,
-  `React`,
+export const icons = [
+  'Webpack',
+  'NodeJS',
+  'Docker',
+  'React',
 ];
 
-export let portfolio = undefined;
+export const portfolio = undefined;
 
-export let project: NormalizedProject = createProject({
+export const project: NormalizedProject = createProject({
   title,
   start,
   end,
   duration,
   icons,
   tags: createTags(duration, [
-  `Typescript`,
-  `NodeJS`,
-  `Webpack`,
-  `Git`,
-  `Docker`,
-  `Sass`,
-  `React`,
-  `Redux`,
-  `HTML`,
-  `CSS`,
-  `PostgreSQL`,
-  `GraphQL`,
-  `ExpressJS`,
+  'Typescript',
+  'NodeJS',
+  'Webpack',
+  'Git',
+  'Docker',
+  'Sass',
+  'React',
+  'Redux',
+  'HTML',
+  'CSS',
+  'PostgreSQL',
+  'GraphQL',
+  'ExpressJS',
 ]),
   summaryMarkdown,
   portfolio,

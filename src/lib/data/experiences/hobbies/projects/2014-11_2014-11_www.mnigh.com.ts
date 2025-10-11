@@ -1,41 +1,41 @@
-import moment from 'moment';
+import { calculateDuration, formatDuration } from '../../../../util/dates';
 import { NormalizedProject } from '../../index.types';
-import { createProject, createTags } from '../../';
+import { createProject, createTags } from '../../utils';
 
-export let title = `mnigh.com`;
+export const title = 'mnigh.com';
 
-export let start = `2014-11`;
-export let end = `2014-11`;
-export let duration = moment.duration(moment.utc(end).endOf(`month` as any).diff(moment.utc(start))).toJSON();
+export const start = '2014-11';
+export const end = '2014-11';
+export const duration = formatDuration(calculateDuration(start, end));
 
-export let summaryMarkdown = `
+export const summaryMarkdown = `
 Created blog to increase my online presence and demonstrate technical knowledge in an informal way.  Built with NodeJs stack using custom Gulp tasks.
 `;
 
-export let icons = [
-  `Gulp`,
-  `NodeJS`,
-  `Bower`,
+export const icons = [
+  'Gulp',
+  'NodeJS',
+  'Bower',
 ];
 
-export let portfolio = undefined;
+export const portfolio = undefined;
 
-export let project: NormalizedProject = createProject({
+export const project: NormalizedProject = createProject({
   title,
   start,
   end,
   duration,
   icons,
   tags: createTags(duration, [
-  `NodeJS`,
-  `Bootstrap`,
-  `Gulp`,
-  `Bower`,
-  `Git`,
-  `Sass`,
-  `Coffeescript`,
-  `HTML`,
-  `CSS`,
+  'NodeJS',
+  'Bootstrap',
+  'Gulp',
+  'Bower',
+  'Git',
+  'Sass',
+  'Coffeescript',
+  'HTML',
+  'CSS',
 ]),
   summaryMarkdown,
   portfolio,

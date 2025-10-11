@@ -1,24 +1,24 @@
-import moment from 'moment';
 import { NormalizedExperience, NormalizedProject } from '../index.types';
 import { createExperience, createTags } from '../utils';
+import { calculateDuration, formatDuration } from '../../../util/dates';
 
 // Project imports
 import * as pathfinderProject from './projects/pathfinder';
 import * as learningcurveProject from './projects/learningcurve';
 import * as readingProject from './projects/reading';
 
-export let title = `Senior Software Engineer - MacMillan`;
+export const title = 'Senior Software Engineer - MacMillan';
 
-const tekStart = `2019-04`;
-const tekEnd = `2020-07`
+const tekStart = '2019-04';
+const tekEnd = '2020-07';
 
-const fulltimeStart = `2020-07`;
+const fulltimeStart = '2020-07';
 
-export let start = `2019-04`;
-export let end = ``;
-export let duration = moment.duration(moment.utc().endOf(`month` as any).diff(moment.utc(start))).toJSON();
+export const start = '2019-04';
+export const end = '';
+export const duration = formatDuration(calculateDuration(start, end));
 
-export let summaryMarkdown = `
+export const summaryMarkdown = `
 **Senior Software Engineer**  ${fulltimeStart} to present
 
 **Senior Software Engineer - Contracted through TekSystems** ${tekStart} to ${tekEnd}
@@ -31,24 +31,19 @@ A typical week may include bug fixes, feature work, coordination with other team
 
 `;
 
-export let tags = createTags(duration, [
+export const tags = createTags(duration, []);
 
-]);
+export const icons: string[] = [];
 
-export let icons = [
-
-];
-
-
-export const getExperience = async () => {
-  let projects = ([
+export const getExperience = async (): Promise<NormalizedExperience> => {
+  const projects = ([
     pathfinderProject.project,
     learningcurveProject.project,
     readingProject.project,
     // pathfinder2Project.project,
-  ] as NormalizedProject[]).map(p => p.id) as string[];
-  
-  let experience: NormalizedExperience = createExperience({
+  ] as NormalizedProject[]).map((p) => p.id) as string[];
+
+  const experience: NormalizedExperience = createExperience({
     title,
     start,
     end,
@@ -60,7 +55,7 @@ export const getExperience = async () => {
   });
 
   return experience;
-}
+};
 
 
 export default getExperience;

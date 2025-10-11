@@ -1,4 +1,3 @@
-import moment from 'moment';
 import { NormalizedExperience, NormalizedProject } from '../index.types';
 import { createExperience, createTags } from '../utils';
 
@@ -18,26 +17,22 @@ import * as lxcDeploymentProject from './projects/2013-09_2013-04_LXC-Deployment
 import * as resume2012Project from './projects/2012-09_2012-08_resume.mnigh.com';
 import * as webAppGeneratorProject from './projects/2012-01_2011-11_Web-App-Generator';
 
-export let title = `Hobbies`;
+export const title = 'Hobbies';
 
-export let start = ``;
-export let end = ``;
-export let duration = moment.duration().toJSON();
+export const start = '';
+export const end = '';
+export const duration = 'PT0S';
 
-export let summaryMarkdown = `
+export const summaryMarkdown = `
 Interesting projects outside of work.
 `;
 
-export let tags = createTags(duration, [
+export const tags = createTags(duration, []);
 
-]);
+export const icons: string[] = [];
 
-export let icons = [
-
-];
-
-export const getExperience = async () => {
-  let projects = ([
+export const getExperience = async (): Promise<NormalizedExperience> => {
+  const projects = ([
     resume2016Project.project,
     boilerplateIsomorphicTypescriptProject.project,
     yetAnotherIsomorphicBlogProject.project,
@@ -52,9 +47,9 @@ export const getExperience = async () => {
     lxcDeploymentProject.project,
     resume2012Project.project,
     webAppGeneratorProject.project,
-  ] as NormalizedProject[]).map(p => p.id) as string[];
+  ] as NormalizedProject[]).map((p) => p.id) as string[];
 
-  let experience: NormalizedExperience = createExperience({
+  const experience: NormalizedExperience = createExperience({
     title,
     start,
     end,
@@ -66,6 +61,6 @@ export const getExperience = async () => {
   });
 
   return experience;
-}
+};
 
 export default getExperience;
