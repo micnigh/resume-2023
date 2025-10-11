@@ -5,13 +5,17 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "deploy": "vite build && touch dist/.nojekyll && echo 'resume.mnigh.com' > dist/CNAME && cp dist/index.html dist/404.html && gh-pages -d dist"
+    "deploy": "vite build && touch dist/.nojekyll && echo 'resume.mnigh.com' > dist/CNAME && cp dist/index.html dist/404.html && gh-pages -d dist",
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:debug": "playwright test --debug"
   },
   "dependencies": {
     "react": "19.1.1",
     "react-dom": "19.1.1"
   },
   "devDependencies": {
+    "@playwright/test": "^1.56.0",
     "@tailwindcss/vite": "^4.1.13",
     "@types/lodash": "^4.17.20",
     "@types/node": "24.5.0",
