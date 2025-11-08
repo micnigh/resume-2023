@@ -4,7 +4,6 @@ import {
 } from '../index.types';
 import { createExperience, createTags } from '../utils';
 import { calculateDuration, formatDuration } from '../../../util/dates';
-import * as _ from 'lodash';
 
 // Project imports
 import * as hurricaneDecisionSimulatorProject from './projects/hurricane-decision-simulator';
@@ -76,7 +75,7 @@ const tagsSeniorDeveloper = createTags(durationSeniorDeveloper, [
   'Backbone',
 ]);
 
-export const tags = _.uniq(tagsDeveloper.concat(tagsSeniorDeveloper));
+export const tags = [...new Set(tagsDeveloper.concat(tagsSeniorDeveloper))];
 
 export const icons: string[] = [];
 

@@ -3,8 +3,6 @@ import {
   type NormalizedProject,
   type Tag,
 } from './index.types';
-import { merge } from 'lodash';
-import { v4 as uuidv4 } from 'uuid';
 import { addDurations } from '../../util/dates';
 
 import { marked } from 'marked';
@@ -12,6 +10,40 @@ const renderer = new marked.Renderer();
 
 renderer.link = ({ href, title, text }) => {
   return `<a target='_blank' rel='noopener noreferrer' class='font-bold' href='${href}' title='${title || ''}' >${text}</a>`;
+};
+
+// Native deep merge utility to replace lodash merge
+const deepMerge = <T extends Record<string, unknown>>(
+  target: T,
+  ...sources: Array<Partial<T>>
+): T => {
+  if (!sources.length) return target;
+  const source = sources.shift();
+
+  if (source === undefined) return target;
+
+  if (isObject(target) && isObject(source)) {
+    for (const key in source) {
+      const sourceValue = source[key];
+      if (isObject(sourceValue)) {
+        if (!target[key]) {
+          (target as Record<string, unknown>)[key] = {};
+        }
+        deepMerge(
+          target[key] as Record<string, unknown>,
+          sourceValue as Record<string, unknown>
+        );
+      } else {
+        (target as Record<string, unknown>)[key] = sourceValue;
+      }
+    }
+  }
+
+  return deepMerge(target, ...sources);
+};
+
+const isObject = (item: unknown): item is Record<string, unknown> => {
+  return item !== null && typeof item === 'object' && !Array.isArray(item);
 };
 
 const formatTime = (time: string): string => {
@@ -23,22 +55,24 @@ const formatTime = (time: string): string => {
 export const createExperience = (
   options: NormalizedExperience
 ): NormalizedExperience => {
-  const experience = merge(
+  const experience = deepMerge(
     {
-      id: uuidv4(),
-    },
+      id: crypto.randomUUID(),
+    } as NormalizedExperience,
     options,
     {
       start: formatTime(options.start),
       end: formatTime(options.end),
       summaryHtml: marked(options.summaryMarkdown, { renderer }),
-    }
+    } as Partial<NormalizedExperience>
   );
   if (typeof experience.portfolio !== 'undefined') {
-    experience.portfolio = merge(
-      { hoverTitle: `View snapshot of ${experience.title}` },
-      experience.portfolio
-    );
+    experience.portfolio = {
+      ...{
+        hoverTitle: `View snapshot of ${String(experience.title)}`,
+      },
+      ...experience.portfolio,
+    };
   }
   return experience;
 };
@@ -48,17 +82,21 @@ const projectsById: { [guid: string]: NormalizedProject } = {};
 export const createProject = (
   options: NormalizedProject
 ): NormalizedProject => {
-  const project = merge({ id: uuidv4() }, options, {
-    start: formatTime(options.start),
-    end: formatTime(options.end),
-    summaryHtml: marked(options.summaryMarkdown, { renderer }),
-  });
+  const project = deepMerge(
+    { id: crypto.randomUUID() } as NormalizedProject,
+    options,
+    {
+      start: formatTime(options.start),
+      end: formatTime(options.end),
+      summaryHtml: marked(options.summaryMarkdown, { renderer }),
+    } as Partial<NormalizedProject>
+  );
   projectsById[project.id] = project;
   if (typeof project.portfolio !== 'undefined') {
-    project.portfolio = merge(
-      { hoverTitle: `View snapshot of ${project.title}` },
-      project.portfolio
-    );
+    project.portfolio = {
+      ...{ hoverTitle: `View snapshot of ${String(project.title)}` },
+      ...project.portfolio,
+    };
   }
   return project;
 };
@@ -71,23 +109,32 @@ export const createTags = (duration: string, newTags: string[]): string[] => {
     .map((t) => {
       const tag = tagCacheByName[t];
       if (typeof tag !== 'undefined') {
-        const updatedTag = merge({}, tag, {
+        const updatedTag: Tag = {
+          ...tag,
           duration: addDurations(tag.duration, duration),
-        });
+        };
         tagCacheByName[t] = updatedTag;
-        tags[updatedTag.id!] = updatedTag;
+        if (updatedTag.id) {
+          tags[updatedTag.id] = updatedTag;
+        }
         return updatedTag;
       } else {
         return createTag({ name: t, duration });
       }
     })
-    .map((t) => t.id) as string[];
+    .map((t) => t.id)
+    .filter((id): id is string => typeof id === 'string');
 };
 
 const createTag = (options: Tag): Tag => {
-  const tag = merge({ id: uuidv4() }, options);
+  const tag: Tag = {
+    id: crypto.randomUUID(),
+    ...options,
+  };
   tagCacheByName[options.name] = tag;
-  tags[tag.id] = tag;
+  if (tag.id) {
+    tags[tag.id] = tag;
+  }
   return tag;
 };
 
