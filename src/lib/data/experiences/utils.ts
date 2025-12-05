@@ -58,14 +58,14 @@ export const createExperience = (
   const experience = deepMerge(
     {
       id: crypto.randomUUID(),
-    } as NormalizedExperience,
-    options,
+    } as Record<string, unknown>,
+    options as unknown as Record<string, unknown>,
     {
       start: formatTime(options.start),
       end: formatTime(options.end),
       summaryHtml: marked(options.summaryMarkdown, { renderer }),
-    } as Partial<NormalizedExperience>
-  );
+    } as Record<string, unknown>
+  ) as unknown as NormalizedExperience;
   if (typeof experience.portfolio !== 'undefined') {
     experience.portfolio = {
       ...{
@@ -83,15 +83,17 @@ export const createProject = (
   options: NormalizedProject
 ): NormalizedProject => {
   const project = deepMerge(
-    { id: crypto.randomUUID() } as NormalizedProject,
-    options,
+    { id: crypto.randomUUID() } as Record<string, unknown>,
+    options as unknown as Record<string, unknown>,
     {
       start: formatTime(options.start),
       end: formatTime(options.end),
       summaryHtml: marked(options.summaryMarkdown, { renderer }),
-    } as Partial<NormalizedProject>
-  );
-  projectsById[project.id] = project;
+    } as Record<string, unknown>
+  ) as unknown as NormalizedProject;
+  if (project.id) {
+    projectsById[project.id] = project;
+  }
   if (typeof project.portfolio !== 'undefined') {
     project.portfolio = {
       ...{ hoverTitle: `View snapshot of ${String(project.title)}` },
