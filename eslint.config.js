@@ -53,7 +53,14 @@ export default tseslint.config(
     ...tseslint.configs.disableTypeChecked,
   },
   {
-    files: ['playwright.config.ts', 'vite.config.ts', 'tests/**/*.ts'],
+    files: [
+      'playwright.config.ts',
+      'vite.config.ts',
+      'vitest.config.ts',
+      'vitest.unit.config.ts',
+      'vitest.integration.config.ts',
+      'e2e/**/*.ts',
+    ],
     languageOptions: {
       parserOptions: {
         project: './tsconfig.node.json',

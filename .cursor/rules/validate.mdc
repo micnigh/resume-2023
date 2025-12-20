@@ -1,0 +1,27 @@
+---
+description: Run validation after code changes
+globs: **
+---
+# Validation Rule
+
+After completing a request that involves modifying code, ALWAYS run the validation command to ensure code quality.
+
+## Command
+
+Run the following command:
+
+```bash
+pnpm validate
+```
+
+## Behavior
+
+1.  If the validation fails, fix the errors reported by the command.
+2.  Do not mark the task as complete until validation passes.
+
+## Test Types
+
+The validation command runs all three types of tests:
+- **Unit tests** (`.unit.test.ts`, `.unit.test.tsx`) - Test individual functions and utilities
+- **Integration tests** (`.integration.test.ts`, `.integration.test.tsx`) - Test component interactions and integrations
+- **E2E tests** (`.e2e.test.ts`) - Test full user workflows in the browser

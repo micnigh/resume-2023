@@ -1,0 +1,26 @@
+---
+description: Code quality and architecture standards for TypeScript/React
+globs: **/*.{ts,tsx}
+---
+# Code Standards
+
+Follow these rules when writing code.
+
+## TypeScript
+
+-   **Prefer Inference:** Allow TypeScript to infer types whenever possible. Avoid explicit type annotations where inference is clear and sufficient.
+    -   *Bad:* `const count: number = 0;`
+    -   *Good:* `const count = 0;`
+
+## Architecture & Code Structure
+
+-   **Modular Components:** Break down UI into small, single-responsibility components.
+-   **Separation of Concerns:**
+    -   Separate logic, data fetching, and presentation.
+    -   Organize files by feature or domain responsibility.
+    -   Use directories to group related files (e.g., `components/Feature/` with `index.tsx`, `utils.ts`, `styles.css`).
+
+## Best Practices
+
+-   Ensure all new components have appropriate props interfaces (if props are needed and not inferred from usage in a way that provides type safety).
+-   Keep functions small and focused on a single task.
