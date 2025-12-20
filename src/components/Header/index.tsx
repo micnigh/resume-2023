@@ -1,6 +1,7 @@
 import React from 'react';
-import * as svgPaths from '../../lib/data/experiences/tags/icons';
+import { iconRegistry } from '../../lib/data/experiences/tags/iconRegistry';
 import { ExternalLink } from '../shared/ExternalLink';
+import { Tooltip } from '../shared/Tooltip';
 
 export const Header: React.FC = () => {
   return (
@@ -12,32 +13,34 @@ export const Header: React.FC = () => {
         </div>
       </div>
       <div className="flex justify-center space-x-4 md:space-x-3 md:absolute md:right-0 md:bottom-0 print:absolute print:right-0 print:bottom-0 print:space-x-3">
-        <ExternalLink
-          href="https://github.com/micnigh/"
-          title="Check out my github"
-          ariaLabel="Check out my github"
-        >
-          <img
-            className="social-icon inline-block w-8 h-auto md:w-6 print:w-7"
-            src={svgPaths.Github}
-            width={24}
-            height={24}
-            alt="Check out my github"
-          />
-        </ExternalLink>
-        <ExternalLink
-          href="https://www.linkedin.com/in/michaelnigh"
-          title="Visit my LinkedIn"
-          ariaLabel="Visit my LinkedIn"
-        >
-          <img
-            className="social-icon inline-block w-8 h-auto md:w-6 print:w-7"
-            src={svgPaths.LinkedIn}
-            width={24}
-            height={24}
-            alt="Visit my LinkedIn"
-          />
-        </ExternalLink>
+        <Tooltip content="Check out my github">
+          <ExternalLink
+            href="https://github.com/micnigh/"
+            ariaLabel="Check out my github"
+          >
+            <img
+              className="social-icon inline-block w-8 h-auto md:w-6 print:w-7"
+              src={iconRegistry.Github}
+              width={24}
+              height={24}
+              alt="Check out my github"
+            />
+          </ExternalLink>
+        </Tooltip>
+        <Tooltip content="Visit my LinkedIn">
+          <ExternalLink
+            href="https://www.linkedin.com/in/michaelnigh"
+            ariaLabel="Visit my LinkedIn"
+          >
+            <img
+              className="social-icon inline-block w-8 h-auto md:w-6 print:w-7"
+              src={iconRegistry.LinkedIn}
+              width={24}
+              height={24}
+              alt="Visit my LinkedIn"
+            />
+          </ExternalLink>
+        </Tooltip>
       </div>
     </div>
   );

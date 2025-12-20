@@ -1,3 +1,39 @@
+/**
+ * Branded type for Experience IDs to prevent mixing with other ID types
+ */
+export type ExperienceId = string & { readonly __brand: 'ExperienceId' };
+
+/**
+ * Branded type for Project IDs to prevent mixing with other ID types
+ */
+export type ProjectId = string & { readonly __brand: 'ProjectId' };
+
+/**
+ * Branded type for Tag IDs to prevent mixing with other ID types
+ */
+export type TagId = string & { readonly __brand: 'TagId' };
+
+/**
+ * Type guard to check if a string is a valid ExperienceId
+ */
+export const isExperienceId = (id: string): id is ExperienceId => {
+  return typeof id === 'string' && id.length > 0;
+};
+
+/**
+ * Type guard to check if a string is a valid ProjectId
+ */
+export const isProjectId = (id: string): id is ProjectId => {
+  return typeof id === 'string' && id.length > 0;
+};
+
+/**
+ * Type guard to check if a string is a valid TagId
+ */
+export const isTagId = (id: string): id is TagId => {
+  return typeof id === 'string' && id.length > 0;
+};
+
 interface ProjectNoRelations {
   id?: string;
 

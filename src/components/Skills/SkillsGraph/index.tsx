@@ -1,34 +1,30 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { type Tag } from '../../../lib/data/experiences/index.types';
 import { parseDuration } from '../../../lib/util/dates';
-
-const tagsToDisplay = [
-  'Docker',
-  'NodeJS',
-  'React',
-  'Redux',
-  'Sass',
-  'Java',
-  'PHP',
-  'Typescript',
-];
+import { SKILLS_TO_DISPLAY } from '../../../lib/constants/skills';
 
 type SkillsGraphProps = {
   tags: Tag[];
 };
 
 export const SkillsGraph: React.FC<SkillsGraphProps> = ({ tags }) => {
-  const displayTags = tagsToDisplay
-    .map((name) => tags.find((t) => t.name === name))
-    .filter((t): t is Tag => t !== undefined);
+  // Memoize the filtered tags to avoid recalculating on every render
+  const displayTags = useMemo(() => {
+    return SKILLS_TO_DISPLAY.map((name) =>
+      tags.find((t) => t.name === name)
+    ).filter((t): t is Tag => t !== undefined);
+  }, [tags]);
 
-  const maxDuration = displayTags.reduce((max, tag) => {
-    const tagDuration = parseDuration(tag.duration);
-    const maxDuration = parseDuration(max.duration);
-    return tagDuration > maxDuration ? tag : max;
-  }).duration;
-
-  const maxDurationMs = parseDuration(maxDuration);
+  // Memoize the max duration calculation
+  const maxDurationMs = useMemo(() => {
+    if (displayTags.length === 0) return 1;
+    const maxDuration = displayTags.reduce((max, tag) => {
+      const tagDuration = parseDuration(tag.duration);
+      const maxDuration = parseDuration(max.duration);
+      return tagDuration > maxDuration ? tag : max;
+    }).duration;
+    return parseDuration(maxDuration);
+  }, [displayTags]);
 
   return (
     <div className="space-y-px">

@@ -1,7 +1,11 @@
 import React from 'react';
-import * as svgPaths from '../../lib/data/experiences/tags/icons';
+import {
+  iconRegistry,
+  getIconPath,
+} from '../../lib/data/experiences/tags/iconRegistry';
 import { type Tag } from '../../lib/data/experiences/index.types';
 import { ExternalLink } from './ExternalLink';
+import { Tooltip } from './Tooltip';
 
 interface Portfolio {
   link: string;
@@ -26,37 +30,41 @@ export const IconsDisplay: React.FC<IconsDisplayProps> = ({
   return (
     <div className="flex flex-row items-center space-x-2 mr-3 md:mr-4 mt-3 md:mt-0">
       {portfolio && (
-        <ExternalLink
-          href={portfolio.link}
-          className="flex flex-wrap content-center"
-          title={portfolio.hoverTitle}
-          ariaLabel={portfolio.hoverTitle}
-        >
-          <img
-            className="max-h-8"
-            src={svgPaths.Chain}
-            alt={portfolio.hoverTitle || 'Link'}
-            width={24}
-            height={24}
-            title={portfolio.hoverTitle}
-          />
-        </ExternalLink>
+        <Tooltip content={portfolio.hoverTitle || 'Link'}>
+          <ExternalLink
+            href={portfolio.link}
+            className="flex flex-wrap content-center"
+            ariaLabel={portfolio.hoverTitle}
+          >
+            <img
+              className="max-h-8"
+              src={iconRegistry.Chain}
+              alt={portfolio.hoverTitle || 'Link'}
+              width={24}
+              height={24}
+            />
+          </ExternalLink>
+        </Tooltip>
       )}
       {icons.map((iconName, index) => {
         const tag = tags.find((t) => t.name === iconName);
-        if (!tag || !svgPaths[tag.name as keyof typeof svgPaths]) {
+        if (!tag) {
+          return null;
+        }
+        const iconPath = getIconPath(tag.name);
+        if (!iconPath) {
           return null;
         }
         return (
-          <img
-            key={index}
-            className="max-h-8"
-            src={svgPaths[tag.name as keyof typeof svgPaths]}
-            alt={tag.name}
-            width={24}
-            height={24}
-            title={tag.name}
-          />
+          <Tooltip key={index} content={tag.name}>
+            <img
+              className="max-h-8"
+              src={iconPath}
+              alt={tag.name}
+              width={24}
+              height={24}
+            />
+          </Tooltip>
         );
       })}
     </div>
