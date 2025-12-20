@@ -1,53 +1,20 @@
-resume.mnigh.com
+# resume.mnigh.com
 
-# Quick start
+Vite + React static site. Ported from [micnigh/resume](https://github.com/micnigh/resume).
+
+## Quick Start
 
 ```sh
-# first time
 pnpm install
-
 pnpm dev
 ```
 
-# Code Quality
+## Scripts
 
-Lint and format your code:
+- **Development**: `pnpm dev`
+- **Build**: `pnpm build`
+- **Deploy**: `pnpm deploy`
+- **Tests**: `pnpm test` (unit + integration + e2e)
+- **Lint/Format**: `pnpm lint`, `pnpm lint:fix`, `pnpm format`
 
-```sh
-# Run ESLint to check for code issues
-pnpm lint
-
-# Run ESLint and auto-fix issues
-pnpm lint:fix
-
-# Format code with Prettier
-pnpm format
-
-# Check if code is formatted correctly
-pnpm format:check
-```
-
-Pre-commit hooks are automatically set up via Husky to run linting and formatting on staged files.
-
-# Testing
-
-Run Playwright tests:
-
-```sh
-# Run all tests
-pnpm test
-
-# Run tests in UI mode (interactive)
-pnpm test:ui
-
-# Run tests in debug mode
-pnpm test:debug
-```
-
-The tests will automatically start the dev server if it's not already running.
-
-# Summary
-
-Vite + React static site for resume/portfolio.
-
-Ported from https://github.com/micnigh/resume
+Pre-commit hooks (Husky) run linting and formatting on staged files.
