@@ -24,3 +24,5 @@ Follow these rules when writing code.
 
 -   Ensure all new components have appropriate props interfaces (if props are needed and not inferred from usage in a way that provides type safety).
 -   Keep functions small and focused on a single task.
+-   Only add comments for complex behavior that isn't immediately obvious from the code itself. Avoid commenting obvious code.
+-   Write code as concisely as possible without affecting functionality or performance. Prefer shorter, clearer expressions over verbose alternatives when they achieve the same result.
