@@ -31,6 +31,7 @@ See `package.json` and `README.md`. Quick reference:
 - New jobs: add `src/lib/data/experiences/<folder>/index.ts` with `getExperience()` — auto-discovered by glob.
 - New projects: add `projects/*.ts` in that folder, register via `createProject()`, reference by ID in the experience.
 - Skills chart: only tags listed in `src/lib/constants/skills.ts` appear in the graph.
+- **Tag deduplication:** `createTags` in `tagRegistry.ts` merges durations when the same tag name is reused across projects/experiences.
 
 ### Key caveats
 
