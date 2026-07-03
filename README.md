@@ -71,6 +71,8 @@ Experiences reference projects and tags by **ID** at authoring time. `denormaliz
 
 Use `createTags(duration, names)` from `tagRegistry.ts` for skill tags; icons on projects must match a tag name in `iconRegistry.ts`.
 
+`createTags` deduplicates by **tag name**: reusing a name across projects/experiences merges ISO-8601 durations into one tag (used by the skills graph). Only tags listed in `src/lib/constants/skills.ts` appear in the chart.
+
 ### Data loading
 
 - `main.tsx` calls `loadData()` eagerly on startup.
